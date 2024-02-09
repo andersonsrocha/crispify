@@ -1,6 +1,6 @@
 import { ConfigProvider, theme, App as AppProvider } from "antd";
 import { useTernaryDarkMode } from "usehooks-ts";
-import { Notion, Feedback } from "@/components";
+import { Notion, Feedback } from "@/packages/core";
 
 const App = () => {
   const { isDarkMode } = useTernaryDarkMode();

@@ -5,7 +5,7 @@ import { Selection, Transaction, EditorState } from "@tiptap/pm/state";
 import { CellSelection, TableMap } from "@tiptap/pm/tables";
 import { Node, ResolvedPos } from "@tiptap/pm/model";
 import { EditorView } from "@tiptap/pm/view";
-import { Table } from "@/extensions";
+import { Table } from "@/packages/extension-table";
 
 const select = (type: "row" | "column") => (index: number) => (tr: Transaction) => {
   const table = findTable(tr.selection);

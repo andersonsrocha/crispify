@@ -1,5 +1,7 @@
 import { Editor } from "@tiptap/react";
-import { CodeBlock, ImageUpload, Image } from "@/extensions";
+import { CodeBlock } from "@/packages/extension-code-block";
+import { Image } from "@/packages/extension-image";
+import { ImageUpload } from "@/packages/extension-image-upload";
 
 export const isTableGripSelected = (node: HTMLElement) => {
   let container = node;
