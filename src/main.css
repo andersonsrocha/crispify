@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-inter;
+  }
+}
+
+/** Paragraph */
+.ProseMirror table td p,
+.ProseMirror table th p {
+  @apply mb-0;
+}
+
+/** Placeholder */
+.ProseMirror .is-empty::before {
+  @apply text-colorTextPlaceholder float-left h-0 pointer-events-none w-full;
+}
+
+/* Slashmenu Placeholder */
+.ProseMirror.ProseMirror-focused > [data-type="columns"] > [data-type="column"] p.is-empty.has-focus::before,
+.ProseMirror.ProseMirror-focused p.has-focus.is-empty::before {
+  content: "Type `/` to browse options";
+}
+
+/* Default Placeholder */
+.ProseMirror .is-empty::before {
+  content: "Click here to start writing...";
+}
+
+.ProseMirror [data-placeholder][data-suggestion]::before,
+.ProseMirror table p.is-empty::before,
+.ProseMirror [data-placeholder][data-suggestion] *::before {
+  content: none !important;
+}
+
+/** Lists */
+.ProseMirror ul[data-type="taskList"] li {
+  @apply flex;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  @apply grow-0 shrink-0 flex-auto mt-1 mr-2 select-none;
+}
+
+.ProseMirror ul[data-type="taskList"] li > div {
+  @apply flex-auto;
+}
+
+.ProseMirror ul[data-type="taskList"] li[data-checked="true"] {
+  @apply line-through;
+}
+
+/** Columns */
+.ProseMirror [data-type="columns"]:hover [data-type="column"],
+.ProseMirror [data-type="columns"]:has(.has-focus) [data-type="column"] {
+  @apply !border-colorBorder;
+}
+
+.ProseMirror [data-type="column"] > :last-child,
+.ProseMirror > :first-child:last-child,
+.ProseMirror [data-type="column"] [data-type="imageUpload"] {
+  @apply mb-0;
+}
+
+/** Image */
+.ProseMirror [data-type="imageUpload"] {
+  @apply mb-6;
+}
+
+/** Table */
+.ProseMirror *,
+.ProseMirror ::before,
+.ProseMirror ::after {
+  @apply box-border border-0 border-solid border-white;
+}
+
+.ProseMirror.resize-cursor {
+  @apply cursor-col-resize;
+}
+
+.ProseMirror .tableWrapper {
+  @apply mb-6;
+}
+
+.ProseMirror table {
+  @apply border-collapse border-colorBorder rounded box-border w-full;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  @apply border !border-colorBorder min-w-[100px] p-2 relative text-left align-top;
+}
+
+.ProseMirror table td:first-child:not(a),
+.ProseMirror table th:first-child:not(a) {
+  @apply mt-0;
+}
+
+.ProseMirror table td p,
+.ProseMirror table th p {
+  @apply m-0;
+}
+
+.ProseMirror table td p + p,
+.ProseMirror table th p + p {
+  @apply mt-3;
+}
+
+.ProseMirror table th {
+  @apply font-bold;
+}
+
+.ProseMirror table .column-resize-handle {
+  @apply -bottom-[2px] flex pointer-events-none absolute -right-1 top-0 w-2;
+}
+
+.ProseMirror table .column-resize-handle::before {
+  @apply bg-colorBorder h-full w-[1px] ml-2;
+  content: "";
+}
+
+.ProseMirror table .selectedCell {
+  @apply bg-colorBgBlur border-colorBorder border-double;
+}
+
+.ProseMirror table .grip-column,
+.ProseMirror table .grip-row {
+  @apply items-center bg-colorFillTertiary cursor-pointer flex justify-center absolute z-10;
+}
+
+.ProseMirror table .grip-column {
+  @apply w-[calc(100%+1px)] border-l border-colorBorder h-3 left-0 -ml-px -top-3;
+}
+
+.ProseMirror table .grip-column:hover::before,
+.ProseMirror table .grip-column.selected::before {
+  @apply w-2.5;
+  content: "";
+}
+
+.ProseMirror table .grip-column:hover {
+  @apply bg-colorFillSecondary;
+}
+
+.ProseMirror table .grip-column:hover::before {
+  @apply border-b-2 border-dotted border-colorTextDescription;
+}
+
+.ProseMirror table .grip-column.first {
+  @apply border-transparent rounded-tl-sm;
+}
+
+.ProseMirror table .grip-column.last {
+  @apply rounded-tr-sm;
+}
+
+.ProseMirror table .grip-column.selected {
+  @apply bg-colorFill border-colorBorder shadow-sm;
+}
+
+.ProseMirror table .grip-column.selected::before {
+  @apply border-b-2 border-dotted;
+}
+
+.ProseMirror table .grip-row {
+  @apply h-[calc(100%+1px)] border-t border-colorBorder -left-3 w-3 top-0 -mt-px;
+}
+
+.ProseMirror table .grip-row:hover::before,
+.ProseMirror table .grip-row.selected::before {
+  @apply h-2.5;
+  content: "";
+}
+
+.ProseMirror table .grip-row:hover {
+  @apply bg-colorFillSecondary;
+}
+
+.ProseMirror table .grip-row:hover::before {
+  @apply border-l-2 border-dotted border-colorTextDescription;
+}
+
+.ProseMirror table .grip-row.first {
+  @apply border-transparent rounded-tl-sm;
+}
+
+.ProseMirror table .grip-row.last {
+  @apply rounded-bl-sm;
+}
+
+.ProseMirror table .grip-row.selected {
+  @apply bg-colorFill border-colorBorder shadow-sm;
+}
+
+.ProseMirror table .grip-row.selected::before {
+  @apply border-l-2 border-dotted;
+}
