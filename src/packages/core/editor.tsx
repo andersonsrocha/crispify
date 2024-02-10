@@ -3,6 +3,7 @@ import { ConfigProvider, App, theme } from "antd";
 import { EditorContent, useEditor } from "@tiptap/react";
 import { useExtensions } from "@/packages/extension-starter-kit";
 import { ColumnsMenu, Feedback, ImageMenu, TableColumnMenu, TableRowMenu, TextMenu } from "@/packages/core";
+import { customClipboardPaste } from "@/packages/core/helpers";
 import _ from "lodash";
 
 import "@/main.css";
@@ -19,6 +20,7 @@ export const Notion: React.FC = () => {
         class: "focus:outline-none",
         spellcheck: "false",
       },
+      handlePaste: customClipboardPaste,
     },
     extensions: useExtensions(),
     content: "",

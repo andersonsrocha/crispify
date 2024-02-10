@@ -32,12 +32,12 @@ import { TaskList } from "@tiptap/extension-task-list";
 import { TextAlign } from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Underline } from "@tiptap/extension-underline";
+import { Gapcursor } from "@tiptap/extension-gapcursor";
 import { StarterKit } from "@tiptap/starter-kit";
 
 export const useExtensions = (): AnyExtension[] => {
   return [
     Block,
-    TrailingNode,
     Underline,
     TextStyle,
     FontSize,
@@ -49,7 +49,6 @@ export const useExtensions = (): AnyExtension[] => {
     Blockquote,
     Subscript,
     Superscript,
-    Image,
     ImageUpload,
     Column,
     Columns,
@@ -59,6 +58,11 @@ export const useExtensions = (): AnyExtension[] => {
     Table,
     TableHeader,
     TableRow,
+    Gapcursor,
+    TrailingNode,
+    Image.configure({
+      allowBase64: true,
+    }),
     TableCell.configure({
       HTMLAttributes: {
         style: Styles.TableCell,
@@ -77,6 +81,7 @@ export const useExtensions = (): AnyExtension[] => {
       codeBlock: false,
       blockquote: false,
       horizontalRule: false,
+      gapcursor: false,
     }),
     SlashCommand.configure({
       leftMenu: true,

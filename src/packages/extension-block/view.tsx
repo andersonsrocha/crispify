@@ -40,7 +40,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
   };
 
   return (
-    <NodeViewWrapper as="div" className="group relative mx-auto flex w-full gap-2 py-1">
+    <NodeViewWrapper as="div" className="group relative mx-auto flex w-full gap-2 my-1">
       <div className="relative mx-auto w-full max-w-3xl">
         <div
           aria-label="left-menu"
@@ -105,6 +105,8 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
           >
             <TextMenu.Button icon="GripVertical" />
           </Dropdown>
+          {/* Essa div corrige um bug ao tentar selecionar uma linha embaixo de um bloco customizado */}
+          <div />
         </div>
 
         <NodeViewContent className="w-full" />

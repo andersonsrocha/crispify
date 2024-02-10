@@ -2,7 +2,7 @@ import React from "react";
 import { NodeViewProps, NodeViewWrapper } from "@tiptap/react";
 
 export const View: React.FC<NodeViewProps> = ({ editor, getPos, node }) => {
-  const { align, src, width } = node.attrs;
+  const { align, src, width, alt } = node.attrs;
 
   const onClick = React.useCallback(() => {
     editor.commands.setNodeSelection(getPos());
@@ -18,7 +18,7 @@ export const View: React.FC<NodeViewProps> = ({ editor, getPos, node }) => {
     <NodeViewWrapper>
       <div style={{ width: width, ...styles }}>
         <div contentEditable={false}>
-          <img style={{ width: "100%" }} src={src} alt="" onClick={onClick} />
+          <img style={{ width: "100%" }} src={src} alt={alt} onClick={onClick} />
         </div>
       </div>
     </NodeViewWrapper>

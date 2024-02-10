@@ -31,6 +31,7 @@
     "@tiptap/extension-dropcursor": "^2.2.2",
     "@tiptap/extension-focus": "^2.2.2",
     "@tiptap/extension-font-family": "^2.2.2",
+    "@tiptap/extension-gapcursor": "^2.2.2",
     "@tiptap/extension-highlight": "^2.2.2",
     "@tiptap/extension-image": "^2.2.2",
     "@tiptap/extension-link": "^2.2.2",
@@ -60,9 +61,9 @@
     "uuid": "^9.0.1"
   },
   "peerDependencies": {
+    "antd": "^5.14.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "antd": "^5.14.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202",

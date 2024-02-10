@@ -1,3 +1,4 @@
+export { customClipboardPaste } from "./customClipboardPaste";
 export { getCellsInColumn } from "./getCellsInColumn";
 export { getCellsInRow } from "./getCellsInRow";
 export { getRenderContainer } from "./getRenderContainer";
@@ -7,4 +8,4 @@ export { isCustomNodeSelected } from "./isCustomNodeSelected";
 export { isRowGripSelected } from "./isRowGripSelected";
 export { isRowSelected } from "./isRowSelected";
 export { isTextSelected } from "./isTextSelected";
-export { selectRow, selectColumn } from "./select";
+export { selectColumn, selectRow } from "./select";

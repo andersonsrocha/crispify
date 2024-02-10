@@ -6,8 +6,7 @@ import { View } from "./view";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
-    imageBlock: {
-      setImage: (attributes: { src: string }) => ReturnType;
+    imageExtends: {
       setImageAt: (attributes: { src: string; pos: number | Range }) => ReturnType;
       setImageAlign: (align: "left" | "center" | "right") => ReturnType;
       setImageWidth: (width: number) => ReturnType;
@@ -21,6 +20,18 @@ export const Image = TiptapImage.extend({
   defining: true,
 
   isolating: true,
+
+  selectable: true,
+
+  inline: false,
+
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      allowBase64: false,
+      HTMLAttributes: {},
+    };
+  },
 
   addAttributes() {
     return {
@@ -56,11 +67,7 @@ export const Image = TiptapImage.extend({
   },
 
   parseHTML() {
-    return [
-      {
-        tag: 'img[src*="tiptap.dev"]:not([src^="data:"]), img[src*="windows.net"]:not([src^="data:"])',
-      },
-    ];
+    return [{ tag: this.options.allowBase64 ? "img[src]" : 'img[src]:not([src^="data:"])' }];
   },
 
   renderHTML({ HTMLAttributes }) {
@@ -69,11 +76,7 @@ export const Image = TiptapImage.extend({
 
   addCommands() {
     return {
-      setImage:
-        (attrs) =>
-        ({ commands }) => {
-          return commands.insertContent({ type: this.name, attrs: { src: attrs.src } });
-        },
+      ...this.parent?.(),
 
       setImageAt:
         (attrs) =>
