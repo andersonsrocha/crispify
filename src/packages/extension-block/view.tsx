@@ -44,10 +44,10 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
       <div className="relative mx-auto w-full max-w-3xl">
         <div
           aria-label="left-menu"
-          className={cls(
-            "absolute -left-[5.5rem] -top-1.5 flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out",
-            { "group-hover:opacity-100": !open, "opacity-100": open }
-          )}
+          className={cls("absolute -left-[5.5rem] flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out", {
+            "group-hover:opacity-100": !open,
+            "opacity-100": open,
+          })}
         >
           <TextMenu.Button onClick={onAddNewNode} icon="Plus" />
           <Dropdown

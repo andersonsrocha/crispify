@@ -21,8 +21,10 @@ const antd = () => {
     }, {});
   };
 
-  const light = generateColors(getDesignToken({}));
-  const dark = generateColors(getDesignToken({ algorithm: theme.darkAlgorithm }));
+  const light = generateColors(getDesignToken({ token: { fontFamily: "'Inter', sans-serif" } }));
+  const dark = generateColors(
+    getDesignToken({ algorithm: theme.darkAlgorithm, token: { fontFamily: "'Inter', sans-serif" } })
+  );
 
   return createThemes({ light, dark }, { defaultTheme: { light: "light", dark: "dark" } });
 };
@@ -30,6 +32,7 @@ const antd = () => {
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.tsx"],
+  darkMode: ["class", "[data-theme='dark']"],
   theme: {
     extend: {
       fontFamily: {

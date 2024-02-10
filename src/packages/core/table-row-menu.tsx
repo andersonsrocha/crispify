@@ -1,6 +1,6 @@
 import React from "react";
 import { BubbleMenu as BaseBubbleMenu } from "@tiptap/react";
-import { isRowGripSelected } from "@/lib/util";
+import { isRowGripSelected } from "@/packages/core/helpers";
 import { TextMenu } from "@/packages/core";
 import { v4 as uuid } from "uuid";
 

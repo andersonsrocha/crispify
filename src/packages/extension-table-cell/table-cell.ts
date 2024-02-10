@@ -2,7 +2,7 @@
 import { mergeAttributes, Node } from "@tiptap/core";
 import { Plugin } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
-import { getCellsInColumn, isRowSelected, selectRow } from "@/lib/util";
+import { getCellsInColumn, isRowSelected, selectRow } from "@/packages/core/helpers";
 
 export interface TableCellOptions {
   HTMLAttributes: Record<string, any>;

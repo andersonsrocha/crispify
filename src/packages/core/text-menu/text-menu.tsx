@@ -1,6 +1,6 @@
 import React from "react";
 import { BubbleMenu, Editor } from "@tiptap/react";
-import { isCustomNodeSelected, isTextSelected } from "@/lib/util";
+import { isCustomNodeSelected, isTextSelected } from "@/packages/core/helpers";
 
 import { ShouldShowProps } from "@/types";
 

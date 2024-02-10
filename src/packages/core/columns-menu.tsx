@@ -2,7 +2,7 @@ import React from "react";
 import { BubbleMenu as BaseBubbleMenu } from "@tiptap/react";
 import { TextMenu } from "@/packages/core";
 import { ColumnLayout } from "@/packages/extension-columns";
-import { getRenderContainer } from "@/lib/util";
+import { getRenderContainer } from "@/packages/core/helpers";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
