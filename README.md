@@ -1,30 +1,97 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1><b>Notyist</b></h1>
 
-Currently, two official plugins are available:
+Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing React component. The component has full integration with [Ant Design](https://ant.design/) and [Tailwind](https://tailwindcss.com/), taking advantage of its native theme and components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **\[!NOTE]**
+>
+> This project aims to offer an editor integrated with Ant Design to meet needs regarding rich-text editing. Product development is based solely on your needs, although everyone is welcome to try it out.
 
-## Expanding the ESLint configuration
+[![npm Version](https://img.shields.io/npm/v/@andser/notyist)](https://www.npmjs.com/package/@andser/notyist)
+[![npm Bundle Size (minified)](https://img.shields.io/bundlephobia/min/@andser/notyist)](https://bundlephobia.com/package/@andser/notyist)
+[![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/notyist?color=blue)](https://npmtrends.com/@andser/notyist)
+[![semantic-release: Conventional Commits](https://img.shields.io/badge/semantic--release-Conventional%20Commits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+![GitHub License](https://img.shields.io/github/license/andersonsrocha/notyist)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/notyist/peer/antd?style=flat&logo=ant-design&logoColor=0170FE&label=Ant%20Design)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/notyist/dev/tailwindcss?style=flat&logo=tailwindcss&label=tailwindcss)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</div>
 
-- Configure the top-level `parserOptions` property like this:
+<details>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+<summary>
+  <b>Table of contents</b>
+</summary>
+
+#### TOC
+
+- [📦 Installation](#-installation)
+- [✨ Features](#-features)
+- [🚀 Empowering Features](#-empowering-features)
+- [🤝 Contributing](#-contributing)
+- [📝 License](#-license)
+
+####
+
+</details>
+
+## 📦 Installation
+
+To install `@andser/notyist`, run the following command:
+
+```bash
+$ npm install --save @andser/notyist
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<br/>
+
+## ✨ Features
+
+- [x] -Helpful placeholders.-
+- [x] Drop and paste HTML and text.
+- [x] Display grid in two columns with alignment.
+- [x] Changing font size.
+- [x] Paste from clipboard, upload, and drag and drop images.
+- [x] Executing slash commands.
+- [x] Table Component.
+  - [x] Add new row.
+  - [x] Add new column.
+  - [x] Resize rows and columns.
+- [x] Markdown.
+- [ ] Replace component.
+
+<br/>
+
+## 🚀 Empowering Features
+
+> **\[!NOTE]**
+>
+> Notyist is a rich-text editing component that integrates with your application. Here's what makes it exceptional:
+
+- 🎨 **Tailwind**: Produced with the tailwindcss library, it has very simple and concise styling. The addition of tailwind offers the opportunity for very seamless customization using the Ant Design design system.
+- 🚀 **Ant Design**: The addition of the Ant Design library gives you the opportunity to experience a rich-text editor directly integrated with your application's theme, enabling very consistent production.
+- ⌨️ **Tiptap**: Building on top of the Tiptap library makes it a robust and easily customizable editor.
+- 🎯 **Intuitive Usage**: Written with Typescript, its typing makes it intuitive to use.
+- 💡 **Extensive editing**: With a series of features such as adding a table, uploading an image, block editing, marks such as bold, italics and underlining, alignment, lists and other functions.ected to empower applications across various scales and domains.
+
+<br/>
+
+## 🤝 Contributing
+
+> \[!IMPORTANT]
+>
+> Please feel more than invited to participate in the project and offer your suggestions.
+
+- **Shape the Future**: Have code enhancements or feature ideas? We invite you to propose [pull requests][pr-welcome-link] and contribute directly to the evolution of the project.
+
+[![][pr-welcome-shield]][pr-welcome-link]
+
+## 📝 License
+
+Copyright © 2024. <br/> This project is [MIT](./LICENSE) licensed.
+
+<!-- LINK GROUP -->
+
+[pr-welcome-link]: https://github.com/andersonsrocha/notyist/pulls
+[pr-welcome-shield]: https://img.shields.io/badge/%E2%9D%A4%EF%B8%8F%20PR%20WELCOME-%E2%86%92-1677FF?labelColor=black&style=for-the-badge
