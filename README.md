@@ -4,10 +4,14 @@
 
 Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing React component. The component has full integration with [Ant Design](https://ant.design/) and [Tailwind](https://tailwindcss.com/), taking advantage of its native theme and components.
 
-> **\[!NOTE]**
+</div>
+
+> \[!NOTE]
 >
 > This project aims to offer an editor integrated with Ant Design to meet needs regarding rich-text editing. Product development is based solely on your needs, although everyone is welcome to try it out.
 
+<div align="center">
+  
 [![npm Version](https://img.shields.io/npm/v/@andser/notyist)](https://www.npmjs.com/package/@andser/notyist)
 [![npm Bundle Size (minified)](https://img.shields.io/bundlephobia/min/@andser/notyist)](https://bundlephobia.com/package/@andser/notyist)
 [![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/notyist?color=blue)](https://npmtrends.com/@andser/notyist)
@@ -65,7 +69,7 @@ $ npm install --save @andser/notyist
 
 ## 🚀 Empowering Features
 
-> **\[!NOTE]**
+> \[!NOTE]
 >
 > Notyist is a rich-text editing component that integrates with your application. Here's what makes it exceptional:
 
