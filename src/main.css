@@ -28,7 +28,7 @@
 }
 
 /* Default Placeholder */
-.ProseMirror .is-empty::before {
+.ProseMirror :not(.node-codeBlock).is-empty::before {
   content: "Click here to start writing...";
 }
 
@@ -199,4 +199,25 @@
 
 .ProseMirror table .grip-row.selected::before {
   @apply border-l-2 border-dotted;
+}
+
+/** Horizontal rule */
+.ProseMirror [data-type="horizontalRule"] {
+  @apply transition-all duration-100 ease-in-out cursor-pointer;
+}
+
+.ProseMirror [data-type="horizontalRule"].ProseMirror-selectednode {
+  @apply bg-colorBgElevated;
+}
+
+.ProseMirror [data-type="horizontalRule"].ProseMirror-selectednode hr {
+  @apply border-t-colorBorder;
+}
+
+.ProseMirror [data-type="horizontalRule"]:hover:not(.ProseMirror-selectednode) {
+  @apply bg-colorBgContainer;
+}
+
+.ProseMirror [data-type="horizontalRule"] hr {
+  @apply border-0 border-t border-colorBorder bg-colorBgContainer;
 }

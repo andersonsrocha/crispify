@@ -1,11 +1,11 @@
 import React from "react";
-import { TextMenuContext } from "@/packages/core";
+import { useCurrentEditor } from "@tiptap/react";
 import { ColorPicker } from "antd";
 
 import { Button } from "./button";
 
 export const Highlight: React.FC = () => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
   const current = editor?.getAttributes("highlight")?.color;
   const [color, setColor] = React.useState(current);
@@ -14,16 +14,14 @@ export const Highlight: React.FC = () => {
     setColor(current || "#FFFFFF");
   }, [current]);
 
-  if (!editor) return;
-
   const onExecCommand = (color: string) => {
     if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
-      editor.chain().setHighlight({ color }).run();
+      editor?.chain().setHighlight({ color }).run();
     }
   };
 
   const onExecClearCommand = () => {
-    editor.chain().unsetHighlight().run();
+    editor?.chain().unsetHighlight().run();
   };
 
   return (

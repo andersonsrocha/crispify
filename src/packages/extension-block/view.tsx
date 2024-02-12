@@ -8,7 +8,7 @@ import cls from "classnames";
 const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => {
   const [open, setOpen] = React.useState(false);
 
-  const onAddNewNode = () => {
+  const onAddNewNode = React.useCallback(() => {
     const pos = getPos() + node.nodeSize;
 
     editor
@@ -19,39 +19,45 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
       })
       .focus(pos + 3)
       .run();
-  };
+  }, [editor, getPos, node.nodeSize]);
 
-  const onUnsetNode = () => {
+  const onUnsetNode = React.useCallback(() => {
+    if (["columns", "image", "imageUpload"].includes(node.type.name)) return;
+
     editor.chain().setNodeSelection(getPos()).unsetAllMarks().run();
-  };
+  }, [editor, getPos, node]);
 
-  const onCopyNodeToClipboard = () => {
+  const onCopyNodeToClipboard = React.useCallback(() => {
     editor.chain().setNodeSelection(getPos()).run();
     navigator.clipboard.writeText(node.textContent);
 
     message.success("Copied to clipboard.");
-  };
+  }, [editor, getPos, node.textContent]);
 
-  const onDuplicateNode = () => {
+  const onDuplicateNode = React.useCallback(() => {
     editor
       .chain()
       .insertContentAt(getPos() + (node.nodeSize || 0), node.toJSON())
       .run();
-  };
+  }, [editor, getPos, node]);
 
   return (
     <NodeViewWrapper as="div" className="group relative mx-auto flex w-full gap-2 my-1">
       <div className="relative mx-auto w-full max-w-3xl">
         <div
           aria-label="left-menu"
-          className={cls("absolute -left-[5.5rem] flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out", {
-            "group-hover:opacity-100": !open,
-            "opacity-100": open,
-          })}
+          className={cls(
+            "absolute -left-[5.5rem] -top-1 flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out",
+            {
+              "group-hover:opacity-100": !open,
+              "opacity-100": open,
+            }
+          )}
         >
           <TextMenu.Button onClick={onAddNewNode} icon="Plus" />
           <Dropdown
             open={open}
+            className="flex justify-center items-center"
             onOpenChange={setOpen}
             trigger={["click"]}
             menu={{

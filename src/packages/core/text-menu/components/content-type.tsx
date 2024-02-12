@@ -1,13 +1,11 @@
 import React from "react";
-import { Editor } from "@tiptap/react";
+import { Editor, useCurrentEditor } from "@tiptap/react";
 import { Dropdown, MenuProps } from "antd";
 import { ChevronDown } from "lucide-react";
-import { useUpdateEffect } from "usehooks-ts";
 import { Icon, LucideIconNames } from "@/packages/core";
 import _ from "lodash";
 
 import { Button } from "./button";
-import { TextMenuContext } from "..";
 
 type Level = 1 | 2 | 3 | 4 | 5;
 
@@ -98,7 +96,7 @@ const useContextTypes = (editor: Editor | null) => {
 };
 
 export const ContentType: React.FC = () => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
   const bulletListIsActive = editor?.isActive("bulletList");
   const orderedListIsActive = editor?.isActive("orderedList");
@@ -121,29 +119,28 @@ export const ContentType: React.FC = () => {
   const options = categories.flatMap((opt) => (opt.children ? [opt.children] : [])).flat();
   const [value, setValue] = React.useState(options.find((x) => x.key == current));
 
-  useUpdateEffect(() => {
+  React.useEffect(() => {
     if (current != value?.key) {
       setValue(options.find((x) => x.key == current));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options, current]);
-
-  if (!editor) return;
 
   const onExecCommand = (value: string) => {
     if (value === "paragraph") {
-      editor.chain().focus().lift("taskItem").liftListItem("listItem").setParagraph().run();
+      editor?.chain().focus().lift("taskItem").liftListItem("listItem").setParagraph().run();
     } else if (_.isNaN(Number(value))) {
       switch (value) {
         case "bulletList":
-          return editor.chain().focus().toggleBulletList().run();
+          return editor?.chain().focus().toggleBulletList().run();
         case "orderedList":
-          return editor.chain().focus().toggleOrderedList().run();
+          return editor?.chain().focus().toggleOrderedList().run();
         case "taskList":
-          return editor.chain().focus().toggleTaskList().run();
+          return editor?.chain().focus().toggleTaskList().run();
       }
     } else {
       const level = Number(value) as Level;
-      editor.chain().focus().lift("taskItem").liftListItem("listItem").setHeading({ level: level }).run();
+      editor?.chain().focus().lift("taskItem").liftListItem("listItem").setHeading({ level: level }).run();
     }
   };
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { BubbleMenu, Editor } from "@tiptap/react";
+import { useCurrentEditor } from "@tiptap/react";
 import { isCustomNodeSelected, isTextSelected } from "@/packages/core/helpers";
 
-import { ShouldShowProps } from "@/types";
+import { MenuProps, ShouldShowProps } from "@/types";
 
 import { Align } from "./components/align";
 import { Color } from "./components/color";
@@ -16,6 +16,7 @@ import { Mark } from "./components/mark";
 import { Wrapper } from "./components/wrapper";
 import { Button } from "./components/button";
 import { More } from "./components/more";
+import { BaseBubbleMenu } from "../base-bubble-menu";
 
 // We memorize the button so each button is not rerendered
 // on every editor state change
@@ -32,9 +33,7 @@ const MemoWrapper = React.memo(Wrapper);
 const MemoButton = React.memo(Button);
 const MemoMore = React.memo(More);
 
-type TextMenuProps = { editor: Editor | null };
-
-type CompoundedComponent = React.FunctionComponent<React.PropsWithChildren<TextMenuProps>> & {
+type CompoundedComponent = React.FunctionComponent<React.PropsWithChildren<MenuProps>> & {
   Mark: typeof Mark;
   Align: typeof Align;
   Divider: typeof Divider;
@@ -49,9 +48,9 @@ type CompoundedComponent = React.FunctionComponent<React.PropsWithChildren<TextM
   More: typeof More;
 };
 
-export const TextMenuContext = React.createContext<{ editor: Editor | null }>({ editor: null });
+export const TextMenu: CompoundedComponent = ({ appendTo, children }) => {
+  const { editor } = useCurrentEditor();
 
-export const TextMenu: CompoundedComponent = ({ editor, children }) => {
   const shouldShow = React.useCallback(
     ({ view, from }: ShouldShowProps) => {
       if (!view || !editor) {
@@ -71,21 +70,27 @@ export const TextMenu: CompoundedComponent = ({ editor, children }) => {
     [editor]
   );
 
-  if (!editor) return <div />;
+  if (!editor) return;
 
   return (
-    <BubbleMenu
+    <BaseBubbleMenu
       editor={editor}
       pluginKey="textMenu"
       shouldShow={shouldShow}
+      updateDelay={0}
       tippyOptions={{
         zIndex: 100,
         maxWidth: "auto",
         moveTransition: "transform 0.2s ease-in-out",
+        offset: [0, 8],
+        popperOptions: {
+          modifiers: [{ name: "flip", enabled: false }],
+        },
+        appendTo: () => appendTo.current,
       }}
     >
-      <TextMenuContext.Provider value={{ editor }}>{children}</TextMenuContext.Provider>
-    </BubbleMenu>
+      {children}
+    </BaseBubbleMenu>
   );
 };
 

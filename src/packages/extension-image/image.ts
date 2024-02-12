@@ -14,6 +14,8 @@ declare module "@tiptap/core" {
   }
 }
 
+export type { ImageOptions } from "@tiptap/extension-image";
+
 export const Image = TiptapImage.extend({
   group: "block",
 

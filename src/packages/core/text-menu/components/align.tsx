@@ -1,5 +1,6 @@
 import React from "react";
-import { LucideIconNames, TextMenuContext } from "@/packages/core";
+import { useCurrentEditor } from "@tiptap/react";
+import { LucideIconNames } from "@/packages/core";
 
 import { Button, ButtonProps } from "./button";
 
@@ -29,12 +30,10 @@ const shortcuts: Record<AlignType, ButtonProps["shortcut"]> = {
 };
 
 export const Align: React.FC<MarkProps> = ({ type }) => {
-  const { editor } = React.useContext(TextMenuContext);
-
-  if (!editor) return;
+  const { editor } = useCurrentEditor();
 
   const onExecCommand = <T extends AlignType>(align: T) => {
-    editor.chain().focus().setTextAlign(align).run();
+    editor?.chain().focus().setTextAlign(align).run();
   };
 
   return (
@@ -43,7 +42,7 @@ export const Align: React.FC<MarkProps> = ({ type }) => {
       icon={icons[type]}
       shortcut={shortcuts[type]}
       onClick={() => onExecCommand(type)}
-      active={editor.isActive({ textAlign: type })}
+      active={editor?.isActive({ textAlign: type })}
     />
   );
 };

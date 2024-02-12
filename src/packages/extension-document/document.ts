@@ -1,10 +1,7 @@
 import TiptapDocument from "@tiptap/extension-document";
 
-import { Generic } from "@/types";
-
 export interface DocumentOptions {
   leftMenu: boolean;
-  HTMLAttributes: Generic;
 }
 
 export const Document = TiptapDocument.extend<DocumentOptions>({

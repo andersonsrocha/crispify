@@ -1,8 +1,8 @@
 import React from "react";
 import { Dropdown } from "antd";
-import { ChevronDown } from "lucide-react";
+import { useCurrentEditor } from "@tiptap/react";
+import { ChevronDown, Type } from "lucide-react";
 
-import { TextMenuContext } from "..";
 import { Button } from "./button";
 
 const FONT_FAMILIES = [
@@ -17,21 +17,19 @@ const FONT_FAMILIES = [
 ];
 
 export const Font: React.FC = () => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
   const current = editor?.getAttributes("textStyle")?.fontFamily || "";
   const value = FONT_FAMILIES.find((x) => x.key == current);
-
-  if (!editor) return;
 
   const onExecCommand = (font: string) => {
     const newFont = FONT_FAMILIES.find((x) => x.key === font)?.key;
 
     if (!newFont || newFont.length === 0) {
-      return editor.chain().focus().unsetFontFamily().run();
+      return editor?.chain().focus().unsetFontFamily().run();
     }
 
-    editor.chain().focus().setFontFamily(newFont).run();
+    editor?.chain().focus().setFontFamily(newFont).run();
   };
 
   return (
@@ -48,7 +46,7 @@ export const Font: React.FC = () => {
     >
       <Button>
         <div className="flex items-center gap-2">
-          <span>{value?.label}</span>
+          <Type size={14} />
           <ChevronDown size={14} />
         </div>
       </Button>

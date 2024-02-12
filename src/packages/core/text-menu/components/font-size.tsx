@@ -1,9 +1,9 @@
 import React from "react";
 import { Dropdown } from "antd";
-import { ChevronDown } from "lucide-react";
+import { ALargeSmall, ChevronDown } from "lucide-react";
+import { useCurrentEditor } from "@tiptap/react";
 
 import { Button } from "./button";
-import { TextMenuContext } from "..";
 
 const FONT_SIZES = [
   { label: "Smaller", key: "12px" },
@@ -14,21 +14,19 @@ const FONT_SIZES = [
 ];
 
 export const FontSize: React.FC = () => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
   const current = editor?.getAttributes("textStyle")?.fontSize || "";
   const value = FONT_SIZES.find((x) => x.key == current);
-
-  if (!editor) return;
 
   const onApplyFontSize = (size: string) => {
     const newSize = FONT_SIZES.find((f) => f.key === size)?.key;
 
     if (!newSize || newSize.length === 0) {
-      return editor.chain().focus().unsetFontSize().run();
+      return editor?.chain().focus().unsetFontSize().run();
     }
 
-    editor.chain().focus().setFontSize(newSize).run();
+    editor?.chain().focus().setFontSize(newSize).run();
   };
 
   return (
@@ -42,7 +40,7 @@ export const FontSize: React.FC = () => {
     >
       <Button>
         <div className="flex items-center gap-2">
-          <span>{value?.label}</span>
+          <ALargeSmall />
           <ChevronDown size={14} />
         </div>
       </Button>

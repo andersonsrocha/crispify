@@ -1,12 +1,10 @@
-import { Editor } from "@tiptap/react";
 import { Editor as CoreEditor } from "@tiptap/core";
 import { EditorState } from "@tiptap/pm/state";
 import { EditorView } from "@tiptap/pm/view";
 
 export type MenuProps = {
-  editor: Editor;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  appendTo?: React.RefObject<any>;
+  appendTo: React.RefObject<any>;
   shouldHide?: boolean;
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { Popover, Form, Input, Switch, Button as AntButton } from "antd";
+import { useCurrentEditor } from "@tiptap/react";
 
 import { Button } from "./button";
-import { TextMenuContext } from "..";
 
 export const Link: React.FC = () => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
   const [form] = Form.useForm();
   const [submittable, setSubmittable] = React.useState(false);
@@ -20,11 +20,9 @@ export const Link: React.FC = () => {
     }
   }, [values]);
 
-  if (!editor) return;
-
   const onUnsetLink = () => {
-    if (editor.isActive("link")) {
-      return editor.chain().focus().unsetLink().run();
+    if (editor?.isActive("link")) {
+      return editor?.chain().focus().unsetLink().run();
     }
   };
 
@@ -32,14 +30,14 @@ export const Link: React.FC = () => {
     if (/^(\S+):(\/\/)?\S+$/.test(url)) {
       form.resetFields();
       editor
-        .chain()
+        ?.chain()
         .focus()
         .setLink({ href: url, target: inNewTab ? "_blank" : "" })
         .run();
     }
   };
 
-  if (editor.isActive("link")) {
+  if (editor?.isActive("link")) {
     return <Button active icon="Unlink" tip="Unlink" onClick={onUnsetLink} />;
   }
 

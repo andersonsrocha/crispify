@@ -1,15 +1,21 @@
 import React from "react";
 import { Slider } from "antd";
-import { BubbleMenu as BaseBubbleMenu } from "@tiptap/react";
+import { useCurrentEditor } from "@tiptap/react";
 import { TextMenu } from "@/packages/core";
 import { getRenderContainer } from "@/packages/core/helpers";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
+import { BaseBubbleMenu } from "./base-bubble-menu";
+
 import { MenuProps } from "@/types";
 
-export const ImageMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
+export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
+  const { editor } = useCurrentEditor();
+
   const getReferenceClientRect = React.useCallback(() => {
+    if (!editor) return new DOMRect(-1000, -1000, 0, 0);
+
     const renderContainer = getRenderContainer(editor, "node-image");
     const rect = renderContainer?.getBoundingClientRect() || new DOMRect(-1000, -1000, 0, 0);
 
@@ -17,32 +23,36 @@ export const ImageMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
   }, [editor]);
 
   const shouldShow = React.useCallback(() => {
+    if (!editor) return false;
+
     const isImage = editor.isActive("image");
     return isImage;
   }, [editor]);
 
   const onDeleteImage = React.useCallback(() => {
-    editor.chain().focus(undefined, { scrollIntoView: false }).deleteSelection().run();
+    editor?.chain().focus(undefined, { scrollIntoView: false }).deleteSelection().run();
   }, [editor]);
 
   const onAlignLeft = React.useCallback(() => {
-    editor.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("left").run();
+    editor?.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("left").run();
   }, [editor]);
 
   const onAlignCenter = React.useCallback(() => {
-    editor.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("center").run();
+    editor?.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("center").run();
   }, [editor]);
 
   const onAlignRight = React.useCallback(() => {
-    editor.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("right").run();
+    editor?.chain().focus(undefined, { scrollIntoView: false }).setImageAlign("right").run();
   }, [editor]);
 
   const onWidthChanged = React.useCallback(
     (width: number) => {
-      editor.chain().focus(undefined, { scrollIntoView: false }).setImageWidth(width).run();
+      editor?.chain().focus(undefined, { scrollIntoView: false }).setImageWidth(width).run();
     },
     [editor]
   );
+
+  if (!editor) return;
 
   return (
     <BaseBubbleMenu
@@ -57,7 +67,7 @@ export const ImageMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
           modifiers: [{ name: "flip", enabled: false }],
         },
         getReferenceClientRect,
-        appendTo: () => appendTo?.current,
+        appendTo: () => appendTo.current,
         plugins: [sticky],
         sticky: "popper",
       }}

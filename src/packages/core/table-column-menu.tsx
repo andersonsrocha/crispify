@@ -1,15 +1,19 @@
 import React from "react";
-import { BubbleMenu as BaseBubbleMenu } from "@tiptap/react";
+import { useCurrentEditor } from "@tiptap/react";
 import { isColumnGripSelected } from "@/packages/core/helpers";
 import { TextMenu } from "@/packages/core";
 import { v4 as uuid } from "uuid";
 
+import { BaseBubbleMenu } from "./base-bubble-menu";
+
 import { MenuProps, ShouldShowProps } from "@/types";
 
-export const TableColumnMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
+export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo }) => {
+  const { editor } = useCurrentEditor();
+
   const shouldShow = React.useCallback(
     ({ view, state, from }: ShouldShowProps) => {
-      if (!state) {
+      if (!(state && editor)) {
         return false;
       }
 
@@ -19,16 +23,18 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
   );
 
   const onAddColumnBefore = React.useCallback(() => {
-    editor.chain().focus().addColumnBefore().run();
+    editor?.chain().focus().addColumnBefore().run();
   }, [editor]);
 
   const onAddColumnAfter = React.useCallback(() => {
-    editor.chain().focus().addColumnAfter().run();
+    editor?.chain().focus().addColumnAfter().run();
   }, [editor]);
 
   const onDeleteColumn = React.useCallback(() => {
-    editor.chain().focus().deleteColumn().run();
+    editor?.chain().focus().deleteColumn().run();
   }, [editor]);
+
+  if (!editor) return;
 
   return (
     <BaseBubbleMenu
@@ -41,7 +47,7 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },
-        appendTo: () => appendTo?.current,
+        appendTo: () => appendTo.current,
       }}
     >
       <TextMenu.Wrapper direction="vertical">

@@ -1,1 +1,1 @@
-export { TextMenu, TextMenuContext } from "./text-menu";
+export { TextMenu } from "./text-menu";

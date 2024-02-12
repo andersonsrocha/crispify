@@ -1,13 +1,16 @@
 import React from "react";
-import { LucideIconNames, TextMenuContext } from "@/packages/core";
+import { LucideIconNames } from "@/packages/core";
+import { useCurrentEditor } from "@tiptap/react";
 
 import { Button, ButtonProps } from "./button";
 
 import { MarkType, CommandArgs, CommandMarkType } from "@/types";
 
-type MarkProps = { type: Exclude<MarkType, "link" | "highlight" | "textStyle" | "highlight"> };
+type Types = Exclude<MarkType, "link" | "highlight" | "textStyle" | "highlight"> | "blockquote";
 
-const icons: Record<MarkProps["type"], LucideIconNames> = {
+type MarkProps = { type: Types };
+
+const icons: Record<Types, LucideIconNames> = {
   bold: "Bold",
   code: "Code",
   italic: "Italic",
@@ -15,9 +18,10 @@ const icons: Record<MarkProps["type"], LucideIconNames> = {
   subscript: "Subscript",
   superscript: "Superscript",
   underline: "Underline",
+  blockquote: "Quote",
 };
 
-const tips: Record<MarkProps["type"], string> = {
+const tips: Record<Types, string> = {
   bold: "Bold",
   code: "Code",
   italic: "Italic",
@@ -25,9 +29,10 @@ const tips: Record<MarkProps["type"], string> = {
   subscript: "Subscript",
   superscript: "Superscript",
   underline: "Underline",
+  blockquote: "Blockquote",
 };
 
-const shortcuts: Record<MarkProps["type"], ButtonProps["shortcut"]> = {
+const shortcuts: Record<Types, ButtonProps["shortcut"]> = {
   bold: ["Command", "B"],
   italic: ["Command", "I"],
   code: ["Command", "E"],
@@ -35,15 +40,14 @@ const shortcuts: Record<MarkProps["type"], ButtonProps["shortcut"]> = {
   subscript: ["Command", "."],
   superscript: ["Command", ","],
   underline: ["Command", "U"],
+  blockquote: ["Command", "ArrowBigUp", "B"],
 };
 
 export const Mark: React.FC<MarkProps> = ({ type }) => {
-  const { editor } = React.useContext(TextMenuContext);
+  const { editor } = useCurrentEditor();
 
-  if (!editor) return;
-
-  const onExecCommand = <T extends MarkType>(mark: T, ...args: CommandArgs<MarkType, CommandMarkType>) => {
-    const commands: Partial<Record<MarkType, keyof CommandMarkType>> = {
+  const onExecCommand = <T extends Types>(mark: T, ...args: CommandArgs<Types, CommandMarkType>) => {
+    const commands: Partial<Record<Types, keyof CommandMarkType>> = {
       bold: "toggleBold",
       code: "toggleCode",
       italic: "toggleItalic",
@@ -51,13 +55,14 @@ export const Mark: React.FC<MarkProps> = ({ type }) => {
       underline: "toggleUnderline",
       subscript: "toggleSubscript",
       superscript: "toggleSuperscript",
+      blockquote: "toggleBlockquote",
     };
 
     const command = commands[mark];
     if (!command) return;
 
-    const focus = editor.chain().focus();
-    focus[command](...args).run();
+    const focus = editor?.chain().focus();
+    focus?.[command](...args).run();
   };
 
   return (
@@ -65,7 +70,7 @@ export const Mark: React.FC<MarkProps> = ({ type }) => {
       tip={tips[type]}
       icon={icons[type]}
       shortcut={shortcuts[type]}
-      active={editor.isActive(type)}
+      active={editor?.isActive(type)}
       onClick={() => onExecCommand(type)}
     />
   );

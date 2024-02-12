@@ -10,7 +10,7 @@ const computedStyles = (layout: ColumnLayout) => `
   display: grid; 
   grid-template-columns: ${layout === "sidebar-left" ? "1fr" : "2fr"} ${layout === "sidebar-right" ? "1fr" : "2fr"};
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 declare module "@tiptap/core" {

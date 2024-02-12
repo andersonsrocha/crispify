@@ -1,15 +1,21 @@
 import React from "react";
-import { BubbleMenu as BaseBubbleMenu } from "@tiptap/react";
+import { useCurrentEditor } from "@tiptap/react";
 import { TextMenu } from "@/packages/core";
 import { ColumnLayout } from "@/packages/extension-columns";
 import { getRenderContainer } from "@/packages/core/helpers";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
+import { BaseBubbleMenu } from "./base-bubble-menu";
+
 import { MenuProps } from "@/types";
 
-export const ColumnsMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
+export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
+  const { editor } = useCurrentEditor();
+
   const getReferenceClientRect = React.useCallback(() => {
+    if (!editor) return new DOMRect(-1000, -1000, 0, 0);
+
     const renderContainer = getRenderContainer(editor, "columns");
     const rect = renderContainer?.getBoundingClientRect() || new DOMRect(-1000, -1000, 0, 0);
 
@@ -17,21 +23,25 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
   }, [editor]);
 
   const shouldShow = React.useCallback(() => {
+    if (!editor) return false;
+
     const isColumns = editor.isActive("columns");
     return isColumns;
   }, [editor]);
 
   const onColumnLeft = React.useCallback(() => {
-    editor.chain().focus().setLayout(ColumnLayout.SidebarLeft).run();
+    editor?.chain().focus().setLayout(ColumnLayout.SidebarLeft).run();
   }, [editor]);
 
   const onColumnRight = React.useCallback(() => {
-    editor.chain().focus().setLayout(ColumnLayout.SidebarRight).run();
+    editor?.chain().focus().setLayout(ColumnLayout.SidebarRight).run();
   }, [editor]);
 
   const onColumnTwo = React.useCallback(() => {
-    editor.chain().focus().setLayout(ColumnLayout.TwoColumn).run();
+    editor?.chain().focus().setLayout(ColumnLayout.TwoColumn).run();
   }, [editor]);
+
+  if (!editor) return;
 
   return (
     <BaseBubbleMenu
@@ -45,7 +55,7 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ editor, appendTo }) => {
           modifiers: [{ name: "flip", enabled: false }],
         },
         getReferenceClientRect,
-        appendTo: () => appendTo?.current,
+        appendTo: () => appendTo.current,
         plugins: [sticky],
         sticky: "popper",
       }}
