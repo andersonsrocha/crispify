@@ -34,17 +34,23 @@ export const EditorHeader: React.FC = () => {
     editor?.chain().focus().setHardBreak().run();
   }, [editor]);
 
-  // const setPageBreak = React.useCallback(() => {
-  //   editor?.chain().focus().setPageBreak().run();
-  // }, [editor]);
+  const setPageBreak = React.useCallback(() => {
+    editor?.chain().focus().setPageBreak().run();
+  }, [editor]);
 
   return (
     <div className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
       <TextMenu.Wrapper>
+        <TextMenu.Button icon="Undo" />
+        <TextMenu.Button icon="Redo" />
+
+        <TextMenu.Divider />
+
         <TextMenu.Mark type="bold" />
         <TextMenu.Mark type="italic" />
         <TextMenu.Mark type="underline" />
         <TextMenu.Mark type="strike" />
+        <TextMenu.Mark type="blockquote" />
         <TextMenu.Mark type="code" />
         <TextMenu.Link />
         <TextMenu.Highlight />
@@ -68,7 +74,6 @@ export const EditorHeader: React.FC = () => {
         <TextMenu.Align type="right" />
         <TextMenu.Align type="justify" />
 
-        <TextMenu.Mark type="blockquote" />
         <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={editor?.isActive("table")} />
         <TextMenu.Button icon="Image" onClick={setImage} tip="Image" />
         <TextMenu.Button
@@ -92,12 +97,12 @@ export const EditorHeader: React.FC = () => {
           onClick={setHardBreak}
           disabled={isNodeActive("columns", "image", "table")}
         />
-        {/* <TextMenu.Button
+        <TextMenu.Button
           icon="ScissorsLineDashed"
           tip="Page break"
           onClick={setPageBreak}
           disabled={isNodeActive("columns", "image", "table")}
-        /> */}
+        />
       </TextMenu.Wrapper>
     </div>
   );

@@ -44,6 +44,7 @@ import { Text } from "@tiptap/extension-text";
 import { TextAlign, TextAlignOptions } from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Underline, UnderlineOptions } from "@tiptap/extension-underline";
+import { PageBreak, PageBreakOptions } from "@/packages/extension-page-break";
 
 export type StarterKitOptions = {
   leftMenu?: boolean;
@@ -76,6 +77,7 @@ export type StarterKitOptions = {
   table: false;
   slashCommand: false;
   textAlign: Partial<TextAlignOptions> | false;
+  pageBreak: Partial<PageBreakOptions> | false;
 };
 
 export const StarterKit = Extension.create<StarterKitOptions>({
@@ -228,6 +230,10 @@ export const StarterKit = Extension.create<StarterKitOptions>({
 
     if (this.options.strike !== false) {
       extensions.push(Strike.configure(this.options?.strike));
+    }
+
+    if (this.options.pageBreak !== false) {
+      extensions.push(PageBreak.configure(this.options?.pageBreak));
     }
 
     return extensions;
