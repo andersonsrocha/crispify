@@ -5,9 +5,13 @@ import { useCurrentEditor } from "@tiptap/react";
 export const EditorHeader: React.FC = () => {
   const { editor } = useCurrentEditor();
 
-  const isNodeActive = (...nodes: string[]) => {
-    return nodes.some((type) => editor?.isActive(type));
-  };
+  const undo = React.useCallback(() => {
+    editor?.chain().undo().run();
+  }, [editor]);
+
+  const redo = React.useCallback(() => {
+    editor?.chain().redo().run();
+  }, [editor]);
 
   const setTable = React.useCallback(() => {
     editor?.chain().selectParentNode().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: false }).run();
@@ -41,8 +45,8 @@ export const EditorHeader: React.FC = () => {
   return (
     <div className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
       <TextMenu.Wrapper>
-        <TextMenu.Button icon="Undo" />
-        <TextMenu.Button icon="Redo" />
+        <TextMenu.Button icon="Undo" tip="Undo" onClick={undo} />
+        <TextMenu.Button icon="Redo" tip="Redo" onClick={redo} />
 
         <TextMenu.Divider />
 
@@ -74,14 +78,9 @@ export const EditorHeader: React.FC = () => {
         <TextMenu.Align type="right" />
         <TextMenu.Align type="justify" />
 
-        <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={editor?.isActive("table")} />
+        <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={!editor?.isActive("paragraph")} />
         <TextMenu.Button icon="Image" onClick={setImage} tip="Image" />
-        <TextMenu.Button
-          tip="Columns"
-          icon="Columns2"
-          onClick={setColumns}
-          disabled={isNodeActive("columns", "image", "table")}
-        />
+        <TextMenu.Button tip="Columns" icon="Columns2" onClick={setColumns} disabled={editor?.isActive("paragraph")} />
 
         <TextMenu.Divider />
 
@@ -89,19 +88,19 @@ export const EditorHeader: React.FC = () => {
           icon="Minus"
           tip="Horizontal rule"
           onClick={setHorizontalRule}
-          disabled={isNodeActive("columns", "image", "table")}
+          disabled={!editor?.isActive("paragraph")}
         />
         <TextMenu.Button
           icon="WrapText"
           tip="Hard break"
           onClick={setHardBreak}
-          disabled={isNodeActive("columns", "image", "table")}
+          disabled={!editor?.isActive("paragraph")}
         />
         <TextMenu.Button
           icon="ScissorsLineDashed"
           tip="Page break"
           onClick={setPageBreak}
-          disabled={isNodeActive("columns", "image", "table")}
+          disabled={!editor?.isActive("paragraph")}
         />
       </TextMenu.Wrapper>
     </div>

@@ -14,12 +14,12 @@ const App = () => {
         algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
       }}
     >
-      <div ref={menuRef} className="min-h-screen">
-        <Notyist menuRef={menuRef} bordered />
+      <div ref={menuRef} className="min-h-screen bg-colorBgContainer w-full py-16">
+        <div className="max-w-3xl mx-auto h-full flex flex-col gap-10">
+          <Notyist menuRef={menuRef} bordered />
 
-        <Notyist menuRef={menuRef} mode="document" bordered />
-
-        <Notyist menuRef={menuRef} mode="notion" bordered />
+          <Notyist menuRef={menuRef} mode="notion" bordered />
+        </div>
       </div>
     </ConfigProvider>
   );

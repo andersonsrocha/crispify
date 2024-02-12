@@ -22,7 +22,7 @@ type NotyistProps = {
   editable?: boolean;
   bordered?: boolean;
   config?: Partial<StarterKitOptions>;
-  mode?: "WYSIWYG" | "notion" | "document";
+  mode?: "WYSIWYG" | "notion";
 };
 
 export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) => {
@@ -35,85 +35,76 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
 
   const classNames = cls("focus:outline-none p-2", {
     "border border-solid border-colorBorder": bordered,
-    "border-t-0": mode !== "notion",
+    "border-t-0": mode === "WYSIWYG",
   });
 
   return (
-    <div className="bg-colorBgContainer w-full py-16">
-      <div className="max-w-3xl mx-auto h-full gap-2">
-        <ConfigProvider
-          theme={{ inherit: true }}
-          getTargetContainer={() => containerRef.current || document.body}
-          getPopupContainer={() => containerRef.current || document.body}
-        >
-          <App>
-            <div
-              key="editor-container"
-              id="editor-container"
-              ref={containerRef}
-              data-theme={isDarkMode ? "dark" : "light"}
-            >
-              <EditorProvider
-                autofocus
-                slotBefore={mode !== "notion" && <EditorHeader />}
-                editable={editable}
-                extensions={[StarterKit.configure(config)]}
-                content=""
-                editorProps={{
-                  attributes: {
-                    class: classNames,
-                    spellcheck: "false",
-                  },
-                  handlePaste: customClipboardPaste,
-                }}
-              >
-                <ImageMenu appendTo={menuRef} />
+    <ConfigProvider
+      theme={{ inherit: true }}
+      getTargetContainer={() => containerRef.current || document.body}
+      getPopupContainer={() => containerRef.current || document.body}
+    >
+      <App>
+        <div key="editor-container" id="editor-container" ref={containerRef} data-theme={isDarkMode ? "dark" : "light"}>
+          <EditorProvider
+            autofocus
+            slotBefore={mode !== "notion" && <EditorHeader />}
+            editable={editable}
+            extensions={[StarterKit.configure(config)]}
+            content=""
+            editorProps={{
+              attributes: {
+                class: classNames,
+                spellcheck: "false",
+              },
+              handlePaste: customClipboardPaste,
+            }}
+          >
+            <ImageMenu appendTo={menuRef} />
 
-                <ColumnsMenu appendTo={menuRef} />
+            <ColumnsMenu appendTo={menuRef} />
 
-                <TableRowMenu appendTo={menuRef} />
+            <TableRowMenu appendTo={menuRef} />
 
-                <TableColumnMenu appendTo={menuRef} />
+            <TableColumnMenu appendTo={menuRef} />
 
-                {mode === "notion" && (
-                  <TextMenu appendTo={menuRef}>
-                    <TextMenu.Wrapper>
-                      <TextMenu.ContentType />
-                      <TextMenu.Font />
-                      <TextMenu.FontSize />
+            {mode === "notion" && (
+              <TextMenu appendTo={menuRef}>
+                <TextMenu.Wrapper>
+                  <TextMenu.ContentType />
+                  <TextMenu.Font />
+                  <TextMenu.FontSize />
 
-                      <TextMenu.Divider />
+                  <TextMenu.Divider />
 
-                      <TextMenu.Mark type="bold" />
-                      <TextMenu.Mark type="italic" />
-                      <TextMenu.Mark type="underline" />
-                      <TextMenu.Mark type="strike" />
-                      <TextMenu.Mark type="code" />
-                      <TextMenu.Mark type="blockquote" />
-                      <TextMenu.Link />
-                      <TextMenu.Highlight />
-                      <TextMenu.Color />
+                  <TextMenu.Mark type="bold" />
+                  <TextMenu.Mark type="italic" />
+                  <TextMenu.Mark type="underline" />
+                  <TextMenu.Mark type="strike" />
+                  <TextMenu.Mark type="code" />
+                  <TextMenu.Mark type="blockquote" />
+                  <TextMenu.Link />
+                  <TextMenu.Highlight />
+                  <TextMenu.Color />
 
-                      <TextMenu.More>
-                        <TextMenu.Mark type="subscript" />
-                        <TextMenu.Mark type="superscript" />
+                  <TextMenu.More>
+                    <TextMenu.Mark type="subscript" />
+                    <TextMenu.Mark type="superscript" />
 
-                        <TextMenu.Divider />
+                    <TextMenu.Divider />
 
-                        <TextMenu.Align type="left" />
-                        <TextMenu.Align type="center" />
-                        <TextMenu.Align type="right" />
-                        <TextMenu.Align type="justify" />
-                      </TextMenu.More>
-                    </TextMenu.Wrapper>
-                  </TextMenu>
-                )}
-              </EditorProvider>
-            </div>
-            <Feedback />
-          </App>
-        </ConfigProvider>
-      </div>
-    </div>
+                    <TextMenu.Align type="left" />
+                    <TextMenu.Align type="center" />
+                    <TextMenu.Align type="right" />
+                    <TextMenu.Align type="justify" />
+                  </TextMenu.More>
+                </TextMenu.Wrapper>
+              </TextMenu>
+            )}
+          </EditorProvider>
+        </div>
+        <Feedback />
+      </App>
+    </ConfigProvider>
   );
 };

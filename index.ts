@@ -1,1 +1,1 @@
-export { Notion } from "./src/packages/core/editor";
+export { Notyist } from "./src/packages/core/editor";
