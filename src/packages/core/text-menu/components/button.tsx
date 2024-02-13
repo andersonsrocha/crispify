@@ -50,7 +50,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }, [shortcut, tip]);
 
   return (
-    <Tooltip title={renderTooltip} placement={placement} trigger={["hover", "click"]}>
+    <Tooltip
+      title={renderTooltip}
+      placement={placement}
+      trigger={["hover", "click"]}
+      getPopupContainer={() => document.getElementById("editor-container") || document.body}
+    >
       <AntButton
         type="text"
         className={cls("flex items-center", {
