@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     const nodes = shortcut
       .map((short) => {
         return (
-          <Text keyboard key={short}>
+          <Text keyboard key={short} className="text-colorTextLightSolid">
             {short in icons ? <Icon name={short as LucideIconNames} size={9} /> : short}
           </Text>
         );
@@ -50,12 +50,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }, [shortcut, tip]);
 
   return (
-    <Tooltip
-      title={renderTooltip}
-      placement={placement}
-      trigger={["hover", "click"]}
-      getPopupContainer={() => document.getElementById("editor-container") || document.body}
-    >
+    <Tooltip title={renderTooltip} placement={placement} trigger={["hover", "click"]}>
       <AntButton
         type="text"
         className={cls("flex items-center", {
