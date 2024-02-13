@@ -1,7 +1,7 @@
 {
   "name": "@andser/notyist",
   "description": "Notyist is a powerful Tiptap-based block text editing React component.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "repository": "https://github.com/andersonsrocha/notyist",
   "type": "module",
