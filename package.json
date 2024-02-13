@@ -1,6 +1,9 @@
 {
   "name": "@andser/notyist",
+  "description": "Notyist is a powerful Tiptap-based block text editing React component.",
   "version": "0.0.3",
+  "license": "MIT",
+  "repository": "https://github.com/andersonsrocha/notyist",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -71,6 +74,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.323.0",
     "tailwind-scrollbar": "^3.0.5",
+    "tippy.js": "^6.3.7",
     "tw-colors": "^3.3.1",
     "usehooks-ts": "^2.13.0",
     "uuid": "^9.0.1"

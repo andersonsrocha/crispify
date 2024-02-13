@@ -80,7 +80,7 @@ export const EditorHeader: React.FC = () => {
 
         <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={!editor?.isActive("paragraph")} />
         <TextMenu.Button icon="Image" onClick={setImage} tip="Image" />
-        <TextMenu.Button tip="Columns" icon="Columns2" onClick={setColumns} disabled={editor?.isActive("paragraph")} />
+        <TextMenu.Button tip="Columns" icon="Columns2" onClick={setColumns} disabled={!editor?.isActive("paragraph")} />
 
         <TextMenu.Divider />
 

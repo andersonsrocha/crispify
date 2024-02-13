@@ -23,6 +23,7 @@ type NotyistProps = {
   bordered?: boolean;
   config?: Partial<StarterKitOptions>;
   mode?: "WYSIWYG" | "notion";
+  content?: string;
 };
 
 export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) => {
@@ -51,7 +52,7 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
             slotBefore={mode !== "notion" && <EditorHeader />}
             editable={editable}
             extensions={[StarterKit.configure(config)]}
-            content=""
+            content={props.content}
             editorProps={{
               attributes: {
                 class: classNames,
