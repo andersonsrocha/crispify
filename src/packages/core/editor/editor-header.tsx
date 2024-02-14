@@ -5,6 +5,10 @@ import { useCurrentEditor } from "@tiptap/react";
 export const EditorHeader: React.FC = () => {
   const { editor } = useCurrentEditor();
 
+  const isNodeSelected = (...nodes: string[]) => {
+    return nodes.some((type) => editor?.isActive(type));
+  };
+
   const undo = React.useCallback(() => {
     editor?.chain().undo().run();
   }, [editor]);
@@ -78,9 +82,9 @@ export const EditorHeader: React.FC = () => {
         <TextMenu.Align type="right" />
         <TextMenu.Align type="justify" />
 
-        <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={!editor?.isActive("paragraph")} />
-        <TextMenu.Button icon="Image" onClick={setImage} tip="Image" />
-        <TextMenu.Button tip="Columns" icon="Columns2" onClick={setColumns} disabled={!editor?.isActive("paragraph")} />
+        <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={isNodeSelected("columns", "image")} />
+        <TextMenu.Button icon="Image" onClick={setImage} tip="Image" disabled={isNodeSelected("image")} />
+        <TextMenu.Button icon="Columns2" onClick={setColumns} tip="Columns" disabled={isNodeSelected("image")} />
 
         <TextMenu.Divider />
 

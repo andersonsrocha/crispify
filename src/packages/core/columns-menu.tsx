@@ -41,6 +41,10 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
     editor?.chain().focus().setLayout(ColumnLayout.TwoColumn).run();
   }, [editor]);
 
+  const onDeleteColumns = React.useCallback(() => {
+    editor?.chain().focus().deleteNode("columns").run();
+  }, [editor]);
+
   if (!editor) return;
 
   return (
@@ -61,6 +65,10 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
       }}
     >
       <TextMenu.Wrapper>
+        <TextMenu.Button tip="Delete" icon="Trash2" onClick={onDeleteColumns} />
+
+        <TextMenu.Divider />
+
         <TextMenu.Button
           tip="Sidebar left"
           icon="PanelLeft"

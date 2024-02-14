@@ -42,17 +42,14 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
   }, [editor, getPos, node]);
 
   return (
-    <NodeViewWrapper as="div" className="group relative mx-auto flex w-full gap-2 my-1">
-      <div className="relative mx-auto w-full max-w-3xl">
+    <NodeViewWrapper as="div" className="group mx-auto w-full max-w-3xl my-1">
+      <div className="flex gap-2">
         <div
           aria-label="left-menu"
-          className={cls(
-            "absolute -left-[5.5rem] -top-1 flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out",
-            {
-              "group-hover:opacity-100": !open,
-              "opacity-100": open,
-            }
-          )}
+          className={cls("flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out", {
+            "group-hover:opacity-100": !open,
+            "opacity-100": open,
+          })}
         >
           <TextMenu.Button onClick={onAddNewNode} icon="Plus" />
           <Dropdown

@@ -24,20 +24,25 @@ type NotyistProps = {
   config?: Partial<StarterKitOptions>;
   mode?: "WYSIWYG" | "notion";
   content?: string;
+  height?: string | number;
 };
 
 export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) => {
-  const { menuRef, bordered, config, editable = true, mode = "WYSIWYG" } = props;
+  const { menuRef, bordered, config, editable = true, mode = "WYSIWYG", height = 350 } = props;
 
   const containerRef = React.useRef(null);
 
   const { theme: current } = React.useContext(ConfigProvider.ConfigContext);
   const isDarkMode = _.isEqual(current?.algorithm, theme.darkAlgorithm);
 
-  const classNames = cls("focus:outline-none p-2", {
+  const classNames = cls("focus:outline-none p-2 overflow-y-auto h-[var(--editor-height)]", {
     "border border-solid border-colorBorder": bordered,
     "border-t-0": mode === "WYSIWYG",
   });
+
+  const styles = {
+    "--editor-height": Number.isNaN(Number(height)) ? height : `${height}px`,
+  } as React.CSSProperties;
 
   return (
     <ConfigProvider
@@ -46,7 +51,13 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
       getPopupContainer={() => containerRef.current || document.body}
     >
       <App>
-        <div key="editor-container" id="editor-container" ref={containerRef} data-theme={isDarkMode ? "dark" : "light"}>
+        <div
+          key="editor-container"
+          id="editor-container"
+          ref={containerRef}
+          data-theme={isDarkMode ? "dark" : "light"}
+          style={styles}
+        >
           <EditorProvider
             autofocus
             slotBefore={mode !== "notion" && <EditorHeader />}

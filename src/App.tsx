@@ -17,10 +17,8 @@ const App = () => {
         }}
       >
         <div ref={menuRef} className="min-h-screen bg-colorBgContainer w-full py-16">
-          <div className="max-w-3xl mx-auto h-full flex flex-col gap-10">
-            <Notyist menuRef={menuRef} bordered content={content} />
-
-            <Notyist menuRef={menuRef} mode="notion" content={content} />
+          <div className="max-w-3xl mx-auto max-h-96 flex flex-col gap-10">
+            <Notyist menuRef={menuRef} bordered content={content} config={{ leftMenu: false }} />
           </div>
         </div>
       </ConfigProvider>
