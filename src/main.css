@@ -10,6 +10,10 @@
   }
 }
 
+#editor_container > div:nth-child(2) {
+  @apply h-full;
+}
+
 /** Paragraph */
 .ProseMirror table td p,
 .ProseMirror table th p {

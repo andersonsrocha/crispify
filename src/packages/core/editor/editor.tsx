@@ -17,8 +17,6 @@ import { TextMenu } from "../text-menu";
 import "@/main.css";
 
 type NotyistProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  menuRef: React.RefObject<any>;
   editable?: boolean;
   bordered?: boolean;
   config?: Partial<StarterKitOptions>;
@@ -28,20 +26,22 @@ type NotyistProps = {
 };
 
 export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) => {
-  const { menuRef, bordered, config, editable = true, mode = "WYSIWYG", height = 350 } = props;
+  const { bordered, config, editable = true, mode = "WYSIWYG", height = 350 } = props;
 
-  const containerRef = React.useRef(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const { theme: current } = React.useContext(ConfigProvider.ConfigContext);
   const isDarkMode = _.isEqual(current?.algorithm, theme.darkAlgorithm);
 
-  const classNames = cls("p-2 overflow-y-auto h-[var(--editor-height)] focus:outline-none", {
+  const classNames = cls("p-2 overflow-y-auto h-[var(--height)] focus:outline-none", {
     "border border-solid border-colorBorder": bordered,
     "border-t-0": mode === "WYSIWYG",
   });
 
   const styles = {
-    "--editor-height": Number.isNaN(Number(height)) ? height : `${height}px`,
+    "--height": Number.isNaN(Number(height)) ? height : `${height}px`,
+    "--full-screen": "false",
+    overflow: "hidden",
   } as React.CSSProperties;
 
   return (
@@ -51,16 +51,12 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
       getPopupContainer={() => containerRef.current || document.body}
     >
       <App>
-        <div
-          key="editor-container"
-          id="editor-container"
-          ref={containerRef}
-          data-theme={isDarkMode ? "dark" : "light"}
-          style={styles}
-        >
+        <div style={styles} ref={containerRef} id="editor_container" data-theme={isDarkMode ? "dark" : "light"}>
           <EditorProvider
             autofocus
-            slotBefore={mode !== "notion" && <EditorHeader />}
+            slotBefore={
+              mode !== "notion" && <EditorHeader fullscreen={{ appendTo: containerRef, minHeight: height }} />
+            }
             editable={editable}
             extensions={[StarterKit.configure(config)]}
             content={props.content}
@@ -72,15 +68,15 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
               handlePaste: customClipboardPaste,
             }}
           >
-            {mode === "notion" && <TextMenu appendTo={menuRef} />}
+            {mode === "notion" && <TextMenu appendTo={containerRef} />}
 
-            <ColumnsMenu appendTo={menuRef} />
+            <ColumnsMenu appendTo={containerRef} />
 
-            <TableRowMenu appendTo={menuRef} />
+            <TableRowMenu appendTo={containerRef} />
 
-            <TableColumnMenu appendTo={menuRef} />
+            <TableColumnMenu appendTo={containerRef} />
 
-            <ImageMenu appendTo={menuRef} />
+            <ImageMenu appendTo={containerRef} />
           </EditorProvider>
         </div>
         <Feedback />

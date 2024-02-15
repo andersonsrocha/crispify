@@ -1,10 +1,9 @@
 import { Node, mergeAttributes } from "@tiptap/core";
 import { NodeSelection, TextSelection } from "@tiptap/pm/state";
 
-export interface PageBreakOptions {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  HTMLAttributes: Record<string, any>;
-}
+import { GeneralOptions } from "@/types";
+
+export interface PageBreakOptions extends GeneralOptions {}
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {

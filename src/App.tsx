@@ -1,25 +1,15 @@
-import React from "react";
 import { ConfigProvider, theme } from "antd";
-import { useTernaryDarkMode } from "usehooks-ts";
 import { Notyist } from "@/packages/core";
 
 import { content } from "@/lib/data/content";
 
 const App = () => {
-  const { isDarkMode } = useTernaryDarkMode();
-
-  const menuRef = React.useRef(null);
-
   return (
-    <div data-theme={isDarkMode ? "dark" : "light"}>
-      <ConfigProvider
-        theme={{
-          algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        }}
-      >
-        <div ref={menuRef} className="min-h-screen bg-colorBgContainer w-full flex flex-col justify-center">
+    <div data-theme="dark">
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <div className="h-screen bg-colorBgContainer w-full flex flex-col justify-center py-10">
           <div className="max-w-3xl mx-auto flex flex-col gap-10">
-            <Notyist menuRef={menuRef} bordered content={content} height={520} />
+            <Notyist bordered content={content} height={400} />
           </div>
         </div>
       </ConfigProvider>

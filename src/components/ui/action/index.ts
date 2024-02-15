@@ -15,6 +15,8 @@ import { Redo } from "./redo";
 import { Rule } from "./rule";
 import { Table } from "./table";
 import { Undo } from "./undo";
+import { Space } from "./space";
+import { FullScreen } from "./full-screen";
 import { Wrapper } from "./wrapper";
 
 export const Action = {
@@ -36,4 +38,6 @@ export const Action = {
   Table,
   Columns,
   Image,
+  Space,
+  FullScreen,
 };

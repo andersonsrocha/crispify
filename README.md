@@ -13,7 +13,7 @@ Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing Rea
 <div align="center">
   
 [![npm Version](https://img.shields.io/npm/v/@andser/notyist)](https://www.npmjs.com/package/@andser/notyist)
-[![npm Bundle Size (minified)](https://img.shields.io/bundlephobia/min/@andser/notyist)](https://bundlephobia.com/package/@andser/notyist)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/%40andser%2Fnotyist)](https://bundlephobia.com/package/@andser/notyist)
 [![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/notyist?color=blue)](https://npmtrends.com/@andser/notyist)
 [![semantic-release: Conventional Commits](https://img.shields.io/badge/semantic--release-Conventional%20Commits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![GitHub License](https://img.shields.io/github/license/andersonsrocha/notyist)
@@ -52,18 +52,20 @@ $ npm install --save @andser/notyist
 
 ## ✨ Features
 
-- [x] -Helpful placeholders.-
-- [x] Drop and paste HTML and text.
-- [x] Display grid in two columns with alignment.
-- [x] Changing font size.
-- [x] Paste from clipboard, upload, and drag and drop images.
-- [x] Executing slash commands.
-- [x] Table Component.
-  - [x] Add new row.
-  - [x] Add new column.
-  - [x] Resize rows and columns.
-- [x] Markdown.
-- [ ] Replace component.
+- [x] ~~Helpful placeholders.~~
+- [x] ~~Drop and paste HTML and text.~~
+- [x] ~~Display grid in two columns with alignment.~~
+- [x] ~~Changing font size.~~
+- [x] ~~Paste from clipboard, upload, and drag and drop images.~~
+- [x] ~~Executing slash commands.~~
+- [x] ~~Table Component.~~
+  - [x] ~~Add new row.~~
+  - [x] ~~Add new column.~~
+  - [x] ~~Resize rows and columns.~~
+- [x] ~~Markdown.~~
+- [x] ~~Open in fullscreen.~~
+- [ ] Replace component node.
+- [ ] Comment component node.
 
 <br/>
 

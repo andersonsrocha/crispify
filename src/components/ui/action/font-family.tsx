@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown } from "antd";
 import { useCurrentEditor } from "@tiptap/react";
-import { ChevronDown, Type } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { Button } from "../button";
 
@@ -44,11 +44,8 @@ export const Font: React.FC = () => {
         })),
       }}
     >
-      <Button>
-        <div className="flex items-center gap-2">
-          <Type size={14} />
-          <ChevronDown size={14} />
-        </div>
+      <Button icon="Type">
+        <ChevronDown size={14} />
       </Button>
     </Dropdown>
   );

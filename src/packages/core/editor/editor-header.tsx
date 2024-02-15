@@ -1,5 +1,6 @@
 import React from "react";
 import { Action } from "@/components/ui/action";
+import { FullScreenProps } from "@/components/ui/action/full-screen";
 
 // We memorize the button so each button is not rerendered
 // on every editor state change
@@ -20,16 +21,16 @@ const MemoTable = React.memo(Action.Table);
 const MemoRule = React.memo(Action.Rule);
 const MemoContentType = React.memo(Action.ContentType);
 const MemoWrapper = React.memo(Action.Wrapper);
+const MemoFullScreen = React.memo(Action.FullScreen);
 
-export const EditorHeader: React.FC = () => {
+export interface EditorHeaderProps {
+  fullscreen: FullScreenProps;
+}
+
+export const EditorHeader: React.FC<EditorHeaderProps> = ({ fullscreen }) => {
   return (
-    <div className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
+    <div id="editor_header" className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
       <MemoWrapper>
-        <MemoUndo />
-        <MemoRedo />
-
-        <MemoDivider />
-
         <MemoMark type="bold" />
         <MemoMark type="italic" />
         <MemoMark type="underline" />
@@ -46,8 +47,12 @@ export const EditorHeader: React.FC = () => {
         <MemoFont />
         <MemoFontSize />
 
-        <MemoDivider />
+        <Action.Space />
 
+        <MemoUndo />
+        <MemoRedo />
+      </MemoWrapper>
+      <MemoWrapper>
         <MemoMark type="subscript" />
         <MemoMark type="superscript" />
 
@@ -58,6 +63,8 @@ export const EditorHeader: React.FC = () => {
         <MemoAlign type="right" />
         <MemoAlign type="justify" />
 
+        <MemoDivider />
+
         <MemoTable />
         <MemoImage />
         <MemoColumns />
@@ -67,6 +74,10 @@ export const EditorHeader: React.FC = () => {
         <MemoRule />
         <MemoBreak type="hard" />
         <MemoBreak type="page" />
+
+        <MemoDivider />
+
+        <MemoFullScreen {...fullscreen} />
       </MemoWrapper>
     </div>
   );

@@ -2,6 +2,7 @@ export * from "./command";
 export * from "./mark";
 export * from "./menu";
 export * from "./slash-command";
+export * from "./extension";
 
 export type Keyboard =
   | "A"

@@ -157,11 +157,8 @@ export const ContentType: React.FC = () => {
         items: dictionary,
       }}
     >
-      <Button active={active} center={false}>
-        <div className="flex items-center gap-2">
-          <Icon name={value?.icon || "Pilcrow"} />
-          <ChevronDown size={14} />
-        </div>
+      <Button icon={value?.icon || "Pilcrow"} active={active} center={false}>
+        <ChevronDown size={14} />
       </Button>
     </Dropdown>
   );

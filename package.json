@@ -75,10 +75,10 @@
     "classnames": "^2.5.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.323.0",
+    "react-use": "^17.5.0",
     "tailwind-scrollbar": "^3.0.5",
     "tippy.js": "^6.3.7",
     "tw-colors": "^3.3.1",
-    "usehooks-ts": "^2.13.0",
     "uuid": "^9.0.1"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "antd";
-import { ALargeSmall, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useCurrentEditor } from "@tiptap/react";
 
 import { Button } from "../button";
@@ -38,11 +38,8 @@ export const FontSize: React.FC = () => {
         onClick: ({ key }) => onApplyFontSize(key),
       }}
     >
-      <Button>
-        <div className="flex items-center gap-2">
-          <ALargeSmall />
-          <ChevronDown size={14} />
-        </div>
+      <Button icon="ALargeSmall">
+        <ChevronDown size={14} />
       </Button>
     </Dropdown>
   );

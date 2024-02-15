@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { mergeAttributes, Node } from "@tiptap/core";
 import { Plugin } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
 import { getCellsInColumn, isRowSelected, selectRow } from "@/packages/core/helpers";
 
-export interface TableCellOptions {
-  HTMLAttributes: Record<string, any>;
-}
+import { GeneralOptions } from "@/types";
+
+export interface TableCellOptions extends GeneralOptions {}
 
 export const TableCell = Node.create<TableCellOptions>({
   name: "tableCell",
