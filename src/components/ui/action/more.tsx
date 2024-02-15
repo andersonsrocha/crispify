@@ -1,7 +1,7 @@
 import React from "react";
 import { Popover } from "antd";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
 export const More: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

@@ -2,7 +2,8 @@ import React from "react";
 import { Dropdown } from "antd";
 import { NodeViewContent, NodeViewProps, NodeViewWrapper } from "@tiptap/react";
 import { ClipboardIcon, CopyIcon, RemoveFormattingIcon, Trash2 } from "lucide-react";
-import { TextMenu, message } from "@/packages/core";
+import { Button } from "@/components/ui/button";
+import { message } from "@/packages/core";
 import cls from "classnames";
 
 const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => {
@@ -51,7 +52,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
             "opacity-100": open,
           })}
         >
-          <TextMenu.Button onClick={onAddNewNode} icon="Plus" />
+          <Button onClick={onAddNewNode} icon="Plus" />
           <Dropdown
             open={open}
             className="flex justify-center items-center"
@@ -106,7 +107,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
               ],
             }}
           >
-            <TextMenu.Button icon="GripVertical" />
+            <Button icon="GripVertical" />
           </Dropdown>
           {/* Essa div corrige um bug ao tentar selecionar uma linha embaixo de um bloco customizado */}
           <div />

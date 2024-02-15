@@ -1,12 +1,13 @@
 import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { isColumnGripSelected } from "@/packages/core/helpers";
-import { TextMenu } from "@/packages/core";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps, ShouldShowProps } from "@/types";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 
 export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();
@@ -50,17 +51,17 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo }) => {
         appendTo: () => appendTo.current,
       }}
     >
-      <TextMenu.Wrapper direction="vertical">
-        <TextMenu.Button center={false} icon="ArrowLeftToLine" onClick={onAddColumnBefore}>
+      <Action.Wrapper direction="vertical">
+        <Button center={false} icon="ArrowLeftToLine" onClick={onAddColumnBefore}>
           Add column before
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="ArrowRightToLine" onClick={onAddColumnAfter}>
+        </Button>
+        <Button center={false} icon="ArrowRightToLine" onClick={onAddColumnAfter}>
           Add column after
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="Trash2" onClick={onDeleteColumn}>
+        </Button>
+        <Button center={false} icon="Trash2" onClick={onDeleteColumn}>
           Delete column
-        </TextMenu.Button>
-      </TextMenu.Wrapper>
+        </Button>
+      </Action.Wrapper>
     </BaseBubbleMenu>
   );
 };

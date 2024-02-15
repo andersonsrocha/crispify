@@ -2,11 +2,11 @@ import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { LucideIconNames } from "@/packages/core";
 
-import { Button, ButtonProps } from "./button";
+import { Button, ButtonProps } from "../button";
 
 import { AlignType } from "@/types";
 
-type MarkProps = { type: AlignType };
+type AlignProps = { type: AlignType };
 
 const icons: Record<AlignType, LucideIconNames> = {
   center: "AlignCenter",
@@ -29,7 +29,7 @@ const shortcuts: Record<AlignType, ButtonProps["shortcut"]> = {
   right: ["ArrowBigUp", "Command", "R"],
 };
 
-export const Align: React.FC<MarkProps> = ({ type }) => {
+export const Align: React.FC<AlignProps> = ({ type }) => {
   const { editor } = useCurrentEditor();
 
   const onExecCommand = <T extends AlignType>(align: T) => {

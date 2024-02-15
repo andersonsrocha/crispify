@@ -1,112 +1,73 @@
 import React from "react";
-import { TextMenu } from "../text-menu";
-import { useCurrentEditor } from "@tiptap/react";
+import { Action } from "@/components/ui/action";
+
+// We memorize the button so each button is not rerendered
+// on every editor state change
+const MemoDivider = React.memo(Action.Divider);
+const MemoMark = React.memo(Action.Mark);
+const MemoUndo = React.memo(Action.Undo);
+const MemoRedo = React.memo(Action.Redo);
+const MemoAlign = React.memo(Action.Align);
+const MemoFont = React.memo(Action.Font);
+const MemoFontSize = React.memo(Action.FontSize);
+const MemoLink = React.memo(Action.Link);
+const MemoHighlight = React.memo(Action.Highlight);
+const MemoColor = React.memo(Action.Color);
+const MemoBreak = React.memo(Action.Break);
+const MemoImage = React.memo(Action.Image);
+const MemoColumns = React.memo(Action.Columns);
+const MemoTable = React.memo(Action.Table);
+const MemoRule = React.memo(Action.Rule);
+const MemoContentType = React.memo(Action.ContentType);
+const MemoWrapper = React.memo(Action.Wrapper);
 
 export const EditorHeader: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
-  const isNodeSelected = (...nodes: string[]) => {
-    return nodes.some((type) => editor?.isActive(type));
-  };
-
-  const undo = React.useCallback(() => {
-    editor?.chain().undo().run();
-  }, [editor]);
-
-  const redo = React.useCallback(() => {
-    editor?.chain().redo().run();
-  }, [editor]);
-
-  const setTable = React.useCallback(() => {
-    editor?.chain().selectParentNode().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: false }).run();
-  }, [editor]);
-
-  const setImage = React.useCallback(() => {
-    editor?.chain().focus().setImageUpload().run();
-  }, [editor]);
-
-  const setColumns = React.useCallback(() => {
-    editor
-      ?.chain()
-      .focus()
-      .setColumns()
-      .focus(editor.state.selection.head + 2)
-      .run();
-  }, [editor]);
-
-  const setHorizontalRule = React.useCallback(() => {
-    editor?.chain().focus().setHorizontalRule().run();
-  }, [editor]);
-
-  const setHardBreak = React.useCallback(() => {
-    editor?.chain().focus().setHardBreak().run();
-  }, [editor]);
-
-  const setPageBreak = React.useCallback(() => {
-    editor?.chain().focus().setPageBreak().run();
-  }, [editor]);
-
   return (
     <div className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
-      <TextMenu.Wrapper>
-        <TextMenu.Button icon="Undo" tip="Undo" onClick={undo} />
-        <TextMenu.Button icon="Redo" tip="Redo" onClick={redo} />
+      <MemoWrapper>
+        <MemoUndo />
+        <MemoRedo />
 
-        <TextMenu.Divider />
+        <MemoDivider />
 
-        <TextMenu.Mark type="bold" />
-        <TextMenu.Mark type="italic" />
-        <TextMenu.Mark type="underline" />
-        <TextMenu.Mark type="strike" />
-        <TextMenu.Mark type="blockquote" />
-        <TextMenu.Mark type="code" />
-        <TextMenu.Link />
-        <TextMenu.Highlight />
-        <TextMenu.Color />
+        <MemoMark type="bold" />
+        <MemoMark type="italic" />
+        <MemoMark type="underline" />
+        <MemoMark type="strike" />
+        <MemoMark type="blockquote" />
+        <MemoMark type="code" />
+        <MemoLink />
+        <MemoHighlight />
+        <MemoColor />
 
-        <TextMenu.Divider />
+        <MemoDivider />
 
-        <TextMenu.ContentType />
-        <TextMenu.Font />
-        <TextMenu.FontSize />
+        <MemoContentType />
+        <MemoFont />
+        <MemoFontSize />
 
-        <TextMenu.Divider />
+        <MemoDivider />
 
-        <TextMenu.Mark type="subscript" />
-        <TextMenu.Mark type="superscript" />
+        <MemoMark type="subscript" />
+        <MemoMark type="superscript" />
 
-        <TextMenu.Divider />
+        <MemoDivider />
 
-        <TextMenu.Align type="left" />
-        <TextMenu.Align type="center" />
-        <TextMenu.Align type="right" />
-        <TextMenu.Align type="justify" />
+        <MemoAlign type="left" />
+        <MemoAlign type="center" />
+        <MemoAlign type="right" />
+        <MemoAlign type="justify" />
 
-        <TextMenu.Button icon="Table" onClick={setTable} tip="Table" disabled={isNodeSelected("columns", "image")} />
-        <TextMenu.Button icon="Image" onClick={setImage} tip="Image" disabled={isNodeSelected("image")} />
-        <TextMenu.Button icon="Columns2" onClick={setColumns} tip="Columns" disabled={isNodeSelected("image")} />
+        <MemoTable />
+        <MemoImage />
+        <MemoColumns />
 
-        <TextMenu.Divider />
+        <MemoDivider />
 
-        <TextMenu.Button
-          icon="Minus"
-          tip="Horizontal rule"
-          onClick={setHorizontalRule}
-          disabled={!editor?.isActive("paragraph")}
-        />
-        <TextMenu.Button
-          icon="WrapText"
-          tip="Hard break"
-          onClick={setHardBreak}
-          disabled={!editor?.isActive("paragraph")}
-        />
-        <TextMenu.Button
-          icon="ScissorsLineDashed"
-          tip="Page break"
-          onClick={setPageBreak}
-          disabled={!editor?.isActive("paragraph")}
-        />
-      </TextMenu.Wrapper>
+        <MemoRule />
+        <MemoBreak type="hard" />
+        <MemoBreak type="page" />
+      </MemoWrapper>
     </div>
   );
 };

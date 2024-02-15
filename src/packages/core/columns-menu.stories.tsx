@@ -1,21 +1,21 @@
 import { ConfigProvider, theme } from "antd";
-
-import { TextMenu } from "./text-menu";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 const ColumnsMenu = () => {
   return (
     <div className="bg-colorBgElevated shadow-xl shadow-black/70 border border-solid border-colorBorder rounded-md">
-      <TextMenu.Wrapper>
-        <TextMenu.Button tip="Delete" icon="Trash2" />
+      <Action.Wrapper>
+        <Button tip="Delete" icon="Trash2" />
 
-        <TextMenu.Divider />
+        <Action.Divider />
 
-        <TextMenu.Button tip="Sidebar left" icon="PanelLeft" />
-        <TextMenu.Button tip="Two columns" icon="Columns2" />
-        <TextMenu.Button tip="Sidebar right" icon="PanelRight" />
-      </TextMenu.Wrapper>
+        <Button tip="Sidebar left" icon="PanelLeft" />
+        <Button tip="Two columns" icon="Columns2" />
+        <Button tip="Sidebar right" icon="PanelRight" />
+      </Action.Wrapper>
     </div>
   );
 };

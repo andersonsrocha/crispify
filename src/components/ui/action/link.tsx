@@ -2,7 +2,7 @@ import React from "react";
 import { Popover, Form, Input, Switch, Button as AntButton } from "antd";
 import { useCurrentEditor } from "@tiptap/react";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
 export const Link: React.FC = () => {
   const { editor } = useCurrentEditor();

@@ -17,9 +17,9 @@ const App = () => {
           algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }}
       >
-        <div ref={menuRef} className="min-h-screen bg-colorBgContainer w-full py-16">
+        <div ref={menuRef} className="min-h-screen bg-colorBgContainer w-full flex flex-col justify-center">
           <div className="max-w-3xl mx-auto flex flex-col gap-10">
-            <Notyist menuRef={menuRef} bordered content={content} />
+            <Notyist menuRef={menuRef} bordered content={content} height={520} />
           </div>
         </div>
       </ConfigProvider>

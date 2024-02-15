@@ -3,7 +3,7 @@ import { Dropdown } from "antd";
 import { useCurrentEditor } from "@tiptap/react";
 import { ChevronDown, Type } from "lucide-react";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
 const FONT_FAMILIES = [
   { label: "Inter", key: "" },

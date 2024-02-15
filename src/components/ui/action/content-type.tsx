@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { Icon, LucideIconNames } from "@/packages/core";
 import _ from "lodash";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
 type Level = 1 | 2 | 3 | 4 | 5;
 

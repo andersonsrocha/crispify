@@ -2,12 +2,12 @@ import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { ColorPicker } from "antd";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
-export const Color: React.FC = () => {
+export const Highlight: React.FC = () => {
   const { editor } = useCurrentEditor();
 
-  const current = editor?.getAttributes("textStyle")?.color;
+  const current = editor?.getAttributes("highlight")?.color;
   const [color, setColor] = React.useState(current);
 
   React.useEffect(() => {
@@ -16,12 +16,12 @@ export const Color: React.FC = () => {
 
   const onExecCommand = (color: string) => {
     if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
-      editor?.chain().setColor(color).run();
+      editor?.chain().setHighlight({ color }).run();
     }
   };
 
   const onExecClearCommand = () => {
-    editor?.chain().unsetColor().run();
+    editor?.chain().unsetHighlight().run();
   };
 
   return (
@@ -32,7 +32,7 @@ export const Color: React.FC = () => {
       onChange={(value) => onExecCommand(value.toHexString())}
       onClear={onExecClearCommand}
     >
-      <Button icon="Palette" tip="Text color" active={!!current} />
+      <Button icon="Highlighter" tip="Highlight text" active={!!current} />
     </ColorPicker>
   );
 };

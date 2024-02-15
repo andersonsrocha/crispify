@@ -1,14 +1,15 @@
 import React from "react";
 import { Slider } from "antd";
 import { useCurrentEditor } from "@tiptap/react";
-import { TextMenu } from "@/packages/core";
 import { getRenderContainer } from "@/packages/core/helpers";
+import { Action } from "@/components/ui/action";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
+import { Button } from "@/components/ui/button";
 
 export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();
@@ -72,31 +73,31 @@ export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
         sticky: "popper",
       }}
     >
-      <TextMenu.Wrapper>
-        <TextMenu.Button tip="Delete" icon="Trash2" onClick={onDeleteImage} />
+      <Action.Wrapper>
+        <Button tip="Delete" icon="Trash2" onClick={onDeleteImage} />
 
-        <TextMenu.Divider />
+        <Action.Divider />
 
-        <TextMenu.Button
+        <Button
           tip="Align image left"
           icon="AlignHorizontalDistributeStart"
           active={editor.isActive("image", { align: "left" })}
           onClick={onAlignLeft}
         />
-        <TextMenu.Button
+        <Button
           tip="Align image center"
           icon="AlignHorizontalDistributeCenter"
           active={editor.isActive("image", { align: "center" })}
           onClick={onAlignCenter}
         />
-        <TextMenu.Button
+        <Button
           tip="Align image right"
           icon="AlignHorizontalDistributeEnd"
           active={editor.isActive("image", { align: "right" })}
           onClick={onAlignRight}
         />
 
-        <TextMenu.Divider />
+        <Action.Divider />
 
         <Slider
           step={10}
@@ -105,7 +106,7 @@ export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
           tooltip={{ formatter: (v) => `${v}%` }}
           value={Number.parseInt(editor.getAttributes("image").width)}
         />
-      </TextMenu.Wrapper>
+      </Action.Wrapper>
     </BaseBubbleMenu>
   );
 };

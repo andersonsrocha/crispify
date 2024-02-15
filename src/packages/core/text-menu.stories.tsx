@@ -1,35 +1,50 @@
-import { ConfigProvider, Slider, theme } from "antd";
+import { ConfigProvider, theme } from "antd";
 import { Action } from "@/components/ui/action";
-import { Button } from "@/components/ui/button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-const ImageMenu = () => {
+const TextMenu = () => {
   return (
     <div className="bg-colorBgElevated shadow-xl shadow-black/70 border border-solid border-colorBorder rounded-md">
       <Action.Wrapper>
-        <Button tip="Delete" icon="Trash2" />
+        <Action.ContentType />
+        <Action.Font />
+        <Action.FontSize />
 
         <Action.Divider />
 
-        <Button tip="Align image left" icon="AlignHorizontalDistributeStart" />
-        <Button tip="Align image center" icon="AlignHorizontalDistributeCenter" />
-        <Button tip="Align image right" icon="AlignHorizontalDistributeEnd" />
+        <Action.Mark type="bold" />
+        <Action.Mark type="italic" />
+        <Action.Mark type="underline" />
+        <Action.Mark type="strike" />
+        <Action.Mark type="code" />
+        <Action.Mark type="blockquote" />
+        <Action.Link />
+        <Action.Highlight />
+        <Action.Color />
 
-        <Action.Divider />
+        <Action.More>
+          <Action.Mark type="subscript" />
+          <Action.Mark type="superscript" />
 
-        <Slider step={10} className="w-20 mr-3" tooltip={{ formatter: (v) => `${v}%` }} />
+          <Action.Divider />
+
+          <Action.Align type="left" />
+          <Action.Align type="center" />
+          <Action.Align type="right" />
+          <Action.Align type="justify" />
+        </Action.More>
       </Action.Wrapper>
     </div>
   );
 };
 
 export default {
-  title: "Menus UI/Image Menu",
-  component: ImageMenu,
+  title: "Menus UI/Text Menu",
+  component: TextMenu,
 } as Meta;
 
-export const Light: StoryObj<typeof ImageMenu> = {
+export const Light: StoryObj<typeof TextMenu> = {
   decorators: [
     (Story) => {
       return (
@@ -43,7 +58,7 @@ export const Light: StoryObj<typeof ImageMenu> = {
   ],
 };
 
-export const Dark: StoryObj<typeof ImageMenu> = {
+export const Dark: StoryObj<typeof TextMenu> = {
   decorators: [
     (Story) => {
       return (

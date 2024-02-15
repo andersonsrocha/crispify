@@ -72,39 +72,7 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
               handlePaste: customClipboardPaste,
             }}
           >
-            {mode === "notion" && (
-              <TextMenu appendTo={menuRef}>
-                <TextMenu.Wrapper>
-                  <TextMenu.ContentType />
-                  <TextMenu.Font />
-                  <TextMenu.FontSize />
-
-                  <TextMenu.Divider />
-
-                  <TextMenu.Mark type="bold" />
-                  <TextMenu.Mark type="italic" />
-                  <TextMenu.Mark type="underline" />
-                  <TextMenu.Mark type="strike" />
-                  <TextMenu.Mark type="code" />
-                  <TextMenu.Mark type="blockquote" />
-                  <TextMenu.Link />
-                  <TextMenu.Highlight />
-                  <TextMenu.Color />
-
-                  <TextMenu.More>
-                    <TextMenu.Mark type="subscript" />
-                    <TextMenu.Mark type="superscript" />
-
-                    <TextMenu.Divider />
-
-                    <TextMenu.Align type="left" />
-                    <TextMenu.Align type="center" />
-                    <TextMenu.Align type="right" />
-                    <TextMenu.Align type="justify" />
-                  </TextMenu.More>
-                </TextMenu.Wrapper>
-              </TextMenu>
-            )}
+            {mode === "notion" && <TextMenu appendTo={menuRef} />}
 
             <ColumnsMenu appendTo={menuRef} />
 

@@ -5,6 +5,7 @@ export { getRenderContainer } from "./getRenderContainer";
 export { isColumnGripSelected } from "./isColumnGripSelected";
 export { isColumnSelected } from "./isColumnSelected";
 export { isCustomNodeSelected } from "./isCustomNodeSelected";
+export { isNodeSelected } from "./isNodeSelected";
 export { isRowGripSelected } from "./isRowGripSelected";
 export { isRowSelected } from "./isRowSelected";
 export { isTextSelected } from "./isTextSelected";

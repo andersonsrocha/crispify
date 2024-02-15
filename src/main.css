@@ -224,11 +224,15 @@
 
 /** Page break */
 .ProseMirror [data-type="pageBreak"] {
-  @apply cursor-pointer relative h-1 border-t border-dashed border-colorBorder;
+  @apply cursor-pointer relative;
 }
 
-.ProseMirror [data-type="pageBreak"]::before,
+.ProseMirror [data-type="pageBreak"]::before {
+  @apply w-full border-t-2 border-dashed border-colorBorder absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-4;
+  content: "";
+}
+
 .ProseMirror [data-type="pageBreak"]::after {
-  @apply font-semibold uppercase text-xs absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3 bg-colorBgContainer px-2;
+  @apply font-semibold uppercase text-xs absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-colorBgContainer px-2;
   content: "Page break";
 }

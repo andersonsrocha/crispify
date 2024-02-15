@@ -3,7 +3,7 @@ import { Dropdown } from "antd";
 import { ALargeSmall, ChevronDown } from "lucide-react";
 import { useCurrentEditor } from "@tiptap/react";
 
-import { Button } from "./button";
+import { Button } from "../button";
 
 const FONT_SIZES = [
   { label: "Smaller", key: "12px" },

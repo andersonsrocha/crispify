@@ -1,7 +1,8 @@
 import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { isRowGripSelected } from "@/packages/core/helpers";
-import { TextMenu } from "@/packages/core";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
@@ -51,17 +52,17 @@ export const TableRowMenu: React.FC<MenuProps> = ({ appendTo }) => {
         appendTo: () => appendTo.current,
       }}
     >
-      <TextMenu.Wrapper direction="vertical">
-        <TextMenu.Button center={false} icon="ArrowUpToLine" onClick={onAddRowBefore}>
+      <Action.Wrapper direction="vertical">
+        <Button center={false} icon="ArrowUpToLine" onClick={onAddRowBefore}>
           Add row before
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="ArrowDownToLine" onClick={onAddRowAfter}>
+        </Button>
+        <Button center={false} icon="ArrowDownToLine" onClick={onAddRowAfter}>
           Add row after
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="Trash2" onClick={onDeleteRow}>
+        </Button>
+        <Button center={false} icon="Trash2" onClick={onDeleteRow}>
           Delete row
-        </TextMenu.Button>
-      </TextMenu.Wrapper>
+        </Button>
+      </Action.Wrapper>
     </BaseBubbleMenu>
   );
 };

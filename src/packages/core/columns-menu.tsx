@@ -1,14 +1,15 @@
 import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
-import { TextMenu } from "@/packages/core";
 import { ColumnLayout } from "@/packages/extension-columns";
 import { getRenderContainer } from "@/packages/core/helpers";
+import { Action } from "@/components/ui/action";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
+import { Button } from "@/components/ui/button";
 
 export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();
@@ -64,30 +65,30 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
         sticky: "popper",
       }}
     >
-      <TextMenu.Wrapper>
-        <TextMenu.Button tip="Delete" icon="Trash2" onClick={onDeleteColumns} />
+      <Action.Wrapper>
+        <Button tip="Delete" icon="Trash2" onClick={onDeleteColumns} />
 
-        <TextMenu.Divider />
+        <Action.Divider />
 
-        <TextMenu.Button
+        <Button
           tip="Sidebar left"
           icon="PanelLeft"
           active={editor.isActive("columns", { layout: ColumnLayout.SidebarLeft })}
           onClick={onColumnLeft}
         />
-        <TextMenu.Button
+        <Button
           tip="Two columns"
           icon="Columns2"
           active={editor.isActive("columns", { layout: ColumnLayout.TwoColumn })}
           onClick={onColumnTwo}
         />
-        <TextMenu.Button
+        <Button
           tip="Sidebar right"
           icon="PanelRight"
           active={editor.isActive("columns", { layout: ColumnLayout.SidebarRight })}
           onClick={onColumnRight}
         />
-      </TextMenu.Wrapper>
+      </Action.Wrapper>
     </BaseBubbleMenu>
   );
 };

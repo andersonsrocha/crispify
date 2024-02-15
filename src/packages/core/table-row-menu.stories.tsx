@@ -1,23 +1,23 @@
 import { ConfigProvider, theme } from "antd";
-
-import { TextMenu } from "./text-menu";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 const TableRowMenu = () => {
   return (
     <div className="bg-colorBgElevated shadow-xl shadow-black/70 border border-solid border-colorBorder rounded-md">
-      <TextMenu.Wrapper direction="vertical">
-        <TextMenu.Button center={false} icon="ArrowUpToLine">
+      <Action.Wrapper direction="vertical">
+        <Button center={false} icon="ArrowUpToLine">
           Add row before
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="ArrowDownToLine">
+        </Button>
+        <Button center={false} icon="ArrowDownToLine">
           Add row after
-        </TextMenu.Button>
-        <TextMenu.Button center={false} icon="Trash2">
+        </Button>
+        <Button center={false} icon="Trash2">
           Delete row
-        </TextMenu.Button>
-      </TextMenu.Wrapper>
+        </Button>
+      </Action.Wrapper>
     </div>
   );
 };

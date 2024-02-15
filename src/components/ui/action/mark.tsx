@@ -2,7 +2,7 @@ import React from "react";
 import { LucideIconNames } from "@/packages/core";
 import { useCurrentEditor } from "@tiptap/react";
 
-import { Button, ButtonProps } from "./button";
+import { Button, ButtonProps } from "../button";
 
 import { MarkType, CommandArgs, CommandMarkType } from "@/types";
 

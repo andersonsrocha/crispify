@@ -1,4 +1,5 @@
 import { Node, mergeAttributes } from "@tiptap/core";
+import { NodeSelection, TextSelection } from "@tiptap/pm/state";
 
 export interface PageBreakOptions {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,7 +27,7 @@ export const PageBreak = Node.create<PageBreakOptions>({
   addOptions() {
     return {
       HTMLAttributes: {
-        style: "page-break-after: always; margin-bottom: 0.5rem;",
+        style: "page-break-after: always; width: 100%;",
         "page-break": true,
       },
     };
@@ -59,7 +60,39 @@ export const PageBreak = Node.create<PageBreakOptions>({
             currentChain.insertContent({ type: this.name });
           }
 
-          return currentChain.focus($originTo.pos + 3).run();
+          return (
+            currentChain
+              // set cursor after page break
+              .command(({ tr, dispatch }) => {
+                if (dispatch) {
+                  const { $to } = tr.selection;
+                  const posAfter = $to.end();
+
+                  if ($to.nodeAfter) {
+                    if ($to.nodeAfter.isTextblock) {
+                      tr.setSelection(TextSelection.create(tr.doc, $to.pos + 1));
+                    } else if ($to.nodeAfter.isBlock) {
+                      tr.setSelection(NodeSelection.create(tr.doc, $to.pos));
+                    } else {
+                      tr.setSelection(TextSelection.create(tr.doc, $to.pos));
+                    }
+                  } else {
+                    // add node after page break if it’s the end of the document
+                    const node = $to.parent.type.contentMatch.defaultType?.create();
+
+                    if (node) {
+                      tr.insert(posAfter, node);
+                      tr.setSelection(TextSelection.create(tr.doc, posAfter + 3));
+                    }
+                  }
+
+                  tr.scrollIntoView();
+                }
+
+                return true;
+              })
+              .run()
+          );
         },
       unsetPageBreak:
         () =>
