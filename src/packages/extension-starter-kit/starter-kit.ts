@@ -100,7 +100,7 @@ export const StarterKit = Extension.create<StarterKitOptions>({
       }),
     ];
 
-    if (this.options.block !== false) {
+    if (this.options.block !== false || this.options.leftMenu !== false) {
       extensions.push(Block);
     }
 

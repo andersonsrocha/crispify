@@ -35,7 +35,7 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
   const { theme: current } = React.useContext(ConfigProvider.ConfigContext);
   const isDarkMode = _.isEqual(current?.algorithm, theme.darkAlgorithm);
 
-  const classNames = cls("focus:outline-none p-2 overflow-y-auto h-[var(--editor-height)]", {
+  const classNames = cls("p-2 overflow-y-auto h-[var(--editor-height)] focus:outline-none", {
     "border border-solid border-colorBorder": bordered,
     "border-t-0": mode === "WYSIWYG",
   });
@@ -72,14 +72,6 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
               handlePaste: customClipboardPaste,
             }}
           >
-            <ImageMenu appendTo={menuRef} />
-
-            <ColumnsMenu appendTo={menuRef} />
-
-            <TableRowMenu appendTo={menuRef} />
-
-            <TableColumnMenu appendTo={menuRef} />
-
             {mode === "notion" && (
               <TextMenu appendTo={menuRef}>
                 <TextMenu.Wrapper>
@@ -113,6 +105,14 @@ export const Notyist: React.FC<React.PropsWithChildren<NotyistProps>> = (props) 
                 </TextMenu.Wrapper>
               </TextMenu>
             )}
+
+            <ColumnsMenu appendTo={menuRef} />
+
+            <TableRowMenu appendTo={menuRef} />
+
+            <TableColumnMenu appendTo={menuRef} />
+
+            <ImageMenu appendTo={menuRef} />
           </EditorProvider>
         </div>
         <Feedback />

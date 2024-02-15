@@ -42,8 +42,8 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
   }, [editor, getPos, node]);
 
   return (
-    <NodeViewWrapper as="div" className="group mx-auto w-full max-w-3xl my-1">
-      <div className="flex gap-2">
+    <NodeViewWrapper as="div" className="group relative w-full my-1">
+      <div className="grid grid-cols-[72px_1fr_72px] mx-auto w-full max-w-3xl">
         <div
           aria-label="left-menu"
           className={cls("flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out", {
@@ -112,7 +112,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
           <div />
         </div>
 
-        <NodeViewContent className="w-full" />
+        <NodeViewContent className="w-full px-2" />
       </div>
     </NodeViewWrapper>
   );
