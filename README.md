@@ -1,6 +1,14 @@
 <div align="center">
 
-<h1><b>Notyist</b></h1>
+<h1>
+  <br/>
+  <br/>
+  <div>⌨️</div>
+  <b>notyist</b>
+  <br/>
+  <br/>
+  <br/>
+</h1>
 
 Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing React component. The component has full integration with [Ant Design](https://ant.design/) and [Tailwind](https://tailwindcss.com/), taking advantage of its native theme and components.
 

@@ -9,5 +9,5 @@ export const Redo: React.FC = () => {
     editor?.chain().redo().run();
   };
 
-  return <Button icon="Redo" tip="Redo" onClick={onExecCommand} />;
+  return <Button icon="Redo" tip="Redo" onClick={onExecCommand} disabled={!editor?.can().redo()} />;
 };

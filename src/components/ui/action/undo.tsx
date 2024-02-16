@@ -9,5 +9,5 @@ export const Undo: React.FC = () => {
     editor?.chain().undo().run();
   };
 
-  return <Button icon="Undo" tip="Undo" onClick={onExecCommand} />;
+  return <Button icon="Undo" tip="Undo" onClick={onExecCommand} disabled={!editor?.can().undo()} />;
 };

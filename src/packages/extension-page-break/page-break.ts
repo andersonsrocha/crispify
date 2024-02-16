@@ -26,7 +26,7 @@ export const PageBreak = Node.create<PageBreakOptions>({
   addOptions() {
     return {
       HTMLAttributes: {
-        style: "page-break-after: always; width: 100%;",
+        style: "page-break-after: always; width: 100%; break-after: page;",
         "page-break": true,
       },
     };

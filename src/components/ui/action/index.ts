@@ -18,6 +18,7 @@ import { Undo } from "./undo";
 import { Space } from "./space";
 import { FullScreen } from "./full-screen";
 import { Wrapper } from "./wrapper";
+import { Pdf } from "./pdf";
 
 export const Action = {
   Wrapper,
@@ -40,4 +41,5 @@ export const Action = {
   Image,
   Space,
   FullScreen,
+  Pdf,
 };

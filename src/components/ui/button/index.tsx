@@ -1,6 +1,6 @@
 import React from "react";
 import { Button as AntButton, Tooltip, ButtonProps as AntButtonProps, TooltipProps, Typography } from "antd";
-import { Icon, LucideIconNames } from "@/packages/core";
+import { Icon, IconProps, LucideIconNames } from "@/packages/core";
 import { icons } from "lucide-react";
 import cls from "classnames";
 
@@ -12,7 +12,7 @@ export type ButtonProps = Pick<AntButtonProps, "onClick"> & {
   shortcut?: (LucideIconNames | Keyboard)[];
   active?: boolean;
   disabled?: boolean;
-  icon?: LucideIconNames;
+  icon?: LucideIconNames | IconProps;
   children?: React.ReactNode;
   center?: boolean;
 };
@@ -24,6 +24,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   const renderIcons = React.useMemo(() => {
     if (!icon) return undefined;
+
+    if (typeof icon === "object") return <Icon {...icon} />;
 
     return <Icon name={icon} />;
   }, [icon]);

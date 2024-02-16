@@ -22,8 +22,12 @@ const MemoRule = React.memo(Action.Rule);
 const MemoContentType = React.memo(Action.ContentType);
 const MemoWrapper = React.memo(Action.Wrapper);
 const MemoFullScreen = React.memo(Action.FullScreen);
+const MemoPdf = React.memo(Action.Pdf);
 
 export interface EditorHeaderProps {
+  /**
+   * Options for defining fullscreen mode.
+   */
   fullscreen: FullScreenProps;
 }
 
@@ -77,6 +81,7 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({ fullscreen }) => {
 
         <MemoDivider />
 
+        <MemoPdf />
         <MemoFullScreen {...fullscreen} />
       </MemoWrapper>
     </div>
