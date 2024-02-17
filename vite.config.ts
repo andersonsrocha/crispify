@@ -31,4 +31,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
+  optimizeDeps: {
+    exclude: ["worker_threads"],
+  },
 });

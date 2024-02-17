@@ -10,7 +10,8 @@
   }
 }
 
-#editor_container > div:nth-child(2) {
+/** Fullscreen */
+div[data-fullscreen="true"] > div:nth-child(2) {
   @apply h-full;
 }
 
@@ -87,7 +88,8 @@
   @apply cursor-col-resize;
 }
 
-.ProseMirror .tableWrapper {
+.ProseMirror .tableWrapper,
+.ProseMirror :not(.tableWrapper) table {
   @apply mb-6;
 }
 

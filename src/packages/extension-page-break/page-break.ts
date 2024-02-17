@@ -46,21 +46,10 @@ export const PageBreak = Node.create<PageBreakOptions>({
     return {
       setPageBreak:
         () =>
-        ({ chain, state }) => {
-          const {
-            selection: { $to: $originTo },
-          } = state;
-
-          const currentChain = chain();
-
-          if ($originTo.parentOffset === 0) {
-            currentChain.insertContentAt(Math.max($originTo.pos - 2, 0), { type: this.name });
-          } else {
-            currentChain.insertContent({ type: this.name });
-          }
-
+        ({ chain }) => {
           return (
-            currentChain
+            chain()
+              .insertContent({ type: this.name })
               // set cursor after page break
               .command(({ tr, dispatch }) => {
                 if (dispatch) {

@@ -34,6 +34,7 @@ export const Font: React.FC = () => {
 
   return (
     <Dropdown
+      align={{ offset: [0, 12] }}
       menu={{
         selectable: true,
         selectedKeys: value && [value.key],

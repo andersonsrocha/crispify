@@ -26,6 +26,7 @@ export const FullScreen: React.FC<FullScreenProps> = ({ appendTo, minHeight }) =
     const { height: _header_height } = $header.getBoundingClientRect();
 
     const _default_height = Number.isNaN(Number(minHeight)) ? minHeight : `${minHeight}px`;
+    appendTo.current.setAttribute("data-fullscreen", `${isFullscreen}`);
     appendTo.current.style.setProperty("--full-screen", `${isFullscreen}`);
     appendTo.current.style.setProperty(
       "--height",

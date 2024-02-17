@@ -7,9 +7,9 @@ const App = () => {
   return (
     <div data-theme="dark">
       <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
-        <div className="h-screen bg-colorBgContainer w-full flex flex-col justify-center py-10">
-          <div className="max-w-3xl mx-auto flex flex-col gap-10">
-            <Notyist bordered content={content} height={400} />
+        <div className="min-h-screen bg-colorBgContainer w-full flex flex-col justify-center py-10">
+          <div className="w-full max-w-3xl min-h-96 mx-auto flex flex-col gap-10">
+            <Notyist content={content} height="100%" mode="notion" />
           </div>
         </div>
       </ConfigProvider>

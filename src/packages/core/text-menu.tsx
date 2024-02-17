@@ -52,10 +52,9 @@ export const TextMenu: React.FC<MenuProps> = ({ appendTo }) => {
       shouldShow={shouldShow}
       updateDelay={0}
       tippyOptions={{
-        zIndex: 100,
-        maxWidth: "auto",
-        moveTransition: "transform 0.2s ease-in-out",
         offset: [0, 8],
+        zIndex: 900,
+        maxWidth: "auto",
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },

@@ -2,6 +2,7 @@ import React from "react";
 import { Slider } from "antd";
 import { useCurrentEditor } from "@tiptap/react";
 import { getRenderContainer } from "@/packages/core/helpers";
+import { Button } from "@/components/ui/button";
 import { Action } from "@/components/ui/action";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
@@ -9,7 +10,6 @@ import { v4 as uuid } from "uuid";
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
-import { Button } from "@/components/ui/button";
 
 export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();
@@ -63,7 +63,6 @@ export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
       updateDelay={0}
       tippyOptions={{
         offset: [0, 8],
-        maxWidth: "auto",
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },

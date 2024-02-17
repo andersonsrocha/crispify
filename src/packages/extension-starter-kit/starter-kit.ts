@@ -11,7 +11,10 @@ import { Document } from "@/packages/extension-document";
 import { FontSize } from "@/packages/extension-font-size";
 import { Heading, HeadingOptions } from "@/packages/extension-heading";
 import { HorizontalRule, HorizontalRuleOptions } from "@/packages/extension-horizontal-rule";
+import { Image, ImageOptions } from "@/packages/extension-image";
 import { ImageUpload } from "@/packages/extension-image-upload";
+import { PageBreak, PageBreakOptions } from "@/packages/extension-page-break";
+import { Selection } from "@/packages/extension-selection";
 import { SlashCommand } from "@/packages/extension-slash-command";
 import { Table } from "@/packages/extension-table";
 import { TableCell } from "@/packages/extension-table-cell";
@@ -28,7 +31,6 @@ import { Gapcursor } from "@tiptap/extension-gapcursor";
 import { HardBreak, HardBreakOptions } from "@tiptap/extension-hard-break";
 import { Highlight } from "@tiptap/extension-highlight";
 import { History, HistoryOptions } from "@tiptap/extension-history";
-import { Image, ImageOptions } from "@/packages/extension-image";
 import { Italic, ItalicOptions } from "@tiptap/extension-italic";
 import { Link, LinkOptions } from "@tiptap/extension-link";
 import { ListItem } from "@tiptap/extension-list-item";
@@ -44,7 +46,6 @@ import { Text } from "@tiptap/extension-text";
 import { TextAlign, TextAlignOptions } from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Underline, UnderlineOptions } from "@tiptap/extension-underline";
-import { PageBreak, PageBreakOptions } from "@/packages/extension-page-break";
 
 export type StarterKitOptions = {
   leftMenu?: boolean;
@@ -87,6 +88,7 @@ export const StarterKit = Extension.create<StarterKitOptions>({
     const extensions: AnyExtension[] = [
       Text,
       Focus,
+      Selection,
       TrailingNode,
       Document.configure({
         leftMenu: this.options?.leftMenu ?? true,
