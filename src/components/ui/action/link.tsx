@@ -1,12 +1,10 @@
 import React from "react";
 import { Popover, Form, Input, Switch, Button as AntButton } from "antd";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button } from "../button";
 
-export const Link: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Link: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const [form] = Form.useForm();
   const [submittable, setSubmittable] = React.useState(false);
 

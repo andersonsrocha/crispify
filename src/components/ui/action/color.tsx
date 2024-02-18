@@ -1,12 +1,10 @@
 import React from "react";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 import { ColorPicker } from "antd";
 
 import { Button } from "../button";
 
-export const Color: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Color: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const current = editor?.getAttributes("textStyle")?.color;
   const [color, setColor] = React.useState(current);
 

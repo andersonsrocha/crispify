@@ -1,5 +1,5 @@
 import React from "react";
-import { Editor, useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 import { Dropdown, MenuProps } from "antd";
 import { ChevronDown } from "lucide-react";
 import { Icon, LucideIconNames } from "@/packages/core";
@@ -95,9 +95,7 @@ const useContextTypes = (editor: Editor | null) => {
   return options;
 };
 
-export const ContentType: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const ContentType: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const bulletListIsActive = editor?.isActive("bulletList");
   const orderedListIsActive = editor?.isActive("orderedList");
   const taskListIsActive = editor?.isActive("taskList");

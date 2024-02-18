@@ -44,7 +44,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
 
   return (
     <NodeViewWrapper as="div" className="ny-group ny-relative ny-w-full ny-my-1">
-      <div className="ny-grid ny-grid-cols-[72px_1fr_72px] ny-mx-auto ny-w-full ny-max-w-3xl">
+      <div className="ny-grid ny-grid-cols-[72px_1fr_72px] ny-w-full">
         <div
           aria-label="left-menu"
           className={cls("ny-flex ny-gap-1 ny-opacity-0 ny-transition-opacity ny-duration-300 ny-ease-in-out", {

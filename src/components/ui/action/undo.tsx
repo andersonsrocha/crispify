@@ -1,10 +1,8 @@
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button } from "../button";
 
-export const Undo: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Undo: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const onExecCommand = () => {
     editor?.chain().undo().run();
   };

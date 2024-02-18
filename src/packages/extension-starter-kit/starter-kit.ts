@@ -4,6 +4,7 @@ import { AnyExtension, Extension } from "@tiptap/core";
 import { Block } from "@/packages/extension-block";
 import { Blockquote, BlockquoteOptions } from "@/packages/extension-blockquote";
 import { Code, CodeOptions } from "@/packages/extension-code";
+import { CodeBlock } from "@/packages/extension-code-block";
 import { Column } from "@/packages/extension-column";
 import { Columns } from "@/packages/extension-columns";
 import { Document } from "@/packages/extension-document";
@@ -13,6 +14,7 @@ import { HorizontalRule, HorizontalRuleOptions } from "@/packages/extension-hori
 import { Image, ImageOptions } from "@/packages/extension-image";
 import { ImageUpload } from "@/packages/extension-image-upload";
 import { PageBreak, PageBreakOptions } from "@/packages/extension-page-break";
+import { PDF, PDFOptions } from "@/packages/extension-pdf";
 import { Selection } from "@/packages/extension-selection";
 import { SlashCommand } from "@/packages/extension-slash-command";
 import { Table } from "@/packages/extension-table";
@@ -22,7 +24,6 @@ import { TableRow } from "@/packages/extension-table-row";
 import { TrailingNode } from "@/packages/extension-trailing-node";
 import { Bold, BoldOptions } from "@tiptap/extension-bold";
 import { BulletList, BulletListOptions } from "@tiptap/extension-bullet-list";
-import { CodeBlock } from "@/packages/extension-code-block";
 import { Color } from "@tiptap/extension-color";
 import { Dropcursor, DropcursorOptions } from "@tiptap/extension-dropcursor";
 import Focus from "@tiptap/extension-focus";
@@ -80,6 +81,7 @@ export type StarterKitOptions = {
   slashCommand: false;
   textAlign: Partial<TextAlignOptions> | false;
   pageBreak: Partial<PageBreakOptions> | false;
+  pdf: Partial<PDFOptions> | false;
 };
 
 const lowlight = createLowlight(common);
@@ -244,6 +246,10 @@ export const StarterKit = Extension.create<StarterKitOptions>({
 
     if (this.options.pageBreak !== false) {
       extensions.push(PageBreak.configure(this.options?.pageBreak));
+    }
+
+    if (this.options.pdf !== false) {
+      extensions.push(PDF.configure(this.options?.pdf));
     }
 
     return extensions;

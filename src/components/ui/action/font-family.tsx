@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "antd";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 import { ChevronDown } from "lucide-react";
 
 import { Button } from "../button";
@@ -16,9 +16,7 @@ const FONT_FAMILIES = [
   { label: "Courier New", key: "Courier New" },
 ];
 
-export const Font: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Font: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const current = editor?.getAttributes("textStyle")?.fontFamily || "";
   const value = FONT_FAMILIES.find((x) => x.key == current);
 

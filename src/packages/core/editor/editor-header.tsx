@@ -1,87 +1,74 @@
 import React from "react";
 import { Action } from "@/components/ui/action";
 import { FullScreenProps } from "@/components/ui/action/full-screen";
+import { Editor } from "@tiptap/react";
 
 // We memorize the button so each button is not rerendered
 // on every editor state change
 const MemoDivider = React.memo(Action.Divider);
-const MemoMark = React.memo(Action.Mark);
-const MemoUndo = React.memo(Action.Undo);
-const MemoRedo = React.memo(Action.Redo);
-const MemoAlign = React.memo(Action.Align);
-const MemoFont = React.memo(Action.Font);
-const MemoFontSize = React.memo(Action.FontSize);
-const MemoLink = React.memo(Action.Link);
-const MemoHighlight = React.memo(Action.Highlight);
-const MemoColor = React.memo(Action.Color);
-const MemoBreak = React.memo(Action.Break);
-const MemoImage = React.memo(Action.Image);
-const MemoColumns = React.memo(Action.Columns);
-const MemoTable = React.memo(Action.Table);
-const MemoRule = React.memo(Action.Rule);
-const MemoContentType = React.memo(Action.ContentType);
 const MemoWrapper = React.memo(Action.Wrapper);
-const MemoFullScreen = React.memo(Action.FullScreen);
 const MemoPdf = React.memo(Action.Pdf);
+const MemoFullScreen = React.memo(Action.FullScreen);
 
 export interface EditorHeaderProps {
+  editor: Editor | null;
   /**
    * Options for defining fullscreen mode.
    */
   fullscreen: FullScreenProps;
 }
 
-export const EditorHeader: React.FC<EditorHeaderProps> = ({ fullscreen }) => {
+export const EditorHeader: React.FC<EditorHeaderProps> = ({ editor, fullscreen }) => {
   return (
     <div className="ny-editor__header ny-bg-colorBgElevated ny-w-full ny-border ny-border-solid ny-border-colorBorder ny-rounded-t-md">
       <MemoWrapper>
-        <MemoMark type="bold" />
-        <MemoMark type="italic" />
-        <MemoMark type="underline" />
-        <MemoMark type="strike" />
-        <MemoMark type="blockquote" />
-        <MemoMark type="code" />
-        <MemoLink />
-        <MemoHighlight />
-        <MemoColor />
+        <Action.Mark editor={editor} type="bold" />
+        <Action.Mark editor={editor} type="italic" />
+        <Action.Mark editor={editor} type="underline" />
+        <Action.Mark editor={editor} type="strike" />
+        <Action.Mark editor={editor} type="blockquote" />
+        <Action.Mark editor={editor} type="code" />
+        <Action.Link editor={editor} />
+        <Action.Highlight editor={editor} />
+        <Action.Color editor={editor} />
 
         <MemoDivider />
 
-        <MemoContentType />
-        <MemoFont />
-        <MemoFontSize />
+        <Action.ContentType editor={editor} />
+        <Action.Font editor={editor} />
+        <Action.FontSize editor={editor} />
 
         <Action.Space />
 
-        <MemoUndo />
-        <MemoRedo />
+        <Action.Undo editor={editor} />
+        <Action.Redo editor={editor} />
       </MemoWrapper>
       <MemoWrapper>
-        <MemoMark type="subscript" />
-        <MemoMark type="superscript" />
+        <Action.Mark editor={editor} type="subscript" />
+        <Action.Mark editor={editor} type="superscript" />
 
         <MemoDivider />
 
-        <MemoAlign type="left" />
-        <MemoAlign type="center" />
-        <MemoAlign type="right" />
-        <MemoAlign type="justify" />
+        <Action.Align editor={editor} type="left" />
+        <Action.Align editor={editor} type="center" />
+        <Action.Align editor={editor} type="right" />
+        <Action.Align editor={editor} type="justify" />
 
         <MemoDivider />
 
-        <MemoTable />
-        <MemoImage />
-        <MemoColumns />
+        <Action.Table editor={editor} />
+        <Action.Image editor={editor} />
+        <Action.Columns editor={editor} />
 
         <MemoDivider />
 
-        <MemoRule />
-        <MemoBreak type="hard" />
-        <MemoBreak type="page" />
+        <Action.Rule editor={editor} />
+        <Action.Break editor={editor} type="hard" />
+        <Action.Break editor={editor} type="page" />
 
         <MemoDivider />
 
-        <MemoPdf />
+        <MemoPdf editor={editor} />
         <MemoFullScreen {...fullscreen} />
       </MemoWrapper>
     </div>

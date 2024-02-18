@@ -1,5 +1,4 @@
 import React from "react";
-import { useCurrentEditor } from "@tiptap/react";
 import { ColumnLayout } from "@/packages/extension-columns";
 import { getRenderContainer } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
@@ -11,9 +10,7 @@ import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
 
-export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
-  const { editor } = useCurrentEditor();
-
+export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
   const getReferenceClientRect = React.useCallback(() => {
     if (!editor) return new DOMRect(-1000, -1000, 0, 0);
 
@@ -60,7 +57,7 @@ export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
           modifiers: [{ name: "flip", enabled: false }],
         },
         getReferenceClientRect,
-        appendTo: () => appendTo.current,
+        appendTo: () => appendTo.current!,
         plugins: [sticky],
         sticky: "popper",
       }}

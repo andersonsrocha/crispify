@@ -1,5 +1,4 @@
 import React from "react";
-import { useCurrentEditor } from "@tiptap/react";
 import { isRowGripSelected } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
 import { Button } from "@/components/ui/button";
@@ -9,9 +8,7 @@ import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps, ShouldShowProps } from "@/types";
 
-export const TableRowMenu: React.FC<MenuProps> = ({ appendTo }) => {
-  const { editor } = useCurrentEditor();
-
+export const TableRowMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
   const shouldShow = React.useCallback(
     ({ view, state, from }: ShouldShowProps) => {
       if (!state || !from || !editor) {
@@ -49,7 +46,7 @@ export const TableRowMenu: React.FC<MenuProps> = ({ appendTo }) => {
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },
-        appendTo: () => appendTo.current,
+        appendTo: () => appendTo.current!,
       }}
     >
       <Action.Wrapper direction="vertical">

@@ -1,6 +1,6 @@
 import React from "react";
 import { LucideIconNames } from "@/packages/core";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button, ButtonProps } from "../button";
 
@@ -8,7 +8,7 @@ import { MarkType, CommandArgs, CommandMarkType } from "@/types";
 
 type Types = Exclude<MarkType, "link" | "highlight" | "textStyle" | "highlight"> | "blockquote";
 
-type MarkProps = { type: Types };
+type MarkProps = { editor: Editor | null; type: Types };
 
 const icons: Record<Types, LucideIconNames> = {
   bold: "Bold",
@@ -43,9 +43,7 @@ const shortcuts: Record<Types, ButtonProps["shortcut"]> = {
   blockquote: ["Command", "ArrowBigUp", "B"],
 };
 
-export const Mark: React.FC<MarkProps> = ({ type }) => {
-  const { editor } = useCurrentEditor();
-
+export const Mark: React.FC<MarkProps> = ({ editor, type }) => {
   const onExecCommand = <T extends Types>(mark: T, ...args: CommandArgs<Types, CommandMarkType>) => {
     const commands: Partial<Record<Types, keyof CommandMarkType>> = {
       bold: "toggleBold",

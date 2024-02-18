@@ -1,5 +1,4 @@
 import React from "react";
-import { useCurrentEditor } from "@tiptap/react";
 import { isCustomNodeSelected, isTextSelected } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
 
@@ -10,20 +9,10 @@ import { BaseBubbleMenu } from "./base-bubble-menu";
 // We memorize the button so each button is not rerendered
 // on every editor state change
 const MemoDivider = React.memo(Action.Divider);
-const MemoMark = React.memo(Action.Mark);
-const MemoAlign = React.memo(Action.Align);
-const MemoFont = React.memo(Action.Font);
-const MemoFontSize = React.memo(Action.FontSize);
-const MemoLink = React.memo(Action.Link);
-const MemoHighlight = React.memo(Action.Highlight);
-const MemoColor = React.memo(Action.Color);
-const MemoContentType = React.memo(Action.ContentType);
 const MemoWrapper = React.memo(Action.Wrapper);
 const MemoMore = React.memo(Action.More);
 
-export const TextMenu: React.FC<MenuProps> = ({ appendTo }) => {
-  const { editor } = useCurrentEditor();
-
+export const TextMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
   const shouldShow = React.useCallback(
     ({ view, from }: ShouldShowProps) => {
       if (!view || !editor) {
@@ -58,36 +47,36 @@ export const TextMenu: React.FC<MenuProps> = ({ appendTo }) => {
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },
-        appendTo: () => appendTo.current,
+        appendTo: () => appendTo.current!,
       }}
     >
       <MemoWrapper>
-        <MemoContentType />
-        <MemoFont />
-        <MemoFontSize />
+        <Action.ContentType editor={editor} />
+        <Action.Font editor={editor} />
+        <Action.FontSize editor={editor} />
 
         <MemoDivider />
 
-        <MemoMark type="bold" />
-        <MemoMark type="italic" />
-        <MemoMark type="underline" />
-        <MemoMark type="strike" />
-        <MemoMark type="code" />
-        <MemoMark type="blockquote" />
-        <MemoLink />
-        <MemoHighlight />
-        <MemoColor />
+        <Action.Mark editor={editor} type="bold" />
+        <Action.Mark editor={editor} type="italic" />
+        <Action.Mark editor={editor} type="underline" />
+        <Action.Mark editor={editor} type="strike" />
+        <Action.Mark editor={editor} type="code" />
+        <Action.Mark editor={editor} type="blockquote" />
+        <Action.Link editor={editor} />
+        <Action.Highlight editor={editor} />
+        <Action.Color editor={editor} />
 
         <MemoMore>
-          <MemoMark type="subscript" />
-          <MemoMark type="superscript" />
+          <Action.Mark editor={editor} type="subscript" />
+          <Action.Mark editor={editor} type="superscript" />
 
           <MemoDivider />
 
-          <MemoAlign type="left" />
-          <MemoAlign type="center" />
-          <MemoAlign type="right" />
-          <MemoAlign type="justify" />
+          <Action.Align editor={editor} type="left" />
+          <Action.Align editor={editor} type="center" />
+          <Action.Align editor={editor} type="right" />
+          <Action.Align editor={editor} type="justify" />
         </MemoMore>
       </MemoWrapper>
     </BaseBubbleMenu>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown } from "antd";
 import { ChevronDown } from "lucide-react";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button } from "../button";
 
@@ -13,9 +13,7 @@ const FONT_SIZES = [
   { label: "Extra Large", key: "24px" },
 ];
 
-export const FontSize: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const FontSize: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const current = editor?.getAttributes("textStyle")?.fontSize || "";
   const value = FONT_SIZES.find((x) => x.key == current);
 

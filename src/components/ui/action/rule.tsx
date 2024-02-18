@@ -1,10 +1,8 @@
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button } from "../button";
 
-export const Rule: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Rule: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const onExecCommand = () => {
     editor?.chain().focus().setHorizontalRule().run();
   };

@@ -1,10 +1,10 @@
 import React from "react";
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 import { LucideIconNames } from "@/packages/core";
 
 import { Button, ButtonProps } from "../button";
 
-type BreakProps = { type: "page" | "hard" };
+type BreakProps = { type: "page" | "hard"; editor: Editor | null };
 
 const icons: Record<BreakProps["type"], LucideIconNames> = {
   page: "ScissorsLineDashed",
@@ -21,9 +21,7 @@ const shortcuts: Record<BreakProps["type"], ButtonProps["shortcut"]> = {
   hard: [],
 };
 
-export const Break: React.FC<BreakProps> = ({ type }) => {
-  const { editor } = useCurrentEditor();
-
+export const Break: React.FC<BreakProps> = ({ type, editor }) => {
   const onExecCommand = <T extends BreakProps["type"]>(type: T) => {
     switch (type) {
       case "page":

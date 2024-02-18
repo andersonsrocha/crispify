@@ -1,5 +1,4 @@
 import React from "react";
-import { useFullscreen, useToggle } from "react-use";
 
 import { Button } from "../button";
 

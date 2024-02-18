@@ -1,10 +1,8 @@
-import { useCurrentEditor } from "@tiptap/react";
+import { Editor } from "@tiptap/react";
 
 import { Button } from "../button";
 
-export const Redo: React.FC = () => {
-  const { editor } = useCurrentEditor();
-
+export const Redo: React.FC<{ editor: Editor | null }> = ({ editor }) => {
   const onExecCommand = () => {
     editor?.chain().redo().run();
   };

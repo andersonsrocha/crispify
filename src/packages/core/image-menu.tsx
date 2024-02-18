@@ -1,6 +1,5 @@
 import React from "react";
 import { Slider } from "antd";
-import { useCurrentEditor } from "@tiptap/react";
 import { getRenderContainer } from "@/packages/core/helpers";
 import { Button } from "@/components/ui/button";
 import { Action } from "@/components/ui/action";
@@ -11,9 +10,7 @@ import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
 
-export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
-  const { editor } = useCurrentEditor();
-
+export const ImageMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
   const getReferenceClientRect = React.useCallback(() => {
     if (!editor) return new DOMRect(-1000, -1000, 0, 0);
 
@@ -67,7 +64,7 @@ export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
           modifiers: [{ name: "flip", enabled: false }],
         },
         getReferenceClientRect,
-        appendTo: () => appendTo.current,
+        appendTo: () => appendTo.current!,
         plugins: [sticky],
         sticky: "popper",
       }}
