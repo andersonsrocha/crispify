@@ -30,7 +30,7 @@ const View: React.FC<NodeViewProps> = ({ getPos, editor }) => {
     <NodeViewWrapper as="div" data-type="imageUpload">
       <div data-drag-handle>
         <Upload.Dragger listType="text" maxCount={1} action={onUpload} accept="image/*">
-          <div className="flex flex-col items-center gap-2 p-6">
+          <div className="ny-flex ny-flex-col ny-items-center ny-gap-2 ny-p-6">
             <ImageIcon />
             Drag and drop or upload an file
           </div>

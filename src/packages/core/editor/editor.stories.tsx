@@ -21,8 +21,8 @@ export const WYSIWYG: StoryObj<typeof Notyist> = {
     (Story) => {
       return (
         <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-          <div data-theme="light" className="flex justify-center">
-            <div className="max-w-3xl">{Story()}</div>
+          <div data-theme="light" className="ny-flex ny-justify-center">
+            <div className="ny-max-w-3xl">{Story()}</div>
           </div>
         </ConfigProvider>
       );
@@ -38,8 +38,8 @@ export const Notion: StoryObj<typeof Notyist> = {
     (Story) => {
       return (
         <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-          <div data-theme="light" className="flex justify-center">
-            <div className="max-w-3xl">{Story()}</div>
+          <div data-theme="light" className="ny-flex ny-justify-center">
+            <div className="ny-max-w-3xl">{Story()}</div>
           </div>
         </ConfigProvider>
       );

@@ -100,7 +100,7 @@ export const ImageMenu: React.FC<MenuProps> = ({ appendTo }) => {
 
         <Slider
           step={10}
-          className="w-20 mr-3"
+          className="ny-w-20 ny-mr-3"
           onChange={onWidthChanged}
           tooltip={{ formatter: (v) => `${v}%` }}
           value={Number.parseInt(editor.getAttributes("image").width)}

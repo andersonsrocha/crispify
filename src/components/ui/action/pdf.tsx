@@ -96,7 +96,7 @@ export const Pdf: React.FC = () => {
       <Button
         icon={{
           name: loading ? "Loader2" : "FileType2",
-          className: loading ? "animate-spin" : "",
+          className: loading ? "ny-animate-spin" : "",
         }}
         tip="Export to PDF"
         onClick={onExecCommand}

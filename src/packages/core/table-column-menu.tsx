@@ -1,13 +1,13 @@
 import React from "react";
 import { useCurrentEditor } from "@tiptap/react";
 import { isColumnGripSelected } from "@/packages/core/helpers";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps, ShouldShowProps } from "@/types";
-import { Action } from "@/components/ui/action";
-import { Button } from "@/components/ui/button";
 
 export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();

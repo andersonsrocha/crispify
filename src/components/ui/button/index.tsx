@@ -36,7 +36,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     const nodes = shortcut
       .map((short) => {
         return (
-          <Text keyboard key={short} className="text-colorTextLightSolid">
+          <Text keyboard key={short} className="ny-text-colorTextLightSolid">
             {short in icons ? <Icon name={short as LucideIconNames} size={9} /> : short}
           </Text>
         );
@@ -44,9 +44,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       .reduce<React.ReactNode[] | null>((acc, v) => (acc === null ? [v] : [...acc, "+", v]), null);
 
     return (
-      <span className="flex items-center gap-2">
+      <span className="ny-flex ny-items-center ny-gap-2">
         {tip}
-        <div className="flex items-center">{nodes}</div>
+        <div className="ny-flex ny-items-center">{nodes}</div>
       </span>
     );
   }, [shortcut, tip]);
@@ -55,10 +55,10 @@ export const Button: React.FC<ButtonProps> = (props) => {
     <Tooltip title={renderTooltip} placement={placement} trigger={["hover", "click"]}>
       <AntButton
         type="text"
-        className={cls("flex items-center", {
-          "bg-colorBgTextActive": active,
-          "justify-center": center,
-          "justify-start": !center,
+        className={cls("ny-flex ny-items-center", {
+          "ny-bg-colorBgTextActive": active,
+          "ny-justify-center": center,
+          "ny-justify-start": !center,
         })}
         icon={renderIcons}
         {...rest}

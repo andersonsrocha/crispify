@@ -159,7 +159,7 @@ export const SlashCommand = Extension.create<SlashCommandProps>({
 
               popup?.[0].setProps({
                 getReferenceClientRect,
-                appendTo: () => document.getElementById("editor_container") || document.body,
+                appendTo: () => document.querySelector(".ny-editor__container") || document.body,
                 content: component.element,
               });
 

@@ -3,13 +3,13 @@ import { useCurrentEditor } from "@tiptap/react";
 import { ColumnLayout } from "@/packages/extension-columns";
 import { getRenderContainer } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 import { sticky } from "tippy.js";
 import { v4 as uuid } from "uuid";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
 
 import { MenuProps } from "@/types";
-import { Button } from "@/components/ui/button";
 
 export const ColumnsMenu: React.FC<MenuProps> = ({ appendTo }) => {
   const { editor } = useCurrentEditor();

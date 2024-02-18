@@ -43,19 +43,19 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
   }, [editor, getPos, node]);
 
   return (
-    <NodeViewWrapper as="div" className="group relative w-full my-1">
-      <div className="grid grid-cols-[72px_1fr_72px] mx-auto w-full max-w-3xl">
+    <NodeViewWrapper as="div" className="ny-group ny-relative ny-w-full ny-my-1">
+      <div className="ny-grid ny-grid-cols-[72px_1fr_72px] ny-mx-auto ny-w-full ny-max-w-3xl">
         <div
           aria-label="left-menu"
-          className={cls("flex gap-1 opacity-0 transition-opacity duration-300 ease-in-out", {
-            "group-hover:opacity-100": !open,
-            "opacity-100": open,
+          className={cls("ny-flex ny-gap-1 ny-opacity-0 ny-transition-opacity ny-duration-300 ny-ease-in-out", {
+            "group-hover:ny-opacity-100": !open,
+            "ny-opacity-100": open,
           })}
         >
           <Button onClick={onAddNewNode} icon="Plus" />
           <Dropdown
             open={open}
-            className="flex justify-center items-center"
+            className="ny-flex ny-justify-center ny-items-center"
             onOpenChange={setOpen}
             trigger={["click"]}
             menu={{
@@ -64,7 +64,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   key: "clear_formatting",
                   onClick: onUnsetNode,
                   label: (
-                    <div className="flex items-center gap-2">
+                    <div className="ny-flex ny-items-center ny-gap-2">
                       <RemoveFormattingIcon size={14} />
                       <span>Clear formatting</span>
                     </div>
@@ -74,7 +74,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   key: "copy_clipboard",
                   onClick: onCopyNodeToClipboard,
                   label: (
-                    <div className="flex items-center gap-2">
+                    <div className="ny-flex ny-items-center ny-gap-2">
                       <ClipboardIcon size={14} />
                       <span>Copy to clipboard</span>
                     </div>
@@ -84,7 +84,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   key: "duplicate",
                   onClick: onDuplicateNode,
                   label: (
-                    <div className="flex items-center gap-2">
+                    <div className="ny-flex ny-items-center ny-gap-2">
                       <CopyIcon size={14} />
                       <span>Duplicate</span>
                     </div>
@@ -98,7 +98,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   danger: true,
                   onClick: deleteNode,
                   label: (
-                    <div className="flex items-center gap-2">
+                    <div className="ny-flex ny-items-center ny-gap-2">
                       <Trash2 size={14} />
                       <span>Delete</span>
                     </div>
@@ -113,7 +113,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
           <div />
         </div>
 
-        <NodeViewContent className="w-full px-2" />
+        <NodeViewContent className="ny-w-full ny-px-2" />
       </div>
     </NodeViewWrapper>
   );

@@ -117,11 +117,13 @@ export const MenuList = React.forwardRef((props: MenuListProps, ref) => {
   return (
     <div
       ref={scrollContainer}
-      className="bg-colorBgElevated rounded-md flex flex-col gap-1 max-h-80 overflow-y-auto scrollbar-thumb-controlItemBgHover scrollbar-thin scrollbar-track-transparent px-3 py-4"
+      className="ny-bg-colorBgElevated ny-rounded-md ny-flex ny-flex-col ny-gap-1 ny-max-h-80 ny-overflow-y-auto ny-scrollbar-thumb-controlItemBgHover ny-scrollbar-thin ny-scrollbar-track-transparent ny-px-3 ny-py-4"
     >
       {props.items.map((group, groupIndex: number) => (
-        <div key={group.title} data-group={groupIndex} className="flex flex-col gap-1">
-          <div className="text-colorTextSecondary uppercase font-semibold text-[0.65rem]">{group.title}</div>
+        <div key={group.title} data-group={groupIndex} className="ny-flex ny-flex-col ny-gap-1">
+          <div className="ny-text-colorTextSecondary ny-uppercase ny-font-semibold ny-text-[0.65rem]">
+            {group.title}
+          </div>
 
           <div>
             {group.commands.map((command: Command, commandIndex: number) => (
@@ -132,8 +134,8 @@ export const MenuList = React.forwardRef((props: MenuListProps, ref) => {
                 icon={<Icon name={command.iconName} />}
                 data-option={`group:${groupIndex}option:${commandIndex}`}
                 onClick={createCommandClickHandler(groupIndex, commandIndex)}
-                className={cls("flex justify-start items-center", {
-                  "bg-colorBgTextActive": selectedGroupIndex === groupIndex && selectedCommandIndex === commandIndex,
+                className={cls("ny-flex ny-justify-start ny-items-center", {
+                  "ny-bg-colorBgTextActive": selectedGroupIndex === groupIndex && selectedCommandIndex === commandIndex,
                 })}
               >
                 {command.label}

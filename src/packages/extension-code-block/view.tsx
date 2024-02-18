@@ -5,7 +5,7 @@ const View: React.FC = () => {
   return (
     <NodeViewWrapper>
       <Typography.Paragraph>
-        <pre className="!mt-0.5">
+        <pre className="!ny-mt-0.5">
           <code>
             <NodeViewContent />
           </code>

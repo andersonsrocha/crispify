@@ -50,7 +50,7 @@ export const Link: React.FC = () => {
             <Input placeholder="Enter URL" />
           </Form.Item>
 
-          <Form.Item name="inNewTab" valuePropName="checked" label="Open in new tab" className="my-3">
+          <Form.Item name="inNewTab" valuePropName="checked" label="Open in new tab" className="ny-my-3">
             <Switch />
           </Form.Item>
 

@@ -33,7 +33,7 @@ export interface EditorHeaderProps {
 
 export const EditorHeader: React.FC<EditorHeaderProps> = ({ fullscreen }) => {
   return (
-    <div id="editor_header" className="bg-colorBgElevated w-full border border-solid border-colorBorder rounded-t-md">
+    <div className="ny-editor__header ny-bg-colorBgElevated ny-w-full ny-border ny-border-solid ny-border-colorBorder ny-rounded-t-md">
       <MemoWrapper>
         <MemoMark type="bold" />
         <MemoMark type="italic" />

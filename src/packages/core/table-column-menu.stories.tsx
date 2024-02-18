@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const TableColumnMenu = () => {
   return (
-    <div className="bg-colorBgElevated shadow-xl shadow-black/70 border border-solid border-colorBorder rounded-md">
+    <div className="ny-bg-colorBgElevated ny-shadow-xl ny-shadow-black/70 ny-border ny-border-solid ny-border-colorBorder ny-rounded-md">
       <Action.Wrapper direction="vertical">
         <Button center={false} icon="ArrowLeftToLine">
           Add column before

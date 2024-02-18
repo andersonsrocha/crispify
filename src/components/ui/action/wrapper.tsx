@@ -8,9 +8,9 @@ type WrapperProps = {
 export const Wrapper: React.FC<React.PropsWithChildren<WrapperProps>> = ({ children, direction = "horizontal" }) => {
   return (
     <div
-      className={cls("overflow-hidden p-1 flex gap-0.5 flex-wrap", {
-        "items-center": direction === "horizontal",
-        "flex-col justify-center": direction === "vertical",
+      className={cls("ny-overflow-hidden ny-p-1 ny-flex ny-gap-0.5 ny-flex-wrap", {
+        "ny-items-center": direction === "horizontal",
+        "ny-flex-col ny-justify-center": direction === "vertical",
       })}
     >
       {children}

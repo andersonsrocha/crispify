@@ -27,13 +27,22 @@ const antd = () => {
     getDesignToken({ algorithm: theme.darkAlgorithm, token: { fontFamily: "'Inter', sans-serif" } })
   );
 
-  return createThemes({ light, dark }, { defaultTheme: { light: "light", dark: "dark" } });
+  return createThemes(
+    { light, dark },
+    {
+      defaultTheme: { light: "light", dark: "dark" },
+      produceCssVariable: (name) => `--ny-${name}`,
+      produceThemeClass: (name) => `ny-${name}`,
+      produceThemeVariant: (name) => `ny-${name}`,
+    }
+  );
 };
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.tsx"],
   darkMode: ["class", "[data-theme='dark']"],
+  prefix: "ny-",
   theme: {
     colors: { ...presetPalettes, gray, white: "#FFFFFF", black: "#000000", transparent: "transparent" },
     extend: {},
