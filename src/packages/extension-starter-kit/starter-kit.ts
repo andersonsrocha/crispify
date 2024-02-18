@@ -4,7 +4,6 @@ import { AnyExtension, Extension } from "@tiptap/core";
 import { Block } from "@/packages/extension-block";
 import { Blockquote, BlockquoteOptions } from "@/packages/extension-blockquote";
 import { Code, CodeOptions } from "@/packages/extension-code";
-import { CodeBlock, CodeBlockOptions } from "@/packages/extension-code-block";
 import { Column } from "@/packages/extension-column";
 import { Columns } from "@/packages/extension-columns";
 import { Document } from "@/packages/extension-document";
@@ -23,6 +22,7 @@ import { TableRow } from "@/packages/extension-table-row";
 import { TrailingNode } from "@/packages/extension-trailing-node";
 import { Bold, BoldOptions } from "@tiptap/extension-bold";
 import { BulletList, BulletListOptions } from "@tiptap/extension-bullet-list";
+import { CodeBlock } from "@/packages/extension-code-block";
 import { Color } from "@tiptap/extension-color";
 import { Dropcursor, DropcursorOptions } from "@tiptap/extension-dropcursor";
 import Focus from "@tiptap/extension-focus";
@@ -46,6 +46,7 @@ import { Text } from "@tiptap/extension-text";
 import { TextAlign, TextAlignOptions } from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Underline, UnderlineOptions } from "@tiptap/extension-underline";
+import { common, createLowlight } from "lowlight";
 
 export type StarterKitOptions = {
   leftMenu?: boolean;
@@ -53,7 +54,7 @@ export type StarterKitOptions = {
   bold: Partial<BoldOptions> | false;
   bulletList: Partial<BulletListOptions> | false;
   code: Partial<CodeOptions> | false;
-  codeBlock: Partial<CodeBlockOptions> | false;
+  codeBlock: false;
   dropcursor: Partial<DropcursorOptions> | false;
   gapcursor: false;
   hardBreak: Partial<HardBreakOptions> | false;
@@ -80,6 +81,8 @@ export type StarterKitOptions = {
   textAlign: Partial<TextAlignOptions> | false;
   pageBreak: Partial<PageBreakOptions> | false;
 };
+
+const lowlight = createLowlight(common);
 
 export const StarterKit = Extension.create<StarterKitOptions>({
   name: "starterKit",
@@ -192,7 +195,12 @@ export const StarterKit = Extension.create<StarterKitOptions>({
     }
 
     if (this.options.codeBlock !== false) {
-      extensions.push(CodeBlock.configure(this.options?.codeBlock));
+      extensions.push(
+        CodeBlock.configure({
+          lowlight,
+          defaultLanguage: null,
+        })
+      );
     }
 
     if (this.options.dropcursor !== false) {

@@ -1,4 +1,5 @@
 import { theme } from "antd";
+import { presetPalettes, gray } from "@ant-design/colors";
 import { createThemes } from "tw-colors";
 import _ from "lodash";
 
@@ -34,14 +35,10 @@ export default {
   content: ["./src/**/*.tsx"],
   darkMode: ["class", "[data-theme='dark']"],
   theme: {
-    extend: {
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
-      },
-    },
+    colors: { ...presetPalettes, gray, white: "#FFFFFF", black: "#000000", transparent: "transparent" },
+    extend: {},
   },
   corePlugins: {
-    colors: false,
     preflight: false,
   },
   plugins: [require("tailwind-scrollbar"), antd()],

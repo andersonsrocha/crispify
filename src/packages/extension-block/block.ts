@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from "@tiptap/core";
 import { ReactNodeViewRenderer } from "@tiptap/react";
+import { isCustomNodeSelected } from "@/packages/core/helpers";
 
 import { View } from "./view";
 
@@ -64,14 +65,18 @@ export const Block = Node.create({
     return {
       "Mod-Alt-0": () => this.editor.commands.setNodeBlock(),
       Enter: ({ editor }) => {
-        const {
-          selection: { $head, from, to },
-          doc,
-        } = editor.state;
+        const { selection, doc } = editor.state;
+        const { $head, from, to } = selection;
 
         const parent = $head.node($head.depth - 1);
 
-        if (parent.type.name !== "nodeblock" || parent.textContent.startsWith("/")) return false;
+        if (
+          parent.type.name !== "nodeblock" ||
+          parent.textContent.startsWith("/") ||
+          isCustomNodeSelected(editor, $head.parent)
+        ) {
+          return false;
+        }
 
         let currentActiveNodeTo = -1;
 
