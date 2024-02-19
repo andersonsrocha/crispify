@@ -30,7 +30,7 @@ const antd = () => {
   return createThemes(
     { light, dark },
     {
-      defaultTheme: { light: "light", dark: "dark" },
+      defaultTheme: "light",
       produceCssVariable: (name) => `--ny-${name}`,
       produceThemeClass: (name) => `ny-${name}`,
       produceThemeVariant: (name) => `ny-${name}`,
