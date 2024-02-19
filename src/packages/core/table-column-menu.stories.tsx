@@ -14,6 +14,9 @@ const TableColumnMenu = () => {
         <Button center={false} icon="ArrowRightToLine">
           Add column after
         </Button>
+        <Button center={false} icon="Paintbrush2">
+          Add color line
+        </Button>
         <Button center={false} icon="Trash2">
           Delete column
         </Button>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Editor } from "@tiptap/react";
-import { LucideIconNames } from "@/packages/core";
 
+import { LucideIconNames } from "../icon";
 import { Button, ButtonProps } from "../button";
 
 type BreakProps = { type: "page" | "hard"; editor: Editor | null };

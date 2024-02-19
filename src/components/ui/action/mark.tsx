@@ -1,7 +1,7 @@
 import React from "react";
-import { LucideIconNames } from "@/packages/core";
 import { Editor } from "@tiptap/react";
 
+import { LucideIconNames } from "../icon";
 import { Button, ButtonProps } from "../button";
 
 import { MarkType, CommandArgs, CommandMarkType } from "@/types";

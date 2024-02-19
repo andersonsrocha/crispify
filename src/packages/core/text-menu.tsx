@@ -5,6 +5,7 @@ import { Action } from "@/components/ui/action";
 import { MenuProps, ShouldShowProps } from "@/types";
 
 import { BaseBubbleMenu } from "./base-bubble-menu";
+import { isCellSelection } from "./helpers/_internal_/isCellSelection";
 
 // We memorize the button so each button is not rerendered
 // on every editor state change
@@ -14,8 +15,8 @@ const MemoMore = React.memo(Action.More);
 
 export const TextMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
   const shouldShow = React.useCallback(
-    ({ view, from }: ShouldShowProps) => {
-      if (!view || !editor) {
+    ({ state, view, from }: ShouldShowProps) => {
+      if (!state || !view || !editor) {
         return false;
       }
 
@@ -27,7 +28,7 @@ export const TextMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
         return false;
       }
 
-      return isTextSelected({ editor });
+      return isTextSelected({ editor }) && !isCellSelection(state.selection);
     },
     [editor]
   );

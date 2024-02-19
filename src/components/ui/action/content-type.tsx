@@ -2,10 +2,10 @@ import React from "react";
 import { Editor } from "@tiptap/react";
 import { Dropdown, MenuProps } from "antd";
 import { ChevronDown } from "lucide-react";
-import { Icon, LucideIconNames } from "@/packages/core";
 import _ from "lodash";
 
 import { Button } from "../button";
+import { Icon, LucideIconNames } from "../icon";
 
 type Level = 1 | 2 | 3 | 4 | 5;
 

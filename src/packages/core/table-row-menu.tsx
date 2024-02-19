@@ -1,4 +1,5 @@
 import React from "react";
+import { ColorPicker } from "antd";
 import { isRowGripSelected } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,17 @@ export const TableRowMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
     editor?.chain().focus().addRowAfter().run();
   }, [editor]);
 
+  const onAddColorRow = React.useCallback(
+    (color: string) => {
+      editor?.chain().focus().setCellAttribute("style", `background-color: ${color}`).run();
+    },
+    [editor]
+  );
+
+  const onUnsetColorRow = React.useCallback(() => {
+    editor?.chain().focus().setCellAttribute("style", "background-color: initial").run();
+  }, [editor]);
+
   const onDeleteRow = React.useCallback(() => {
     editor?.chain().focus().deleteRow().run();
   }, [editor]);
@@ -42,6 +54,7 @@ export const TableRowMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
       updateDelay={0}
       tippyOptions={{
         offset: [0, 8],
+        zIndex: 900,
         placement: "left",
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
@@ -56,6 +69,19 @@ export const TableRowMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
         <Button center={false} icon="ArrowDownToLine" onClick={onAddRowAfter}>
           Add row after
         </Button>
+        <ColorPicker
+          allowClear
+          destroyTooltipOnHide
+          value={editor?.getAttributes("textStyle")?.color || "#FFFFFF"}
+          onChange={(value) => onAddColorRow(value.toHexString())}
+          onClear={onUnsetColorRow}
+        >
+          <div className="ny-w-full">
+            <Button block center={false} icon="Paintbrush2">
+              Add color line
+            </Button>
+          </div>
+        </ColorPicker>
         <Button center={false} icon="Trash2" onClick={onDeleteRow}>
           Delete row
         </Button>

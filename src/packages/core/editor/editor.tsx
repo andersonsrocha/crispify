@@ -8,6 +8,7 @@ import _ from "lodash";
 import { EditorHeader } from "./editor-header";
 import { ImageMenu } from "../image-menu";
 import { ColumnsMenu } from "../columns-menu";
+import { TableMenu } from "../table-menu";
 import { TableRowMenu } from "../table-row-menu";
 import { TableColumnMenu } from "../table-column-menu";
 import { TextMenu } from "../text-menu";
@@ -68,6 +69,8 @@ export const Notyist: React.FC<NotyistProps> = (props) => {
         <TextMenu appendTo={containerRef} editor={editor} />
 
         <ColumnsMenu appendTo={containerRef} editor={editor} />
+
+        <TableMenu appendTo={containerRef} editor={editor} />
 
         <TableRowMenu appendTo={containerRef} editor={editor} />
 

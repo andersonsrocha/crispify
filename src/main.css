@@ -13,12 +13,18 @@
   }
 }
 
+.ProseMirror *,
+.ProseMirror ::before,
+.ProseMirror ::after {
+  @apply ny-box-border ny-border-0 ny-border-solid ny-border-white;
+}
+
 .ny-editor__container {
   @apply ny-flex ny-flex-col;
 }
 
 .ny-editor__container .ny-editor__content {
-  @apply ny-h-[--ny-editor-height] ny-overflow-y-auto ny-border-solid ny-border-colorBorder ny-border-[length:--ny-editor-border-width] ny-border-t-[length:--ny-editor-border-top-width];
+  @apply ny-pt-4 ny-h-[--ny-editor-height] ny-overflow-y-auto ny-border-solid ny-border-colorBorder ny-border-[length:--ny-editor-border-width] ny-border-t-[length:--ny-editor-border-top-width];
 }
 
 /** Fullscreen */
@@ -33,6 +39,12 @@
 
 .ny-editor__container.noty-editor__fullscreen .ny-editor__content {
   @apply ny-flex-1;
+}
+
+/** Focus */
+.ProseMirror .has-focus:is(table),
+.ProseMirror .node-image.has-focus img {
+  @apply ny-border-2 ny-border-solid ny-border-colorPrimary;
 }
 
 /** Paragraph */
@@ -98,12 +110,6 @@
 }
 
 /** Table */
-.ProseMirror *,
-.ProseMirror ::before,
-.ProseMirror ::after {
-  @apply ny-box-border ny-border-0 ny-border-solid ny-border-white;
-}
-
 .ProseMirror.resize-cursor {
   @apply ny-cursor-col-resize;
 }
@@ -114,12 +120,17 @@
 }
 
 .ProseMirror table {
-  @apply ny-border-collapse ny-border-colorBorder ny-rounded ny-box-border ny-w-full;
+  @apply ny-border-collapse ny-rounded ny-box-border ny-w-full;
 }
 
 .ProseMirror table td,
 .ProseMirror table th {
-  @apply ny-border !ny-border-colorBorder ny-min-w-[100px] ny-p-2 ny-relative ny-text-left ny-align-top;
+  @apply ny-min-w-[100px] ny-p-2 ny-relative ny-text-left ny-align-top;
+}
+
+.ProseMirror table[border="1"] td,
+.ProseMirror table[border="1"] th {
+  @apply ny-border !ny-border-colorBorder;
 }
 
 .ProseMirror table td:first-child:not(a),
@@ -151,7 +162,7 @@
 }
 
 .ProseMirror table .selectedCell {
-  @apply ny-bg-colorBgBlur ny-border-colorBorder ny-border-double;
+  @apply ny-bg-colorBgTextHover ny-border-colorBorder ny-border-double;
 }
 
 .ProseMirror table .grip-column,

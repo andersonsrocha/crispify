@@ -1,6 +1,6 @@
 import React from "react";
 import { Button as AntButton, Tooltip, ButtonProps as AntButtonProps, TooltipProps, Typography } from "antd";
-import { Icon, IconProps, LucideIconNames } from "@/packages/core";
+import { Icon, IconProps, LucideIconNames } from "../icon";
 import { icons } from "lucide-react";
 import cls from "classnames";
 
@@ -15,6 +15,7 @@ export type ButtonProps = Pick<AntButtonProps, "onClick"> & {
   icon?: LucideIconNames | IconProps;
   children?: React.ReactNode;
   center?: boolean;
+  block?: boolean;
 };
 
 const { Text } = Typography;

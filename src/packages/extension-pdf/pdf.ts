@@ -111,4 +111,10 @@ export const PDF = Extension.create<PDFOptions>({
         },
     };
   },
+
+  addKeyboardShortcuts() {
+    return {
+      "Mod-p": () => this.editor.commands.addToPDF(),
+    };
+  },
 });

@@ -1,4 +1,5 @@
 import "antd/dist/reset.css";
+import "@/main.css";
 
 import type { Preview } from "@storybook/react";
 

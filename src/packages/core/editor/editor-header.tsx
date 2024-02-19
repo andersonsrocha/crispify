@@ -1,7 +1,7 @@
 import React from "react";
+import { Editor } from "@tiptap/react";
 import { Action } from "@/components/ui/action";
 import { FullScreenProps } from "@/components/ui/action/full-screen";
-import { Editor } from "@tiptap/react";
 
 // We memorize the button so each button is not rerendered
 // on every editor state change

@@ -7,32 +7,32 @@ const TextMenu = () => {
   return (
     <div className="ny-bg-colorBgElevated ny-shadow-xl ny-shadow-black/70 ny-border ny-border-solid ny-border-colorBorder ny-rounded-md">
       <Action.Wrapper>
-        <Action.ContentType />
-        <Action.Font />
-        <Action.FontSize />
+        <Action.ContentType editor={null} />
+        <Action.Font editor={null} />
+        <Action.FontSize editor={null} />
 
         <Action.Divider />
 
-        <Action.Mark type="bold" />
-        <Action.Mark type="italic" />
-        <Action.Mark type="underline" />
-        <Action.Mark type="strike" />
-        <Action.Mark type="code" />
-        <Action.Mark type="blockquote" />
-        <Action.Link />
-        <Action.Highlight />
-        <Action.Color />
+        <Action.Mark editor={null} type="bold" />
+        <Action.Mark editor={null} type="italic" />
+        <Action.Mark editor={null} type="underline" />
+        <Action.Mark editor={null} type="strike" />
+        <Action.Mark editor={null} type="code" />
+        <Action.Mark editor={null} type="blockquote" />
+        <Action.Link editor={null} />
+        <Action.Highlight editor={null} />
+        <Action.Color editor={null} />
 
         <Action.More>
-          <Action.Mark type="subscript" />
-          <Action.Mark type="superscript" />
+          <Action.Mark editor={null} type="subscript" />
+          <Action.Mark editor={null} type="superscript" />
 
           <Action.Divider />
 
-          <Action.Align type="left" />
-          <Action.Align type="center" />
-          <Action.Align type="right" />
-          <Action.Align type="justify" />
+          <Action.Align editor={null} type="left" />
+          <Action.Align editor={null} type="center" />
+          <Action.Align editor={null} type="right" />
+          <Action.Align editor={null} type="justify" />
         </Action.More>
       </Action.Wrapper>
     </div>
@@ -62,7 +62,7 @@ export const Dark: StoryObj<typeof TextMenu> = {
   decorators: [
     (Story) => {
       return (
-        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <ConfigProvider prefixCls="ny" iconPrefixCls="ny" theme={{ algorithm: theme.darkAlgorithm }}>
           <div data-theme="dark" className="ny-flex ny-justify-center">
             <div className="ny-max-w-3xl">{Story()}</div>
           </div>

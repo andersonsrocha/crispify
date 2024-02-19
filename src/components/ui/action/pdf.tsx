@@ -10,7 +10,7 @@ export const Pdf: React.FC<{ editor: Editor | null }> = ({ editor }) => {
 
   return (
     <React.Fragment>
-      <Button icon="Printer" tip="Export to PDF" onClick={onExecCommand} />
+      <Button icon="Printer" tip="Export to PDF" shortcut={["Command", "P"]} onClick={onExecCommand} />
     </React.Fragment>
   );
 };

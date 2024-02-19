@@ -1,14 +1,30 @@
 import { ConfigProvider, theme } from "antd";
-import { EditorHeader } from "@/packages/core/editor";
+import { Action } from "@/components/ui/action";
+import { Button } from "@/components/ui/button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
+const TableMenu = () => {
+  return (
+    <div className="ny-bg-colorBgElevated ny-shadow-xl ny-shadow-black/70 ny-border ny-border-solid ny-border-colorBorder ny-rounded-md">
+      <Action.Wrapper>
+        <Button tip="Delete" icon="Trash2" />
+
+        <Action.Divider />
+
+        <Button tip="Table border" icon="SquareDashedBottom" />
+        <Button icon="Table2" tip="Merge cells" />
+      </Action.Wrapper>
+    </div>
+  );
+};
+
 export default {
-  title: "Editor UI/Editor Header",
-  component: EditorHeader,
+  title: "Menus UI/Table Menu",
+  component: TableMenu,
 } as Meta;
 
-export const Light: StoryObj<typeof EditorHeader> = {
+export const Light: StoryObj<typeof TableMenu> = {
   decorators: [
     (Story) => {
       return (
@@ -22,7 +38,7 @@ export const Light: StoryObj<typeof EditorHeader> = {
   ],
 };
 
-export const Dark: StoryObj<typeof EditorHeader> = {
+export const Dark: StoryObj<typeof TableMenu> = {
   decorators: [
     (Story) => {
       return (

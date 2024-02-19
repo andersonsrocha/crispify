@@ -14,6 +14,9 @@ const TableRowMenu = () => {
         <Button center={false} icon="ArrowDownToLine">
           Add row after
         </Button>
+        <Button center={false} icon="Paintbrush2">
+          Add color line
+        </Button>
         <Button center={false} icon="Trash2">
           Delete row
         </Button>

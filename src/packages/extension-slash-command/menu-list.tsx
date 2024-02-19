@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "@/packages/core";
 import { Button } from "antd";
+import { Icon } from "@/components/ui/icon";
 import cls from "classnames";
 
 import { MenuListProps, Command } from "@/types";

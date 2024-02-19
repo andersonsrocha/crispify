@@ -1,8 +1,24 @@
 import TiptapTable from "@tiptap/extension-table";
 
+declare module "@tiptap/core" {
+  interface Commands<ReturnType> {
+    tableExtends: {
+      setTableBorder: () => ReturnType;
+      unsetTableBorder: () => ReturnType;
+    };
+  }
+}
+
 export const Table = TiptapTable.extend({
   addAttributes() {
     return {
+      type: {
+        renderHTML: () => {
+          return {
+            "data-type": "table",
+          };
+        },
+      },
       /**
        * Add spacing between cells.
        */
@@ -12,7 +28,6 @@ export const Table = TiptapTable.extend({
         // Add `cellspacing` properties for email and word compatibility.
         renderHTML: (attributes) => {
           return {
-            "data-cellspacing": attributes.spacing,
             cellspacing: attributes.spacing,
           };
         },
@@ -21,12 +36,11 @@ export const Table = TiptapTable.extend({
        * Add internal space to cells.
        */
       padding: {
-        default: "2",
+        default: "0",
         parseHTML: (element) => element.getAttribute("data-cellpadding"),
         // Add `cellpadding` properties for email and word compatibility.
         renderHTML: (attributes) => {
           return {
-            "data-cellpadding": attributes.padding,
             cellpadding: attributes.padding,
           };
         },
@@ -40,11 +54,24 @@ export const Table = TiptapTable.extend({
         // Add `border` properties for email and word compatibility.
         renderHTML: (attributes) => {
           return {
-            "data-border": attributes.border,
             border: attributes.border,
           };
         },
       },
+    };
+  },
+
+  addCommands() {
+    return {
+      ...this.parent?.(),
+      setTableBorder:
+        () =>
+        ({ chain }) =>
+          chain().updateAttributes("table", { border: "1" }).run(),
+      unsetTableBorder:
+        () =>
+        ({ chain }) =>
+          chain().updateAttributes("table", { border: "0" }).run(),
     };
   },
 }).configure({

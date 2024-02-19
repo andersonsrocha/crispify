@@ -1,4 +1,5 @@
 import React from "react";
+import { ColorPicker } from "antd";
 import { isColumnGripSelected } from "@/packages/core/helpers";
 import { Action } from "@/components/ui/action";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,17 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
     editor?.chain().focus().addColumnAfter().run();
   }, [editor]);
 
+  const onAddColorColumn = React.useCallback(
+    (color: string) => {
+      editor?.chain().focus().setCellAttribute("style", `background-color: ${color}`).run();
+    },
+    [editor]
+  );
+
+  const onUnsetColorColumn = React.useCallback(() => {
+    editor?.chain().focus().setCellAttribute("style", "background-color: initial").run();
+  }, [editor]);
+
   const onDeleteColumn = React.useCallback(() => {
     editor?.chain().focus().deleteColumn().run();
   }, [editor]);
@@ -42,6 +54,7 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
       updateDelay={0}
       tippyOptions={{
         offset: [0, 8],
+        zIndex: 900,
         popperOptions: {
           modifiers: [{ name: "flip", enabled: false }],
         },
@@ -55,6 +68,19 @@ export const TableColumnMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
         <Button center={false} icon="ArrowRightToLine" onClick={onAddColumnAfter}>
           Add column after
         </Button>
+        <ColorPicker
+          allowClear
+          destroyTooltipOnHide
+          value={editor?.getAttributes("textStyle")?.color || "#FFFFFF"}
+          onChange={(value) => onAddColorColumn(value.toHexString())}
+          onClear={onUnsetColorColumn}
+        >
+          <div className="ny-w-full">
+            <Button block center={false} icon="Paintbrush2">
+              Add color line
+            </Button>
+          </div>
+        </ColorPicker>
         <Button center={false} icon="Trash2" onClick={onDeleteColumn}>
           Delete column
         </Button>

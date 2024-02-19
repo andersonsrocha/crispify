@@ -9,9 +9,9 @@ export interface FullScreenProps {
   appendTo: React.RefObject<HTMLDivElement>;
 }
 
-export const FullScreen: React.FC<FullScreenProps> = ({ appendTo: { current } }) => {
+export const FullScreen: React.FC<FullScreenProps> = ({ appendTo }) => {
   const [show, toggle] = React.useReducer((_state) => {
-    current?.classList.toggle("noty-editor__fullscreen");
+    appendTo.current?.classList.toggle("noty-editor__fullscreen");
     return !_state;
   }, false);
 
