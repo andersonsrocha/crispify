@@ -1,4 +1,9 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "typeRoots": ["./dist/index.d.ts", "node_modules/@types"]
+  },
+  "include": ["./index.ts"],
   "exclude": ["**/__mocks__/**/*", "**/__tests__/**/*", "**/*.test.*", "**/*.stories.*"]
 }
