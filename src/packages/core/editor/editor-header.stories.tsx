@@ -1,12 +1,12 @@
 import { ConfigProvider, theme } from "antd";
 import { EditorHeader } from "@/packages/core/editor";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 export default {
   title: "Editor UI/Editor Header",
   component: EditorHeader,
-} as Meta;
+};
 
 export const Light: StoryObj<typeof EditorHeader> = {
   decorators: [

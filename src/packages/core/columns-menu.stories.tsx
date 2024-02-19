@@ -2,7 +2,7 @@ import { ConfigProvider, theme } from "antd";
 import { Action } from "@/components/ui/action";
 import { Button } from "@/components/ui/button";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 const ColumnsMenu = () => {
   return (
@@ -23,7 +23,7 @@ const ColumnsMenu = () => {
 export default {
   title: "Menus UI/Columns Menu",
   component: ColumnsMenu,
-} as Meta;
+};
 
 export const Light: StoryObj<typeof ColumnsMenu> = {
   decorators: [

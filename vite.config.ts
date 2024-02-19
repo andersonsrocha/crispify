@@ -20,10 +20,11 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "antd"],
       output: {
         globals: {
           react: "React",
+          antd: "antd",
           "react-dom": "ReactDOM",
         },
       },

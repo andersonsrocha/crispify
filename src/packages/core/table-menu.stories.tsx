@@ -2,7 +2,7 @@ import { ConfigProvider, theme } from "antd";
 import { Action } from "@/components/ui/action";
 import { Button } from "@/components/ui/button";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 const TableMenu = () => {
   return (
@@ -22,7 +22,7 @@ const TableMenu = () => {
 export default {
   title: "Menus UI/Table Menu",
   component: TableMenu,
-} as Meta;
+};
 
 export const Light: StoryObj<typeof TableMenu> = {
   decorators: [

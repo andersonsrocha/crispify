@@ -3,7 +3,7 @@ import { content } from "@/lib/data/content";
 
 import { Notyist } from "./editor";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 export default {
   title: "Editor UI/Notyist",
@@ -11,7 +11,7 @@ export default {
   args: {
     content,
   },
-} as Meta;
+};
 
 export const WYSIWYG: StoryObj<typeof Notyist> = {
   args: {

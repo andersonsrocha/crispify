@@ -1,7 +1,7 @@
 import { ConfigProvider, theme } from "antd";
 import { Action } from "@/components/ui/action";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 const TextMenu = () => {
   return (
@@ -42,7 +42,7 @@ const TextMenu = () => {
 export default {
   title: "Menus UI/Text Menu",
   component: TextMenu,
-} as Meta;
+};
 
 export const Light: StoryObj<typeof TextMenu> = {
   decorators: [

@@ -23,9 +23,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --p ./tsconfig.build.json && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && npm version patch",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -72,7 +72,6 @@
     "@tiptap/pm": "^2.2.2",
     "@tiptap/react": "^2.2.2",
     "@tiptap/suggestion": "^2.2.2",
-    "antd": "^5.14.0",
     "classnames": "^2.5.1",
     "lodash": "^4.17.21",
     "lowlight": "^3.1.0",
