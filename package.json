@@ -24,6 +24,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build",
+    "build:preview": "tsc && vite build -c vite.preview.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepublishOnly": "npm version patch && npm run build",
     "preview": "vite preview",
