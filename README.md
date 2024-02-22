@@ -4,13 +4,13 @@
   <br/>
   <br/>
   <div>⌨️</div>
-  <b>notyist</b>
+  <b>crispify</b>
   <br/>
   <br/>
   <br/>
 </h1>
 
-Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing React component. The component has full integration with [Ant Design](https://ant.design/) and [Tailwind](https://tailwindcss.com/), taking advantage of its native theme and components.
+Crispify is a powerful [Tiptap](https://tiptap.dev/)-based block text editing React component. The component has full integration with [Ant Design](https://ant.design/) and [Tailwind](https://tailwindcss.com/), taking advantage of its native theme and components.
 
 </div>
 
@@ -20,13 +20,13 @@ Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing Rea
 
 <div align="center">
   
-[![npm Version](https://img.shields.io/npm/v/@andser/notyist)](https://www.npmjs.com/package/@andser/notyist)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/%40andser%2Fnotyist)](https://bundlephobia.com/package/@andser/notyist)
-[![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/notyist?color=blue)](https://npmtrends.com/@andser/notyist)
+[![npm Version](https://img.shields.io/npm/v/@andser/crispify)](https://www.npmjs.com/package/@andser/crispify)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/%40andser%2Fcrispify)](https://bundlephobia.com/package/@andser/crispify)
+[![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/crispify?color=blue)](https://npmtrends.com/@andser/crispify)
 [![semantic-release: Conventional Commits](https://img.shields.io/badge/semantic--release-Conventional%20Commits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
-![GitHub License](https://img.shields.io/github/license/andersonsrocha/notyist)
-![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/notyist/peer/antd?style=flat&logo=ant-design&logoColor=0170FE&label=Ant%20Design)
-![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/notyist/dev/tailwindcss?style=flat&logo=tailwindcss&label=tailwindcss)
+![GitHub License](https://img.shields.io/github/license/andersonsrocha/crispify)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/crispify/peer/antd?style=flat&logo=ant-design&logoColor=0170FE&label=Ant%20Design)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/crispify/dev/tailwindcss?style=flat&logo=tailwindcss&label=tailwindcss)
 
 </div>
 
@@ -50,10 +50,10 @@ Notyist is a powerful [Tiptap](https://tiptap.dev/)-based block text editing Rea
 
 ## 📦 Installation
 
-To install `@andser/notyist`, run the following command:
+To install `@cygne/crispify`, run the following command:
 
 ```bash
-$ npm install --save @andser/notyist
+$ npm install --save @cygne/crispify
 ```
 
 <br/>
@@ -72,7 +72,7 @@ $ npm install --save @andser/notyist
   - [x] ~~Resize rows and columns.~~
 - [x] ~~Markdown.~~
 - [x] ~~Open in fullscreen.~~
-- [ ] Replace component node.
+- [x] ~~Mention component node.~~
 - [ ] Comment component node.
 
 <br/>
@@ -81,7 +81,7 @@ $ npm install --save @andser/notyist
 
 > \[!NOTE]
 >
-> Notyist is a rich-text editing component that integrates with your application. Here's what makes it exceptional:
+> Crispify is a rich-text editing component that integrates with your application. Here's what makes it exceptional:
 
 - 🎨 **Tailwind**: Produced with the tailwindcss library, it has very simple and concise styling. The addition of tailwind offers the opportunity for very seamless customization using the Ant Design design system.
 - 🚀 **Ant Design**: The addition of the Ant Design library gives you the opportunity to experience a rich-text editor directly integrated with your application's theme, enabling very consistent production.
@@ -107,5 +107,5 @@ Copyright © 2024. <br/> This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
-[pr-welcome-link]: https://github.com/andersonsrocha/notyist/pulls
+[pr-welcome-link]: https://github.com/andersonsrocha/crispify/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/%E2%9D%A4%EF%B8%8F%20PR%20WELCOME-%E2%86%92-1677FF?labelColor=black&style=for-the-badge

@@ -16,7 +16,7 @@ import { Provider } from "../providers";
 
 import "@/main.css";
 
-type NotyistProps = {
+type CrispifyProps = {
   editable?: boolean;
   bordered?: boolean;
   config?: Partial<StarterKitOptions>;
@@ -25,7 +25,7 @@ type NotyistProps = {
   height?: string | number;
 };
 
-export const Notyist: React.FC<NotyistProps> = (props) => {
+export const Crispify: React.FC<CrispifyProps> = (props) => {
   const { bordered, config, editable = true, mode = "WYSIWYG", height = 350 } = props;
 
   const containerRef = React.useRef<HTMLDivElement>(null);
