@@ -45,7 +45,12 @@ export default {
   prefix: "ny-",
   theme: {
     colors: { ...presetPalettes, gray, white: "#FFFFFF", black: "#000000", transparent: "transparent" },
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: "'Inter', sans-serif",
+        jetbrains: "'JetBrains Mono', monospace",
+      },
+    },
   },
   corePlugins: {
     preflight: false,

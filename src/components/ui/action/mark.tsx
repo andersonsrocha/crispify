@@ -6,7 +6,7 @@ import { Button, ButtonProps } from "../button";
 
 import { MarkType, CommandArgs, CommandMarkType } from "@/types";
 
-type Types = Exclude<MarkType, "link" | "highlight" | "textStyle" | "highlight"> | "blockquote";
+type Types = Exclude<MarkType, "link" | "highlight" | "textStyle" | "highlight">;
 
 type MarkProps = { editor: Editor | null; type: Types };
 
@@ -18,7 +18,6 @@ const icons: Record<Types, LucideIconNames> = {
   subscript: "Subscript",
   superscript: "Superscript",
   underline: "Underline",
-  blockquote: "Quote",
 };
 
 const tips: Record<Types, string> = {
@@ -29,7 +28,6 @@ const tips: Record<Types, string> = {
   subscript: "Subscript",
   superscript: "Superscript",
   underline: "Underline",
-  blockquote: "Blockquote",
 };
 
 const shortcuts: Record<Types, ButtonProps["shortcut"]> = {
@@ -40,7 +38,6 @@ const shortcuts: Record<Types, ButtonProps["shortcut"]> = {
   subscript: ["Command", "."],
   superscript: ["Command", ","],
   underline: ["Command", "U"],
-  blockquote: ["Command", "ArrowBigUp", "B"],
 };
 
 export const Mark: React.FC<MarkProps> = ({ editor, type }) => {
@@ -53,7 +50,6 @@ export const Mark: React.FC<MarkProps> = ({ editor, type }) => {
       underline: "toggleUnderline",
       subscript: "toggleSubscript",
       superscript: "toggleSuperscript",
-      blockquote: "toggleBlockquote",
     };
 
     const command = commands[mark];

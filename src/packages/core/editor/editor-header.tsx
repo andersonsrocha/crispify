@@ -7,7 +7,6 @@ import { FullScreenProps } from "@/components/ui/action/full-screen";
 // on every editor state change
 const MemoDivider = React.memo(Action.Divider);
 const MemoWrapper = React.memo(Action.Wrapper);
-const MemoPdf = React.memo(Action.Pdf);
 const MemoFullScreen = React.memo(Action.FullScreen);
 
 export interface EditorHeaderProps {
@@ -26,8 +25,9 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({ editor, fullscreen }
         <Action.Mark editor={editor} type="italic" />
         <Action.Mark editor={editor} type="underline" />
         <Action.Mark editor={editor} type="strike" />
-        <Action.Mark editor={editor} type="blockquote" />
+        <Action.Node editor={editor} type="blockquote" />
         <Action.Mark editor={editor} type="code" />
+        <Action.Node editor={editor} type="codeBlock" />
         <Action.Link editor={editor} />
         <Action.Highlight editor={editor} />
         <Action.Color editor={editor} />
@@ -40,8 +40,8 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({ editor, fullscreen }
 
         <Action.Space />
 
-        <Action.Undo editor={editor} />
-        <Action.Redo editor={editor} />
+        <Action.Node editor={editor} type="undo" />
+        <Action.Node editor={editor} type="redo" />
       </MemoWrapper>
       <MemoWrapper>
         <Action.Mark editor={editor} type="subscript" />
@@ -57,18 +57,18 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({ editor, fullscreen }
         <MemoDivider />
 
         <Action.Table editor={editor} />
-        <Action.Image editor={editor} />
+        <Action.Node editor={editor} type="image" />
         <Action.Columns editor={editor} />
 
         <MemoDivider />
 
-        <Action.Rule editor={editor} />
+        <Action.Node editor={editor} type="rule" />
         <Action.Break editor={editor} type="hard" />
         <Action.Break editor={editor} type="page" />
 
         <MemoDivider />
 
-        <MemoPdf editor={editor} />
+        <Action.Node editor={editor} type="pdf" />
         <MemoFullScreen {...fullscreen} />
       </MemoWrapper>
     </div>

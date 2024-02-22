@@ -65,7 +65,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   onClick: onUnsetNode,
                   label: (
                     <div className="ny-flex ny-items-center ny-gap-2">
-                      <RemoveFormattingIcon size={14} />
+                      <RemoveFormattingIcon />
                       <span>Clear formatting</span>
                     </div>
                   ),
@@ -75,7 +75,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   onClick: onCopyNodeToClipboard,
                   label: (
                     <div className="ny-flex ny-items-center ny-gap-2">
-                      <ClipboardIcon size={14} />
+                      <ClipboardIcon />
                       <span>Copy to clipboard</span>
                     </div>
                   ),
@@ -85,7 +85,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   onClick: onDuplicateNode,
                   label: (
                     <div className="ny-flex ny-items-center ny-gap-2">
-                      <CopyIcon size={14} />
+                      <CopyIcon />
                       <span>Duplicate</span>
                     </div>
                   ),
@@ -99,7 +99,7 @@ const View: React.FC<NodeViewProps> = ({ node, editor, getPos, deleteNode }) => 
                   onClick: deleteNode,
                   label: (
                     <div className="ny-flex ny-items-center ny-gap-2">
-                      <Trash2 size={14} />
+                      <Trash2 />
                       <span>Delete</span>
                     </div>
                   ),

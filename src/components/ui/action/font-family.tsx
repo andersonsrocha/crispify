@@ -44,7 +44,7 @@ export const Font: React.FC<{ editor: Editor | null }> = ({ editor }) => {
       }}
     >
       <Button icon="Type">
-        <ChevronDown size={14} />
+        <ChevronDown />
       </Button>
     </Dropdown>
   );

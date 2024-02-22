@@ -3,7 +3,6 @@ import { AnyExtension, Extension } from "@tiptap/core";
 
 import { Block } from "@/packages/extension-block";
 import { Blockquote, BlockquoteOptions } from "@/packages/extension-blockquote";
-import { Code, CodeOptions } from "@/packages/extension-code";
 import { CodeBlock } from "@/packages/extension-code-block";
 import { Column } from "@/packages/extension-column";
 import { Columns } from "@/packages/extension-columns";
@@ -13,6 +12,7 @@ import { Heading, HeadingOptions } from "@/packages/extension-heading";
 import { HorizontalRule, HorizontalRuleOptions } from "@/packages/extension-horizontal-rule";
 import { Image, ImageOptions } from "@/packages/extension-image";
 import { ImageUpload } from "@/packages/extension-image-upload";
+import { Mention, MentionOptions } from "@/packages/extension-mention";
 import { PageBreak, PageBreakOptions } from "@/packages/extension-page-break";
 import { PDF, PDFOptions } from "@/packages/extension-pdf";
 import { Selection } from "@/packages/extension-selection";
@@ -24,6 +24,7 @@ import { TableRow } from "@/packages/extension-table-row";
 import { TrailingNode } from "@/packages/extension-trailing-node";
 import { Bold, BoldOptions } from "@tiptap/extension-bold";
 import { BulletList, BulletListOptions } from "@tiptap/extension-bullet-list";
+import { Code, CodeOptions } from "@tiptap/extension-code";
 import { Color } from "@tiptap/extension-color";
 import { Dropcursor, DropcursorOptions } from "@tiptap/extension-dropcursor";
 import Focus from "@tiptap/extension-focus";
@@ -82,6 +83,7 @@ export type StarterKitOptions = {
   textAlign: Partial<TextAlignOptions> | false;
   pageBreak: Partial<PageBreakOptions> | false;
   pdf: Partial<PDFOptions> | false;
+  mention: Partial<MentionOptions> | false;
 };
 
 const lowlight = createLowlight(common);
@@ -250,6 +252,10 @@ export const StarterKit = Extension.create<StarterKitOptions>({
 
     if (this.options.pdf !== false) {
       extensions.push(PDF.configure(this.options?.pdf));
+    }
+
+    if (this.options.mention !== false) {
+      extensions.push(Mention.configure(this.options?.mention));
     }
 
     return extensions;

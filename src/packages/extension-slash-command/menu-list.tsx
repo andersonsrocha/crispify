@@ -1,9 +1,29 @@
 import React from "react";
 import { Button } from "antd";
-import { Icon } from "@/components/ui/icon";
+import { Editor } from "@tiptap/core";
+import { Icon, LucideIconNames } from "@/components/ui/icon";
 import cls from "classnames";
 
-import { MenuListProps, Command } from "@/types";
+export type Command = {
+  name: string;
+  label: string;
+  aliases?: string[];
+  iconName: LucideIconNames;
+  action: (editor: Editor) => void;
+  shouldBeHidden?: (editor: Editor) => boolean;
+};
+
+export type Option = {
+  name: string;
+  title: string;
+  commands: Command[];
+};
+
+export type MenuListProps = {
+  editor: Editor;
+  items: Option[];
+  command: (command: Command) => void;
+};
 
 export const MenuList = React.forwardRef((props: MenuListProps, ref) => {
   const scrollContainer = React.useRef<HTMLDivElement>(null);
@@ -117,15 +137,15 @@ export const MenuList = React.forwardRef((props: MenuListProps, ref) => {
   return (
     <div
       ref={scrollContainer}
-      className="ny-bg-colorBgElevated ny-rounded-md ny-flex ny-flex-col ny-gap-1 ny-max-h-80 ny-overflow-y-auto ny-scrollbar-thumb-controlItemBgHover ny-scrollbar-thin ny-scrollbar-track-transparent ny-px-3 ny-py-4"
+      className="ny-bg-colorBgElevated ny-rounded-md ny-flex ny-flex-col ny-gap-4 ny-max-h-80 ny-overflow-y-auto ny-scrollbar-thumb-controlItemBgHover ny-scrollbar-thin ny-scrollbar-track-transparent ny-px-3 ny-py-4"
     >
       {props.items.map((group, groupIndex: number) => (
-        <div key={group.title} data-group={groupIndex} className="ny-flex ny-flex-col ny-gap-1">
-          <div className="ny-text-colorTextSecondary ny-uppercase ny-font-semibold ny-text-[0.65rem]">
+        <div key={group.title} data-group={groupIndex} className="ny-flex ny-flex-col ny-gap-2">
+          <div className="ny-text-colorTextSecondary ny-uppercase ny-font-semibold ny-text-[0.65rem] ny-pl-1">
             {group.title}
           </div>
 
-          <div>
+          <div className="ny-flex ny-flex-col ny-gap-1">
             {group.commands.map((command: Command, commandIndex: number) => (
               <Button
                 block

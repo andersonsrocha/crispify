@@ -1,4 +1,4 @@
-import { Option } from "@/types";
+import { Option } from "./menu-list";
 
 export const OPTIONS: Option[] = [
   {
@@ -52,7 +52,7 @@ export const OPTIONS: Option[] = [
       },
       {
         name: "bulletList",
-        label: "Bullet List",
+        label: "Bullet list",
         iconName: "List",
         aliases: ["ul"],
         action: (editor) => {
@@ -61,7 +61,7 @@ export const OPTIONS: Option[] = [
       },
       {
         name: "numberedList",
-        label: "Numbered List",
+        label: "Numbered list",
         iconName: "ListOrdered",
         aliases: ["ol"],
         action: (editor) => {
@@ -70,7 +70,7 @@ export const OPTIONS: Option[] = [
       },
       {
         name: "taskList",
-        label: "Task List",
+        label: "Task list",
         iconName: "ListTodo",
         aliases: ["todo"],
         action: (editor) => {
@@ -87,7 +87,7 @@ export const OPTIONS: Option[] = [
       },
       {
         name: "codeBlock",
-        label: "Code Block",
+        label: "Code block",
         iconName: "CodeSquare",
         shouldBeHidden: (editor) => editor.isActive("columns"),
         action: (editor) => {
@@ -135,7 +135,7 @@ export const OPTIONS: Option[] = [
       },
       {
         name: "horizontalRule",
-        label: "Horizontal Rule",
+        label: "Horizontal rule",
         iconName: "Minus",
         aliases: ["hr"],
         action: (editor) => {

@@ -6,19 +6,15 @@ import { ContentType } from "./content-type";
 import { Divider } from "./divider";
 import { Font } from "./font-family";
 import { FontSize } from "./font-size";
+import { FullScreen } from "./full-screen";
 import { Highlight } from "./highlight";
-import { Image } from "./image";
 import { Link } from "./link";
 import { Mark } from "./mark";
 import { More } from "./more";
-import { Redo } from "./redo";
-import { Rule } from "./rule";
-import { Table } from "./table";
-import { Undo } from "./undo";
+import { Node } from "./node";
 import { Space } from "./space";
-import { FullScreen } from "./full-screen";
+import { Table } from "./table";
 import { Wrapper } from "./wrapper";
-import { Pdf } from "./pdf";
 
 export const Action = {
   Wrapper,
@@ -32,14 +28,11 @@ export const Action = {
   Link,
   Mark,
   More,
-  Undo,
-  Redo,
   Break,
-  Rule,
   Table,
   Columns,
   Image,
   Space,
   FullScreen,
-  Pdf,
+  Node,
 };

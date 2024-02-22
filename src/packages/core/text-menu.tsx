@@ -63,7 +63,7 @@ export const TextMenu: React.FC<MenuProps> = ({ appendTo, editor }) => {
         <Action.Mark editor={editor} type="underline" />
         <Action.Mark editor={editor} type="strike" />
         <Action.Mark editor={editor} type="code" />
-        <Action.Mark editor={editor} type="blockquote" />
+        <Action.Node editor={editor} type="blockquote" />
         <Action.Link editor={editor} />
         <Action.Highlight editor={editor} />
         <Action.Color editor={editor} />

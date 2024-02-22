@@ -38,7 +38,7 @@ export const FontSize: React.FC<{ editor: Editor | null }> = ({ editor }) => {
       }}
     >
       <Button icon="ALargeSmall">
-        <ChevronDown size={14} />
+        <ChevronDown />
       </Button>
     </Dropdown>
   );

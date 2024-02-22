@@ -157,7 +157,7 @@ export const ContentType: React.FC<{ editor: Editor | null }> = ({ editor }) => 
       }}
     >
       <Button icon={value?.icon || "Pilcrow"} active={active} center={false}>
-        <ChevronDown size={14} />
+        <ChevronDown />
       </Button>
     </Dropdown>
   );

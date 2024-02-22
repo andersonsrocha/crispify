@@ -8,7 +8,7 @@
 @layer base {
   * {
     box-sizing: border-box;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue,
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue,
       Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
   }
 }
@@ -27,6 +27,18 @@
   @apply ny-pt-4 ny-h-[--ny-editor-height] ny-overflow-y-auto ny-border-solid ny-border-colorBorder ny-border-[length:--ny-editor-border-width] ny-border-t-[length:--ny-editor-border-top-width];
 }
 
+/** Icon */
+.lucide {
+  width: 14px;
+  height: 14px;
+  stroke-width: 3px;
+}
+
+kbd .lucide {
+  width: 9px;
+  height: 9px;
+}
+
 /** Fullscreen */
 .ny-editor__container.noty-editor__fullscreen {
   @apply ny-z-50 ny-fixed ny-inset-0 ny-m-0 ny-w-full ny-h-screen;
@@ -42,8 +54,7 @@
 }
 
 /** Focus */
-.ProseMirror .has-focus:is(table),
-.ProseMirror .node-image.has-focus img {
+.ProseMirror .has-focus :is(table, img) {
   @apply ny-border-2 ny-border-solid ny-border-colorPrimary;
 }
 
@@ -51,6 +62,16 @@
 .ProseMirror table td p,
 .ProseMirror table th p {
   @apply ny-mb-0;
+}
+
+/** Code */
+.ProseMirror code {
+  @apply ny-bg-colorBgContainerDisabled ny-rounded-sm ny-font-jetbrains ny-p-0.5;
+}
+
+/** Mention */
+.ProseMirror span[data-type="mention"] {
+  @apply ny-cursor-pointer ny-bg-colorPrimary ny-px-1 ny-py-0.5 ny-rounded-[4px];
 }
 
 /** Placeholder */
@@ -276,7 +297,7 @@
 
 /** Code block */
 .ProseMirror pre code span {
-  font-family: "JetBrains Mono", monospace;
+  @apply ny-font-jetbrains;
 }
 
 .ProseMirror pre code .hljs {

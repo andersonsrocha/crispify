@@ -69,10 +69,12 @@ export const Block = Node.create({
         const { $head, from, to } = selection;
 
         const parent = $head.node($head.depth - 1);
+        const before = selection.$from.nodeBefore?.textContent;
 
         if (
           parent.type.name !== "nodeblock" ||
           parent.textContent.startsWith("/") ||
+          before?.endsWith("@") ||
           isCustomNodeSelected(editor, $head.parent)
         ) {
           return false;
