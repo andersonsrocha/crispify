@@ -1,7 +1,7 @@
 {
   "name": "@cygne/crispify",
   "description": "Crispify is a powerful Tiptap-based block text editing React component.",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": "https://github.com/andersonsrocha/crispify",
   "type": "module",
