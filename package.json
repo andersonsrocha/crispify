@@ -1,9 +1,9 @@
 {
-  "name": "@andser/notyist",
-  "description": "Notyist is a powerful Tiptap-based block text editing React component.",
+  "name": "@cygne/crispify",
+  "description": "Crispify is a powerful Tiptap-based block text editing React component.",
   "version": "0.0.7",
   "license": "MIT",
-  "repository": "https://github.com/andersonsrocha/notyist",
+  "repository": "https://github.com/andersonsrocha/crispify",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -21,12 +21,19 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "tiptap",
+    "rich-text",
+    "react-component",
+    "crispify",
+    "component"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build",
     "build:preview": "tsc && vite build -c vite.preview.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prepublishOnly": "npm version patch && npm run build",
+    "prepublishOnly": "npm run build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

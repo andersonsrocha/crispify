@@ -1,1 +1,1 @@
-export { Notyist } from "./src/packages/core/editor";
+export { Crispify } from "./src/packages/core/editor";
