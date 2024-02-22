@@ -20,9 +20,9 @@ Crispify is a powerful [Tiptap](https://tiptap.dev/)-based block text editing Re
 
 <div align="center">
   
-[![npm Version](https://img.shields.io/npm/v/@andser/crispify)](https://www.npmjs.com/package/@andser/crispify)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/%40andser%2Fcrispify)](https://bundlephobia.com/package/@andser/crispify)
-[![npm Downloads (monthly)](https://img.shields.io/npm/dm/@andser/crispify?color=blue)](https://npmtrends.com/@andser/crispify)
+[![npm Version](https://img.shields.io/npm/v/@cygne/crispify)](https://www.npmjs.com/package/@cygne/crispify)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/%40cygne%2Fcrispify)](https://bundlephobia.com/package/@cygne/crispify)
+[![npm Downloads (monthly)](https://img.shields.io/npm/dm/@cygne/crispify?color=blue)](https://npmtrends.com/@cygne/crispify)
 [![semantic-release: Conventional Commits](https://img.shields.io/badge/semantic--release-Conventional%20Commits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![GitHub License](https://img.shields.io/github/license/andersonsrocha/crispify)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/andersonsrocha/crispify/peer/antd?style=flat&logo=ant-design&logoColor=0170FE&label=Ant%20Design)
