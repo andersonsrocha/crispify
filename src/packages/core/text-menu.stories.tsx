@@ -18,7 +18,7 @@ const TextMenu = () => {
         <Action.Mark editor={null} type="underline" />
         <Action.Mark editor={null} type="strike" />
         <Action.Mark editor={null} type="code" />
-        <Action.Mark editor={null} type="blockquote" />
+        <Action.Node editor={null} type="blockquote" />
         <Action.Link editor={null} />
         <Action.Highlight editor={null} />
         <Action.Color editor={null} />
