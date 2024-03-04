@@ -112,7 +112,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)
   '@tiptap/extension-text':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)
   '@tiptap/extension-text-align':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)
@@ -4348,8 +4348,8 @@ packages:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
     dev: false
 
-  /@tiptap/extension-text@2.2.3(@tiptap/core@2.2.3):
-    resolution: {integrity: sha512-BrWGCkmuzVcsNy7dSCfJyVwedPzeNz6BR/OUNzM8Mqt2KSxfoIRy7cg16HvFB4YW+ijrM9XUqDIFvqYI0TY+Jg==}
+  /@tiptap/extension-text@2.2.4(@tiptap/core@2.2.3):
+    resolution: {integrity: sha512-NlKHMPnRJXB+0AGtDlU0P2Pg+SdesA2lMMd7JzDUgJgL7pX2jOb8eUqSeOjFKuSzFSqYfH6C3o6mQiNhuQMv+g==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
     dependencies:
