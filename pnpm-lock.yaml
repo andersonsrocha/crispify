@@ -43,7 +43,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-text-style@2.2.3)
   '@tiptap/extension-gapcursor':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-hard-break':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)
@@ -4129,8 +4129,8 @@ packages:
       '@tiptap/extension-text-style': 2.2.3(@tiptap/core@2.2.3)
     dev: false
 
-  /@tiptap/extension-gapcursor@2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-zPVpxembkuOQL/eJ5oAjvZ9Tyv480OpViKrNtOsQh+0nZctmWKnfDntMoWBZiSeW1vsGjkeFIckdeEAQ1KbIxA==}
+  /@tiptap/extension-gapcursor@2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-Y6htT/RDSqkQ1UwG2Ia+rNVRvxrKPOs3RbqKHPaWr3vbFWwhHyKhMCvi/FqfI3d5pViVHOZQ7jhb5hT/a0BmNw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
