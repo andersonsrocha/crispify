@@ -31,7 +31,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-text-style@2.2.3)
   '@tiptap/extension-document':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)
   '@tiptap/extension-dropcursor':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
@@ -4080,8 +4080,8 @@ packages:
       '@tiptap/extension-text-style': 2.2.3(@tiptap/core@2.2.3)
     dev: false
 
-  /@tiptap/extension-document@2.2.3(@tiptap/core@2.2.3):
-    resolution: {integrity: sha512-60Egd9yKb5SzpQlstQAP2A/2a/Qr+A+TblMRKZugrT+NENUhAj6Tx1HxWlblqGu2MsS1iXvQLZ6BQO1jHkL2IQ==}
+  /@tiptap/extension-document@2.2.4(@tiptap/core@2.2.3):
+    resolution: {integrity: sha512-z+05xGK0OFoXV1GL+/8bzcZuWMdMA3+EKwk5c+iziG60VZcvGTF7jBRsZidlu9Oaj0cDwWHCeeo6L9SgSh6i2A==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
     dependencies:
