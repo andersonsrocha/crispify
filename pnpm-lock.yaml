@@ -22,10 +22,10 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)
   '@tiptap/extension-code-block':
     specifier: ^2.2.3
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-code-block-lowlight':
     specifier: ^2.2.3
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3)
   '@tiptap/extension-color':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-text-style@2.2.3)
@@ -4040,7 +4040,7 @@ packages:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
     dev: false
 
-  /@tiptap/extension-code-block-lowlight@2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.3)(@tiptap/pm@2.2.3):
+  /@tiptap/extension-code-block-lowlight@2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3):
     resolution: {integrity: sha512-zVd1Uq0lenbPhw0Mc4ZkrwPblaUp/lNQXGZ8ukhZYQ/JD1oWRA9s0hWQ8jqMi2hp1uTmH5vYFe5bOYqFpoL14g==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
@@ -4048,12 +4048,12 @@ packages:
       '@tiptap/pm': ^2.0.0
     dependencies:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
-      '@tiptap/extension-code-block': 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+      '@tiptap/extension-code-block': 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
       '@tiptap/pm': 2.2.3
     dev: false
 
-  /@tiptap/extension-code-block@2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-1xFM2Aj/JEWAT1PWjQ/7hEVmo1Av6JHxTANxMIjXUcmrMJkXDA+BQ7yItlwrrHxY0SJdxBbR/WWFn4dWIxd7iA==}
+  /@tiptap/extension-code-block@2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-h6WV9TmaBEZmvqe1ezMR83DhCPUap6P2mSR5pwVk0WVq6rvZjfgU0iF3EetBJOeDgPlz7cNe2NMDfVb1nGTM/g==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
