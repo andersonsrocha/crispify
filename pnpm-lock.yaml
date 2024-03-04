@@ -55,7 +55,7 @@ dependencies:
     version: 2.2.4(@tiptap/core@2.2.3)
   '@tiptap/extension-history':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-horizontal-rule':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
@@ -4163,8 +4163,8 @@ packages:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
     dev: false
 
-  /@tiptap/extension-history@2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-S1TUfLtrasyv4zFNlBL302uYaR4wxqR/T36a4d71c0ozr0PsdVc6/f9lfH4aYw4PmS3fzDwJj0PAJ9bb+qDbPw==}
+  /@tiptap/extension-history@2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-FDM32XYF5NU4mzh+fJ8w2CyUqv0l2Nl15sd6fOhQkVxSj8t57z+DUXc9ZR3zkH+1RAagYJo/2Gu3e99KpMr0tg==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
