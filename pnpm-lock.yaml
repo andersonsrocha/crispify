@@ -73,7 +73,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)
   '@tiptap/extension-mention':
     specifier: ^2.2.3
-    version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)(@tiptap/suggestion@2.2.3)
+    version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)(@tiptap/suggestion@2.2.6)
   '@tiptap/extension-ordered-list':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)
@@ -130,7 +130,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)(react-dom@18.2.0)(react@18.2.0)
   '@tiptap/suggestion':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.6(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   classnames:
     specifier: ^2.5.1
     version: 2.5.1
@@ -4218,7 +4218,7 @@ packages:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
     dev: false
 
-  /@tiptap/extension-mention@2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)(@tiptap/suggestion@2.2.3):
+  /@tiptap/extension-mention@2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)(@tiptap/suggestion@2.2.6):
     resolution: {integrity: sha512-myUlwpbrQgWfRJwG4UHM2PbiSp+squJv6LPKfKINs5yDxIproaZ0/4TAJt3heeSXZJnboPAQxSP7eLd5pY8lBw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
@@ -4227,7 +4227,7 @@ packages:
     dependencies:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
       '@tiptap/pm': 2.2.3
-      '@tiptap/suggestion': 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+      '@tiptap/suggestion': 2.2.6(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
     dev: false
 
   /@tiptap/extension-ordered-list@2.2.3(@tiptap/core@2.2.3):
@@ -4403,8 +4403,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@tiptap/suggestion@2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-pMInbk8+rYNaCz4oT/uS498mxSGIJXU32mkXv7wdDqMT2nnZQ2AHtJDUtMuB1RX+DS4ll9vdzrKqQHSW5t2ybQ==}
+  /@tiptap/suggestion@2.2.6(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-/pooAwvUkUB1gKxe4AHAvaNpAvL3FsZrIBJKYR0PF6BNROOHiu4IZY0Zy27ea4vmj72pYrMVlTmeYtSGPzrICg==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
