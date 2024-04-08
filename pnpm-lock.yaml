@@ -58,7 +58,7 @@ dependencies:
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-horizontal-rule':
     specifier: ^2.2.2
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
+    version: 2.2.6(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-image':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)
@@ -4173,8 +4173,8 @@ packages:
       '@tiptap/pm': 2.2.3
     dev: false
 
-  /@tiptap/extension-horizontal-rule@2.2.3(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-pc0J0hBcvj9ymJkFau1W/3L+OhB1PQzMjsx4ZWJvxURL8U7zdDqvYvJjfCA0i5Qw2ZuSVXFACGbEVr6NoCMRAw==}
+  /@tiptap/extension-horizontal-rule@2.2.6(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-zyLU+Xlk8y3yBCblE8pFwqAP2Rju1csyAu45hi3NCJ6HDGQGdjy8oh+Xa8y2kTPxRNMZARxqB+vCiEoW3YZn2A==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
