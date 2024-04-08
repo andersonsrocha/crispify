@@ -25,7 +25,7 @@ dependencies:
     version: 2.2.4(@tiptap/core@2.2.3)(@tiptap/pm@2.2.3)
   '@tiptap/extension-code-block-lowlight':
     specifier: ^2.2.3
-    version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3)
+    version: 2.2.6(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3)
   '@tiptap/extension-color':
     specifier: ^2.2.2
     version: 2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-text-style@2.2.3)
@@ -4040,8 +4040,8 @@ packages:
       '@tiptap/core': 2.2.3(@tiptap/pm@2.2.3)
     dev: false
 
-  /@tiptap/extension-code-block-lowlight@2.2.3(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3):
-    resolution: {integrity: sha512-zVd1Uq0lenbPhw0Mc4ZkrwPblaUp/lNQXGZ8ukhZYQ/JD1oWRA9s0hWQ8jqMi2hp1uTmH5vYFe5bOYqFpoL14g==}
+  /@tiptap/extension-code-block-lowlight@2.2.6(@tiptap/core@2.2.3)(@tiptap/extension-code-block@2.2.4)(@tiptap/pm@2.2.3):
+    resolution: {integrity: sha512-W/8C5nIwgGLvxjc+PfnCcWkfrUuJsIKjyZGXmq1hVXTTVA9eVGbS7m1YB/fsYTEg1ccwoM2JjKO9yuKCeR2xiQ==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/extension-code-block': ^2.0.0
